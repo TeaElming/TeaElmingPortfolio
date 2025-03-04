@@ -6,6 +6,8 @@ import NavbarDropdown from "./NavbarOptions"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tooltip from "react-bootstrap/Tooltip"
 
+import "./css/Navbar.css"
+
 function PortfolioNavbar() {
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [isHovering, setIsHovering] = useState(false)

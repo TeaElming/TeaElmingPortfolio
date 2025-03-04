@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react"
 import Button from "react-bootstrap/Button"
 import Collapse from "react-bootstrap/Collapse"
 
+import "./css/NavbarOptions.css"
+
 interface NavbarDropdownProps {
 	onToggle?: (isOpen: boolean) => void // Define onToggle prop with correct type
 }
