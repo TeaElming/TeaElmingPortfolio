@@ -3,7 +3,7 @@
 /* Prettier - Light Mode */
 [data-version='prettier'] {
   --bg-gradient: linear-gradient(to bottom, rgba(241, 248, 233, 0.9) 30%, rgba(197, 225, 165, 0.9) 90%);
-
+  --bg-pattern: url("/imgs/leaves.png");
   --bg-color: #f1f8e9;
   --text-color: #3a403c;
   --cursor-glow: #dae5b4;
@@ -16,7 +16,7 @@
 /* Prettier - Dark Mode */
 [data-version='prettier'][data-theme="dark"] {
   --bg-gradient: linear-gradient(to bottom, rgba(40, 54, 24, 0.9) 50%, rgba(96, 108, 56, 0.8) 90%);
-
+  --bg-pattern: url("/imgs/leaves.png");
   --bg-color: #283618;
   --text-color: #fefae0;
   --cursor-glow: #606c38;

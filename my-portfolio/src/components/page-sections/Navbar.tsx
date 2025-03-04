@@ -17,12 +17,16 @@ function PortfolioNavbar() {
 	}, [])
 
 	return (
-		<Nav variant="underline" defaultActiveKey="/home">
+		<Nav
+			variant="underline"
+			defaultActiveKey="/start"
+			className="d-flex flex-row align-items-center"
+		>
 			<Nav.Item>
 				<OverlayTrigger
 					placement="bottom"
 					overlay={<Tooltip>Menu</Tooltip>}
-					show={isHovering && !dropdownOpen}
+					show={isHovering || dropdownOpen} // <-- Fix: Dropdown only shows when hovering or open
 				>
 					<div
 						style={{ display: "inline-block" }}

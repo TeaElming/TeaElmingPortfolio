@@ -16,10 +16,9 @@ function NavbarDropdown({ onToggle }: NavbarDropdownProps) {
 	const dropdownRef = useRef<HTMLDivElement>(null)
 
 	const toggleDropdown = () => {
-		const newState = !isOpen
-		setIsOpen(newState)
+		setIsOpen((prev) => !prev)
 		if (onToggle) {
-			onToggle(newState)
+			onToggle(!isOpen) // Syncs with Navbar
 		}
 	}
 
