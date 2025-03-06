@@ -1,0 +1,145 @@
+{
+  "university": "University of Edinburgh",
+  "years": [
+    {
+      "year": 4,
+      "courses": [
+        {
+          "coursename": "Problem Solving and Enquiry in Primary School Mathematics",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Developing as a Mathematics Educator",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Primary Literacies 2: Developing Literacies in the Middle and Upper Stages",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Educational Studies 4: Independent Research Project in Education",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Promoting Health and Wellbeing in Primary School: Theory and Policy into Practice",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        }
+      ]
+    },
+    {
+      "year": 3,
+      "courses": [
+        {
+          "coursename": "Professional Experience and Practice (MA Primary Education with Mathematics)",
+          "credits": 80,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Educational Studies 3: Teaching for Social Justice",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Primary Studies Course 3: Learning Through and For Practice",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        }
+      ]
+    },
+    {
+      "year": 2,
+      "courses": [
+        {
+          "coursename": "Mathematics in Primary Education",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Educational Studies 2a: Child and Adolescent Development in Education",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Educational Studies 2b: Inclusion and Citizenship in the 21st Century",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Primary Studies 2: Learning and Integrating the Curriculum",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Proofs and Problem Solving",
+          "credits": 20,
+          "field": "Mathematics",
+          "description": "Mathematics"
+        },
+        {
+          "coursename": "Several Variable Calculus and Differential Equations",
+          "credits": 20,
+          "field": "Mathematics",
+          "description": "Mathematics"
+        }
+      ]
+    },
+    {
+      "year": 1,
+      "courses": [
+        {
+          "coursename": "Primary Literacies 1: Developing Literacy in the Early Stages",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Educational Studies 1a: Introduction to Education and Education Research",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Educational Studies 1b: Teaching, Learning and the Curriculum for Excellence",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Primary Studies 1: The Nature of Knowledge",
+          "credits": 20,
+          "field": "Education",
+          "description": "Education"
+        },
+        {
+          "coursename": "Introduction to Linear Algebra",
+          "credits": 20,
+          "field": "Mathematics",
+          "description": "Mathematics"
+        },
+        {
+          "coursename": "Calculus and its Applications",
+          "credits": 20,
+          "field": "Mathematics",
+          "description": "Mathematics"
+        }
+      ]
+    }
+  ]
+}

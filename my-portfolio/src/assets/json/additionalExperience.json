@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Certificate, TEFL UK",
+    "details": "150h Teaching English as a Foreign Language",
+    "start_date": "04/2021",
+    "end_date": "06/2024"
+  },
+  {
+    "name": "Edinburgh University Muay Thai",
+    "start_date": "09/2017",
+    "end_date": "09/2020",
+    "roles": [
+      {
+        "role": "Coach",
+        "start_date": "2017",
+        "end_date": "2020"
+      },
+      {
+        "role": "President",
+        "start_date": "2019",
+        "end_date": "2020"
+      },
+      {
+        "role": "Secretary",
+        "start_date": "2018",
+        "end_date": "2019"
+      },
+      {
+        "role": "Vice President",
+        "start_date": "2017",
+        "end_date": "2018"
+      }
+    ]
+  },
+  {
+    "name": "Stockholm Kickboxing",
+    "roles": [
+      {
+        "role": "Head Coach, Children’s Group",
+        "start_date": "11/2014",
+        "end_date": "06/2016"
+      }
+    ]
+  }
+]

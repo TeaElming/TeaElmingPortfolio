@@ -1,0 +1,199 @@
+{
+  "projects": [
+    {
+      "title": "Basic Text Classification",
+      "url": "https://github.com/TeaElming/BasicTextClassification/",
+      "technologies": [
+        "Python",
+        "Scikit-learn"
+      ],
+      "stack": "backend",
+      "description": [
+        "This Python project classifies 300 Wikipedia articles, utlising both the Bag-of-Words approach, as well as TF-IDF.",
+        "The src file contains four files, separetly loading text data and labels, handling preprocessing and feature extraction, implementing training and evaluation, and finally orchestrating everything in the main file."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Recommendation System",
+      "url": "https://github.com/TeaElming/RecSystem_personal/",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Flask"
+      ],
+      "stack": "backend",
+      "description": [
+        "A project designed to practice the implementation of Euclidean distance and Pearson Correlation. Includes both Item-Based and User-Based recommendations.",
+        "The main focus was the backend implementations, a basic GUI was also developed in order to showcase the functionality."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Trustpilot Review Scraper",
+      "url": "https://github.com/TeaElming/trustpilot-scraper/",
+      "technologies": [
+        "Python",
+        "BeautifulSoup"
+      ],
+      "stack": "backend",
+      "description": [
+        "This script scrapes customer reviews from Trustpilot by collecting reviews from multiple categories, extracting company reviews based on star ratings, and saving the dataset in a structured format.",
+        "The purpose of this scraper was to collect a dataset to be used for sentiment analysis, hence the importance of the review scores."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Clustering Algorithms on Blog Data",
+      "url": "https://github.com/TeaElming/ClusteringAssignment/",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Flask"
+      ],
+      "stack": "backend",
+      "description": [
+        "A clustering project with the intention to practise the implementaion of K-means and Hierarchical clustering.",
+        "The project allows for K-means Clustering with configurable stopping criteria, Hierarchical Clustering with tree-based visualisation, and offers a RESTful API for server-client interaction. A basic GUI has also been implemented to allow for basic usage."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Search Engine for Wikipedia Articles",
+      "url": "https://github.com/TeaElming/SearchEngineAssignment/",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Flask"
+      ],
+      "stack": "backend",
+      "description": [
+        "This project implements a basic search engine capable of indexing Wikipedia articles and providing ranked search results. The system supports single-word and multi-word queries, and utilises various ranking algorithms, including word frequency, document location, and PageRank, to score and display the top results.",
+        "The project allows for K-means Clustering with configurable stopping criteria, Hierarchical Clustering with tree-based visualisation, and offers a RESTful API for server-client interaction. A basic GUI has also been implemented to allow for basic usage."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Naïve Bayes Manual Implementation",
+      "url": "https://github.com/TeaElming/NaiveBayesAssignment",
+      "technologies": [
+        "Python"
+      ],
+      "stack": "backend",
+      "description": [
+        "This project is an implementation of the Naïve Bayes machine learning algorithm. It is designed to work with datasets like the Iris and Banknote Authentication datasets and includes functionalities fortraining a Naïve Bayes model, making predictions, evaluating model performance with accuracy scores, confusion matrices, and cross-validation, and calculating classification metrics such as precision, recall, and F1-score."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Book Store DB System",
+      "url": "https://github.com/TeaElming/NaiveBayesAssignment",
+      "technologies": [
+        "Python",
+        "MySQL",
+        "Sequelize",
+        "brcypt"
+      ],
+      "stack": "backend",
+      "description": [
+        "The A3 Book Store is a terminal-based Python application that allows users to browse, search, and purchase books from an online bookstore. The system provides member registration, login, and checkout functionalities, with a MySQL database backend for managing members, books, and orders. The application follows an MVC (Model-View-Controller) design, ensuring scalability and maintainability of the codebase."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Algorithm Implementations and Analysis",
+      "url": "https://github.com/TeaElming/basicAlgorithmsAnalysis",
+      "technologies": [
+        "Java",
+        "Guava",
+        "JFreeChart",
+        "JUnit5"
+      ],
+      "stack": "backend",
+      "description": [
+        "This Java application consists of various tasks related to performance timing, union-find algorithms, and 3-sum calculations. Each task can be executed individually using Gradle. In addition, there are two pdf-files located in the folders of Task4 and Task7 containing reports regarding testing executed."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "OAuth2 GitLab Integration Platform",
+      "url": "https://github.com/TeaElming/GitLab3rdPartyView",
+      "technologies": [
+        "Node.js",
+        "Sequelize",
+        "Inversify and Reflect-metadata"
+      ],
+      "stack": "fullstack",
+      "description": [
+        "The OAuth2 GitLab Integration Platform enables users to log in to a server-side rendered web application using their gitlab.lnu.se account and access a variety of GitLab-related data. The platform is designed for consuming REST and GraphQL APIs provided by GitLab, with a focus on displaying user profile data, activities, groups, projects, and commits. The OAuth2 access delegation system provides secure authentication without relying on any external libraries for OAuth support. "
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "tuTea Project",
+      "url": "https://github.com/TeaElming/tuTeaTutoringProject",
+      "technologies": [
+        "Node.js",
+        "Express",
+        "Inversify and Reflect-metadata",
+        "JWT",
+        "MongoDB",
+        "WebSockets",
+        "Jest",
+        "React",
+        "Inversify and Reflect-metadata"
+      ],
+      "stack": "fullstack",
+      "description": [
+        "The tuTea project is a comprehensive tutoring platform designed to enhance language learning through the integration of multiple microservices. The platform supports interactive resources, goal setting, activity tracking, and forum discussions, all accessible through the TuTeaReactApp.",
+        "This project is structured into several independent microservices, each responsible for a specific domain of the platform, and a React frontend that unifies them."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Event Tracking Widget",
+      "url": "https://github.com/TeaElming/event-widget",
+      "technologies": [
+        "JS",
+        "Electron"
+      ],
+      "stack": "frontend",
+      "description": [
+        "This project was developed in my spare time because I couldn't find a desktop event-tracking widget with a design I liked. It was purely done to meet my needs, hence the simple aesthetics.",
+        "Electron was chosen for its lightweight nature, easy implementation, and compatibility with JavaScript."
+      ],
+      "imgs": [],
+      "video": ""
+    },
+    {
+      "title": "Education Data UK",
+      "url": "https://github.com/TeaElming/DeprivationEducationData",
+      "technologies": [
+        "Node.js",
+        "MySQL",
+        "Sequelize",
+        "Inversify and Reflect-metadata",
+        "d3.js",
+        "Leaflet",
+        "GeoJSON/ArcGIS"
+      ],
+      "stack": "fullstack",
+      "description": [
+        "An interactive website GUI allowing users to select a LSOA and view its education levels according to Census data. The GUI allowed for selections from map, list, or search of specific LSOA. In addition, comparison could be made against the average education levels based on the IMD-score.",
+        "Using only LSOAs for visualisation is not ideal since each area is so small, but it was suitable for the purpose of the assignment."
+      ],
+      "imgs": [],
+      "video": ""
+    }
+  ]
+}

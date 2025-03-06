@@ -1,0 +1,122 @@
+{
+  "university": "Linnaeus University",
+  "years": [
+    {
+      "year": 3,
+      "courses": [
+        {
+          "coursename": "Algorithms and Data Structures",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "In-depth studies of data structures, as well as algorithm selection and efficiency."
+        },
+        {
+          "coursename": "Web Intelligence",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "Theoretical and practical knowledge in recommendation systems, clustering (K-means, hierarchical), search engines, and basic ML (Naive Bayes, linear-SVC)."
+        },
+        {
+          "coursename": "Cloud-Native Applications",
+          "credits": 15,
+          "field": "Computer Science",
+          "description": "Automated continuous delivery of software in virtualised operating environments. IaC using Terraform, CI/CD pipelines, and containerization with Docker and Kubernetes."
+        },
+        {
+          "coursename": "Current Topics within Computer Science",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "A deep dive into the literature on the topic of AI, ML, and self-adaptive systems."
+        },
+        {
+          "coursename": "Degree Project",
+          "credits": 15,
+          "field": "Computer Science",
+          "description": "The development of a real-time sentiment analysis tool, where the BERT NLP is utilised together with visualization tools to inform users of the sentiment of the text they are currently consuming."
+        },
+        {
+          "coursename": "Introduction to Data Analytics",
+          "credits": 7.5,
+          "field": "Informatics",
+          "description": "Theoretical and practical aspects in data analytics, including different phases of data handling such as data discovery, data aggregation, planning of data models, data model execution, validation, and visualization."
+        }
+      ]
+    },
+    {
+      "year": 2,
+      "courses": [
+        {
+          "coursename": "Object-Oriented Analysis and Design with UML",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "Knowledge of how object-oriented analysis and design can be implemented in an object-oriented programming language, as well as the basics of the modeling language UML."
+        },
+        {
+          "coursename": "Software Testing",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "Unit, system, and integration testing, acceptance testing."
+        },
+        {
+          "coursename": "Introduction to Software Quality",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "Production of web-based software with high code quality."
+        },
+        {
+          "coursename": "Computer Security (elective)",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "Introduction to IT security. Concepts such as risk, threat, and security services are introduced and exemplified. The focus is on the security of an individual computer system."
+        },
+        {
+          "coursename": "Database Technology",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "Course that deals with how data is modeled, stored in, and retrieved from databases. Primarily addresses the query language SQL and relational databases."
+        },
+        {
+          "coursename": "The Web as an Application Platform",
+          "credits": 15,
+          "field": "Computer Science",
+          "description": "The web's architecture, emergence, and development, as well as its significance and impact on today's society."
+        }
+      ]
+    },
+    {
+      "year": 1,
+      "courses": [
+        {
+          "coursename": "Web Programming on the Client Side",
+          "credits": 15,
+          "field": "Computer Science",
+          "description": "Construction of browser-based applications using JavaScript."
+        },
+        {
+          "coursename": "Web Technology 1",
+          "credits": 7.5,
+          "field": "Media Technology",
+          "description": "Basic web design with client-based technology, focusing on HTML and CSS."
+        },
+        {
+          "coursename": "Web Programming on the Server Side",
+          "credits": 15,
+          "field": "Computer Science",
+          "description": "Construction of web server-based applications and understanding of various types of web servers and their communication with the web client."
+        },
+        {
+          "coursename": "Object-Oriented Programming",
+          "credits": 7.5,
+          "field": "Computer Science",
+          "description": "Program development based on object-oriented concepts, such as classes, inheritance, and polymorphism. The concepts are concretised using common design patterns."
+        },
+        {
+          "coursename": "Software Development Project",
+          "credits": 15,
+          "field": "Computer Science",
+          "description": "Implementation of a software project where a functioning software is to be developed, including simple documentation, requirements management, and testing."
+        }
+      ]
+    }
+  ]
+}
