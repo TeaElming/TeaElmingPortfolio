@@ -46,7 +46,7 @@ const EducationP: React.FC = () => {
 	const renderCourses = (data: Year[]) =>
 		data.map((yearData: Year) => (
 			<div key={yearData.year} className="education-entry">
-				<h4 className="year-title">Year {yearData.year}</h4>
+				<h4 className="year-title"> --- Year {yearData.year} --- </h4>
 				{yearData.courses.map((course, idx) => (
 					<div key={idx} className="course-entry">
 						<h5>
@@ -71,9 +71,6 @@ const EducationP: React.FC = () => {
 
 	return (
 		<Container className="education-container">
-			<div>
-				<h2>Education</h2>
-			</div>
 
 			<div className="degree-info">
 				<div className="uni-section">
