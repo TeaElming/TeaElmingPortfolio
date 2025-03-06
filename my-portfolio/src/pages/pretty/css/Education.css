@@ -1,0 +1,74 @@
+.education-container {
+  height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.degree-info {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.uni-section {
+  flex: 1;
+}
+
+.courses-section {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.uni-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.course-search-input {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.scrollable-column {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.education-entry {
+  margin-bottom: 1rem;
+}
+
+.year-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.course-entry h5 {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.course-entry p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.scrollable-column::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-column::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 3px;
+}
