@@ -12,8 +12,14 @@ function PortfolioNavbar() {
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [isHovering, setIsHovering] = useState(false)
 
+	// Handles when the dropdown is toggled
 	const handleDropdownToggle = useCallback((isOpen: boolean) => {
 		setDropdownOpen(isOpen)
+
+		// Ensure the tooltip disappears when the dropdown opens
+		if (isOpen) {
+			setIsHovering(false)
+		}
 	}, [])
 
 	return (
@@ -26,11 +32,11 @@ function PortfolioNavbar() {
 				<OverlayTrigger
 					placement="bottom"
 					overlay={<Tooltip>Menu</Tooltip>}
-					show={isHovering || dropdownOpen} // <-- Fix: Dropdown only shows when hovering or open
+					show={!dropdownOpen && isHovering} // ✅ Fix: Hide tooltip if dropdown is open
 				>
 					<div
 						style={{ display: "inline-block" }}
-						onMouseEnter={() => setIsHovering(true)}
+						onMouseEnter={() => !dropdownOpen && setIsHovering(true)} // ✅ Prevents tooltip from appearing when dropdown is open
 						onMouseLeave={() => setIsHovering(false)}
 					>
 						<NavbarDropdown onToggle={handleDropdownToggle} />
