@@ -2,7 +2,7 @@
 import React from "react"
 import "./css/Start.css"
 
-const Start: React.FC = () => {
+const StartP: React.FC = () => {
 	return (
 		<div>
 			<div className="startPage-container">
@@ -21,4 +21,4 @@ const Start: React.FC = () => {
 	)
 }
 
-export default Start
+export default StartP
