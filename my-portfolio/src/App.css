@@ -145,3 +145,19 @@
 [data-version='prettier'] .theme-toggle:hover {
   opacity: 0.8;
 }
+
+
+[data-version='prettier'][data-page='start'] #root {
+  background-image: url("/imgs/green-wave2.jpg");
+}
+
+[data-version='prettier'][data-theme="dark"][data-page='start'] #root {
+  background-image: url("/imgs/dark-green-wave.jpg");
+}
+
+
+
+
+[data-version='prettier'][data-page='other'] #root {
+  background-image: url("/imgs/green-wave.jpg");
+}

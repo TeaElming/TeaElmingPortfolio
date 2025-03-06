@@ -1,0 +1,16 @@
+.startPage-container {
+  position: relative;        /* establish a positioning context */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 30vh;
+}
+
+.startPage-description {
+  position: absolute;        /* position it relative to .startPage-container */
+  bottom: 20px;
+  left: 40px;
+  width: 500px;
+  height: 150px;
+}
