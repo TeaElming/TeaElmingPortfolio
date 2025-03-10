@@ -1,37 +1,38 @@
 /** @format */
 import React, { useState, useEffect } from "react"
-import ProjectsGrid from "../../components/projects/project-list"
+import ProjectsCarousel from "../../components/projects/project-list"
+import "./css/Projects.css" // <-- import the new CSS file here
 
 const ProjectsP: React.FC = () => {
-	const [projects, setProjects] = useState([])
-	useEffect(() => {
-		fetch("/json/projects.json")
-			.then((response) => response.json())
-			.then((data) => {
-				// data should look like: { "projects": [ ... ] }
-				setProjects(data.projects)
-			})
-			.catch((error) => {
-				console.error("Error fetching projects:", error)
-			})
-	}, [])
+  const [projects, setProjects] = useState([])
 
-	return (
-		<div>
-			{/* Button Section */}
-			<div>
-				<button>Full-Stack</button>
-				<button>Front-End</button>
-				<button>Back-End</button>
-				<button>View All</button>
-			</div>
+  useEffect(() => {
+    fetch("/json/projects.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setProjects(data.projects)
+      })
+      .catch((error) => {
+        console.error("Error fetching projects:", error)
+      })
+  }, [])
 
-			{/* ProjectCard Example */}
-			<div style={{ marginTop: "1rem" }}>
-				<ProjectsGrid projects={projects} />
-			</div>
-		</div>
-	)
+  return (
+    <div className="projects-container">
+      {/* Button Section */}
+      <div className="projects-button-section">
+        <button>Full-Stack</button>
+        <button>Front-End</button>
+        <button>Back-End</button>
+        <button>View All</button>
+      </div>
+
+      {/* Projects Grid Area */}
+      <div className="projects-list-section">
+        <ProjectsCarousel projects={projects} />
+      </div>
+    </div>
+  )
 }
 
 export default ProjectsP

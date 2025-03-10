@@ -1,0 +1,48 @@
+.projects-grid {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+  /* Ensure the grid fills its parent container */
+}
+
+/* Big Card Container takes half the width and full height */
+.big-card-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Big Card: take all available vertical space except the controls */
+.big-card {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  /* Optionally, ensure the image inside covers the container */
+  overflow: hidden;
+}
+
+/* Controls: remain at the bottom with minimal height */
+.projects-grid-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Small Cards Grid: match the big card in height and width */
+.small-cards-grid {
+  width: 50%;
+  flex: 1;
+  /* Fills the same height as the big-card-container */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Reduce text size for small project cards */
+.project-card--small {
+  font-size: 0.8rem;
+  /* Adjust value as needed */
+}

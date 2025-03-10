@@ -1,0 +1,32 @@
+.projects-container {
+  /* Take up the full window height minus navbar/footer, if desired */
+  height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  /* Hide overflow to prevent page scrolling if content is large */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.projects-button-section {
+  /* Style your button row here */
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.projects-list-section {
+  /* Fill remaining space and allow scrolling inside if needed */
+  flex: 1;
+  overflow: auto;
+}
+
+/* Optional: style the scrollbar for .projects-list-section */
+.projects-list-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.projects-list-section::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 3px;
+}

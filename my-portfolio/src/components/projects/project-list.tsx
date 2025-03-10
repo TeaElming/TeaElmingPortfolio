@@ -1,6 +1,11 @@
 /** @format */
 import React, { useState } from "react"
 import ProjectCard from "./project-card"
+import "./css/project-list.css"
+
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 interface Project {
 	title: string
@@ -12,18 +17,18 @@ interface Project {
 	video: string
 }
 
-interface ProjectsGridProps {
+interface ProjectsCarouselProps {
 	projects: Project[]
 }
 
-const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
+const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
 	const [bigIndex, setBigIndex] = useState(0)
 
 	if (!projects || projects.length === 0) {
 		return <div>No projects found.</div>
 	}
 
-	// Handy mod function to avoid negative indexes
+	// Handy mod function to ensure we wrap around properly
 	const mod = (n: number, m: number) => ((n % m) + m) % m
 
 	const nextProject = () => {
@@ -34,51 +39,50 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
 		setBigIndex((prev) => mod(prev - 1, projects.length))
 	}
 
-	// The big (featured) project
+	// The featured project
 	const bigProject = projects[bigIndex]
 
-	// Next four projects (just for demonstration)
-	// If you have fewer than 5 projects total, you can adjust how to display them.
-	const smallProjects: Project[] = []
+	// Next four projects for the 2x2 preview grid
+	const previewProjects: Project[] = []
 	for (let i = 1; i <= 4; i++) {
-		smallProjects.push(projects[mod(bigIndex + i, projects.length)])
+		previewProjects.push(projects[mod(bigIndex + i, projects.length)])
 	}
 
 	return (
-		<div>
-			{/* Controls */}
-			<div style={{ marginBottom: "1rem" }}>
-				<button onClick={prevProject}>Prev</button>
-				<button onClick={nextProject} style={{ marginLeft: "0.5rem" }}>
-					Next
-				</button>
-			</div>
-
-			{/* Layout */}
-			<div style={{ display: "flex" }}>
-				{/* Left Column: Big Card */}
-				<div style={{ width: "50%", marginRight: "1rem" }}>
-					{/* You might pass in an extra prop to tell ProjectCard to show “as much info as possible.” */}
-					<ProjectCard project={bigProject} />
-				</div>
-
-				{/* Right Column: 2x2 grid of mini cards */}
-				<div
-					style={{
-						width: "50%",
-						display: "grid",
-						gridTemplateColumns: "1fr 1fr",
-						gridTemplateRows: "1fr 1fr",
-						gap: "1rem",
-					}}
-				>
-					{smallProjects.map((sp, idx) => (
-						<ProjectCard project={sp} key={idx} />
-					))}
-				</div>
-			</div>
-		</div>
+		<Container fluid style={{ height: "100%" }}>
+			<Row className="project-carousel" style={{ height: "100%" }}>
+				{/* Left Column: Featured Project + Navigation */}
+				<Col md={6} style={{ height: "100%" }}>
+					<div className="big-project" style={{ height: "100%" }}>
+						<ProjectCard project={bigProject} variant="big" />
+						<div className="navigation-buttons">
+							<button onClick={prevProject}>Previous</button>
+							<button onClick={nextProject}>Next</button>
+						</div>
+					</div>
+				</Col>
+				{/* Right Column: 2x2 Grid of Previews */}
+				<Col md={6} style={{ height: "100%" }}>
+					<div className="preview-projects" style={{ height: "100%" }}>
+						<Row style={{ height: "50%" }}>
+							{previewProjects.slice(0, 2).map((project, index) => (
+								<Col key={index} xs={6}>
+									<ProjectCard project={project} variant="small" />
+								</Col>
+							))}
+						</Row>
+						<Row style={{ height: "50%" }}>
+							{previewProjects.slice(2, 4).map((project, index) => (
+								<Col key={index} xs={6}>
+									<ProjectCard project={project} variant="small" />
+								</Col>
+							))}
+						</Row>
+					</div>
+				</Col>
+			</Row>
+		</Container>
 	)
 }
 
-export default ProjectsGrid
+export default ProjectsCarousel
