@@ -61,27 +61,24 @@ function NavbarDropdown({ onToggle }: NavbarDropdownProps) {
 			<Collapse in={isOpen}>
 				<div id="example-collapse-text" className="navbar-dropdown">
 					<ul>
-						{["/", "/education", "/projects", "/experience", "/contact"].map(
-							(path) => (
-								<li key={path}>
-									<Link
-										to={path}
-										onClick={() => setIsOpen(false)}
-										className={location.pathname === path ? "active-link" : ""}
-										style={{
-											pointerEvents:
-												location.pathname === path ? "none" : "auto",
-											color: location.pathname === path ? "gray" : "black",
-										}}
-									>
-										{path === "/"
-											? "Home"
-											: path.replace("/", "").charAt(0).toUpperCase() +
-											  path.slice(2)}
-									</Link>
-								</li>
-							)
-						)}
+						{["/", "/projects", "/education", "/contact"].map((path) => (
+							<li key={path}>
+								<Link
+									to={path}
+									onClick={() => setIsOpen(false)}
+									className={location.pathname === path ? "active-link" : ""}
+									style={{
+										pointerEvents: location.pathname === path ? "none" : "auto",
+										color: location.pathname === path ? "gray" : "black",
+									}}
+								>
+									{path === "/"
+										? "Home"
+										: path.replace("/", "").charAt(0).toUpperCase() +
+										  path.slice(2)}
+								</Link>
+							</li>
+						))}
 					</ul>
 				</div>
 			</Collapse>

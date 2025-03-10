@@ -16,7 +16,7 @@ import "./App.css"
 
 import StartP from "./pages/pretty/Start"
 import EducationP from "./pages/pretty/Education"
-import ExperienceP from "./pages/pretty/Experience"
+import ProjectsP from "./pages/pretty/Projects"
 
 import PortfolioNavbar from "./components/page-sections/Navbar"
 import PortfolioFooter from "./components/page-sections/Footer"
@@ -101,12 +101,12 @@ function AppContent({
 		prettier: {
 			Start: StartP,
 			Education: EducationP,
-			Experience: ExperienceP,
+			Projects: ProjectsP,
 		},
 		bare: {
 			Start: StartP,
 			Education: EducationP,
-			Experience: ExperienceP,
+			Projects: ProjectsP,
 		},
 	}
 
@@ -170,8 +170,8 @@ function AppContent({
 						element={React.createElement(routes[version].Education)}
 					/>
 					<Route
-						path="/experience"
-						element={React.createElement(routes[version].Experience)}
+						path="/projects"
+						element={React.createElement(routes[version].Projects)}
 					/>
 					{/* Add more routes as needed */}
 				</Routes>
