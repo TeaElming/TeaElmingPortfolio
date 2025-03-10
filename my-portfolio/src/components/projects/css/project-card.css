@@ -20,13 +20,16 @@
 
 /* Small Card Styles */
 .project-card[data-variant="small"] {
-  height: 150px; /* fixed height for small cards */
   overflow: auto; /* scrollable if content overflows */
 }
 .project-card[data-variant="small"] .card-title {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 .project-card[data-variant="small"] .field-title {
+  font-size: 0.8rem;
+}
+
+.project-card[data-variant="small"] .blue-fallback h2 {
   font-size: 0.8rem;
 }
 
