@@ -1,24 +1,25 @@
 /** @format */
 
 import { useState, useEffect, useRef } from "react"
+import { Link, useLocation } from "react-router-dom"
 import Button from "react-bootstrap/Button"
 import Collapse from "react-bootstrap/Collapse"
 
 import "./css/NavbarOptions.css"
 
 interface NavbarDropdownProps {
-	onToggle?: (isOpen: boolean) => void // Define onToggle prop with correct type
+	onToggle?: (isOpen: boolean) => void
 }
 
 function NavbarDropdown({ onToggle }: NavbarDropdownProps) {
 	const [isOpen, setIsOpen] = useState(false)
-	const [currentUrl, setCurrentUrl] = useState(window.location.pathname)
 	const dropdownRef = useRef<HTMLDivElement>(null)
+	const location = useLocation()
 
 	const toggleDropdown = () => {
 		setIsOpen((prev) => !prev)
 		if (onToggle) {
-			onToggle(!isOpen) // Syncs with Navbar
+			onToggle(!isOpen)
 		}
 	}
 
@@ -45,16 +46,7 @@ function NavbarDropdown({ onToggle }: NavbarDropdownProps) {
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside)
 		}
-	}, [isOpen, onToggle]) // Includes onToggle in dependencies
-
-	// Close dropdown when a link is clicked
-	const handleLinkClick = (url: string) => {
-		setCurrentUrl(url)
-		setIsOpen(false)
-		if (onToggle) {
-			onToggle(false)
-		}
-	}
+	}, [isOpen, onToggle])
 
 	return (
 		<div ref={dropdownRef} style={{ position: "relative" }}>
@@ -72,20 +64,21 @@ function NavbarDropdown({ onToggle }: NavbarDropdownProps) {
 						{["/", "/education", "/projects", "/experience", "/contact"].map(
 							(path) => (
 								<li key={path}>
-									<a
-										href={path}
-										onClick={() => handleLinkClick(path)}
-										className={currentUrl === path ? "active-link" : ""}
+									<Link
+										to={path}
+										onClick={() => setIsOpen(false)}
+										className={location.pathname === path ? "active-link" : ""}
 										style={{
-											pointerEvents: currentUrl === path ? "none" : "auto",
-											color: currentUrl === path ? "gray" : "black",
+											pointerEvents:
+												location.pathname === path ? "none" : "auto",
+											color: location.pathname === path ? "gray" : "black",
 										}}
 									>
 										{path === "/"
 											? "Home"
 											: path.replace("/", "").charAt(0).toUpperCase() +
 											  path.slice(2)}
-									</a>
+									</Link>
 								</li>
 							)
 						)}

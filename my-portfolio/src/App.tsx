@@ -170,7 +170,7 @@ function AppContent({
 						element={React.createElement(routes[version].Education)}
 					/>
 					<Route
-						path="/projects"
+						path="/experience"
 						element={React.createElement(routes[version].Experience)}
 					/>
 					{/* Add more routes as needed */}
