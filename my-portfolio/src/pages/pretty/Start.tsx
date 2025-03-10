@@ -8,7 +8,7 @@ const StartP: React.FC = () => {
 		<div>
 			<div className="startPage-container">
 				<h1>Tea Elming</h1>
-				<p>Problem Solving Enthusiast</p>
+				<p>Software Developer</p>
 
 				{/* Quick Access Section */}
 				<div className="quick-access">

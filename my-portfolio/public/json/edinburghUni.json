@@ -8,31 +8,31 @@
           "coursename": "Problem Solving and Enquiry in Primary School Mathematics",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "Introduce students to different approaches to problem solving and investigation in primary schools, drawing on international perspectives and practices, as well as considering the context of the Scottish curriculum. An essential element of this will be considering the ways in which problem solving and investigation develop children's abilities to think and reason mathematically. "
         },
         {
           "coursename": "Developing as a Mathematics Educator",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "This course aims to develop knowledge and abilities that will equip students for future roles as subject leaders of mathematics in primary education."
         },
         {
           "coursename": "Primary Literacies 2: Developing Literacies in the Middle and Upper Stages",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "The course explores current theories, policies, and research in language and literacy education, emphasizing practical implications for primary teaching. It examines genre theory, the writing process, and critical literacy, highlighting children's everyday languages, digital literacies, and popular culture. Approaches to supporting EAL learners in accessing the primary curriculum are also addressed."
         },
         {
           "coursename": "Educational Studies 4: Independent Research Project in Education",
-          "credits": 20,
+          "credits": 40,
           "field": "Education",
-          "description": "Education"
+          "description": "This course covers research design principles, ethical considerations, and specialised methods tailored to student interests, fostering critical engagement with educational research and reflection on the relationship between research, practice, and policy."
         },
         {
           "coursename": "Promoting Health and Wellbeing in Primary School: Theory and Policy into Practice",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "Drawing from research and current practice, the course aims to give students a deeper understanding of the role of the primary school teacher in the promotion of wellbeing and what this means in practice."
         }
       ]
     },
@@ -43,19 +43,19 @@
           "coursename": "Professional Experience and Practice (MA Primary Education with Mathematics)",
           "credits": 80,
           "field": "Education",
-          "description": "Education"
+          "description": "A one-year placement in a primary school, where students will develop their teaching skills and knowledge of the curriculum. Students will be supported by a school mentor and a university tutor."
         },
         {
           "coursename": "Educational Studies 3: Teaching for Social Justice",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "This course will help student teachers to understand theories of social justice within the context schools. It will support them to explore relevant evidence about the contexts in which they will work in a meaningful and constructive way, and to use it to inform the selection and evaluation of appropriate pedagogical strategies."
         },
         {
           "coursename": "Primary Studies Course 3: Learning Through and For Practice",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "A course taught alongside the Professional Experience and Practice placement, which will help students to reflect on their practice and develop their understanding of the curriculum."
         }
       ]
     },
@@ -66,31 +66,31 @@
           "coursename": "Mathematics in Primary Education",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "A prime purpose of the course is to prepare and support students in becoming knowledgeable, confident and reflective practitioners in relation to their teaching of primary mathematics. The course will build upon their knowledge of theories of learning and apply these in the context of a mathematical learning environment. These explorations will include analyses of specific teaching strategies that can be used to address learners' needs in particular classroom situations."
         },
         {
           "coursename": "Educational Studies 2a: Child and Adolescent Development in Education",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "This course is designed to introduce students to key aspects of cognitive, social, emotional and psycho-motor development in childhood and adolescence, and to the range of contextual factors that influence these developmental processes. In addition, this course introduces the students to the ways in which development in childhood and adolescence can be researched, the relationship between developmental research and educational practice, and the ethical issues relating to the participation of children and adolescents in developmental research."
         },
         {
           "coursename": "Educational Studies 2b: Inclusion and Citizenship in the 21st Century",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "This course examines the role of the teacher as a professional with responsibility for supporting diverse learners in the classroom as well as preparing these learners to socialize, work and live in a complex and diverse world. The course explores historical and philosophical approaches to individual needs, building on previously covered concepts of child development."
         },
         {
           "coursename": "Primary Studies 2: Learning and Integrating the Curriculum",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "The course aims to provide students with the opportunity to explore the concept of progression in learning within disciplinary contexts and through the integrated curriculum, as well as approaches to integrating the curriculum (including interdisciplinary, multidisciplinary and transdisciplinary learning) and the associated practices in learning and teaching."
         },
         {
           "coursename": "Proofs and Problem Solving",
           "credits": 20,
           "field": "Mathematics",
-          "description": "Mathematics"
+          "description": "This course is designed to introduce and develop the fundamental skills needed for advanced study in Pure Mathematics. The precise language of professional mathematicians is introduced and the skills needed to read, interpret and use it are developed."
         },
         {
           "coursename": "Several Variable Calculus and Differential Equations",
@@ -113,31 +113,31 @@
           "coursename": "Educational Studies 1a: Introduction to Education and Education Research",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "Students develop skills in solving algebraic, numerical, and differential problems involving vectors, partial derivatives, multiple integrals, and integral theorems (e.g., Stokes' and Gauss'). Emphasis is placed on theoretical understanding, mathematical rigor, and selecting appropriate methods to solve unseen differential equations."
         },
         {
           "coursename": "Educational Studies 1b: Teaching, Learning and the Curriculum for Excellence",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "This course takes Scotland's Curriculum for Excellence (CfE) as an overarching theme. It includes a critical exploration of some of the ideas underpinning the construction of CfE and associated ideas about teaching by considering their historical, theoretical and practical development. The course aims to equip students with a critical and informed understanding of the role of teachers in realising the curriculum, and the factors that can influence this. A strong theme is an appreciation of the relationship between theory and practice in teaching and learning."
         },
         {
           "coursename": "Primary Studies 1: The Nature of Knowledge",
           "credits": 20,
           "field": "Education",
-          "description": "Education"
+          "description": "This course introduces students to the complexities of the nature of knowledge by posing the fundamental questions of 'What is knowledge?' 'How do we 'know'?' and 'Why is this important in Primary Education?' These fundamental questions will first be considered holistically, before the course develops to recognise and investigate knowledge in the discrete areas of the curriculum, and how this influences learning and teaching within primary schools. Students will be encouraged to consider alternative understandings of knowledge and knowing."
         },
         {
           "coursename": "Introduction to Linear Algebra",
           "credits": 20,
           "field": "Mathematics",
-          "description": "Mathematics"
+          "description": "An introduction to linear algebra, mainly in R^n but concluding with an introduction to abstract vector spaces. The principal topics are vectors, systems of linear equations, matrices, eigenvalues and eigenvectors and orthogonality. The important notions of linear independence, span and bases are introduced."
         },
         {
           "coursename": "Calculus and its Applications",
           "credits": 20,
           "field": "Mathematics",
-          "description": "Mathematics"
+          "description": "This course covers fundamental calculus concepts including limits, continuity, differentiation, integration, infinite series, and differential equations. Students develop computational proficiency and apply calculus techniques to solve practical problems in mathematics, physics, and engineering."
         }
       ]
     }
