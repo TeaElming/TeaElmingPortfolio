@@ -15,7 +15,7 @@ const StartP: React.FC = () => {
 					<Link to="/projects" className="quick-link">Software Projects</Link>
 
           <Link to="/education" className="quick-link">Education</Link>
-          <Link to="/contact" className="quick-link">Quick Overview</Link>
+          <Link to="/about" className="quick-link">Quick Overview</Link>
 				</div>
 			</div>
 

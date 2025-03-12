@@ -30,7 +30,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 				{project.url}
 			</a>
 			<div className="project-details">
-				<span className="project-stack">Stack: {project.stack}</span>
 				<div className="project-technologies">
 					{project.technologies.map((tech, index) => (
 						<span key={index} className="project-tech">

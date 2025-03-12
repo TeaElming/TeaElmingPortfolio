@@ -65,6 +65,17 @@ function PortfolioNavbar() {
 					</Nav.Link>
 				</OverlayTrigger>
 			</Nav.Item>
+
+			<Nav.Item>
+				<OverlayTrigger placement="bottom" overlay={<Tooltip>CV</Tooltip>}>
+					<Nav.Link
+						href="/TeaElming_GraduateSoftwareDeveloper.pdf"
+						target="_blank"
+					>
+						<i className="bi bi-person-vcard"></i>
+					</Nav.Link>
+				</OverlayTrigger>
+			</Nav.Item>
 		</Nav>
 	)
 }
