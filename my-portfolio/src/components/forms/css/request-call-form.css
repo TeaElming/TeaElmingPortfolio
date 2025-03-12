@@ -1,0 +1,43 @@
+.request-call-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.request-call-form label {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.request-call-form input,
+.request-call-form textarea {
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.request-call-form button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.request-call-form button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.response-message {
+  margin-top: 1rem;
+  font-style: italic;
+  text-align: center;
+}
