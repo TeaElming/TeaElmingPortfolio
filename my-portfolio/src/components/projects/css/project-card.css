@@ -1,89 +1,64 @@
-/* Base Card Styles */
 .project-card {
-  display: flex;
   border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 8px;
+  background: #fff;
+  width: 100%;
+  height: 350px;
+  overflow-y: auto;
+  /* vertical scroll for overflow content */
+  box-sizing: border-box;
+}
+
+.project-title {
+  margin-bottom: 8px;
+  font-size: 1.5em;
+}
+
+.project-link {
+  display: block;
+  margin-bottom: 8px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.project-details {
+  margin-bottom: 8px;
+}
+
+.project-stack {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.project-technologies {
+  margin-top: 4px;
+}
+
+.project-tech {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  margin-right: 4px;
   border-radius: 4px;
-  /* Remove min-height; height is defined in variants */
+  font-size: 12px;
 }
 
-/* Big Card Styles */
-.project-card[data-variant="big"] {
-  height: calc(100% - 50px);
-  overflow: auto;
-}
-.project-card[data-variant="big"] .card-title {
-  font-size: 1.5rem;
-}
-.project-card[data-variant="big"] .field-title {
-  font-size: 1rem;
+.project-description {
+  margin-top: 8px;
 }
 
-/* Small Card Styles */
-.project-card[data-variant="small"] {
-  overflow: auto; /* scrollable if content overflows */
-}
-.project-card[data-variant="small"] .card-title {
-  font-size: 0.8rem;
-}
-.project-card[data-variant="small"] .field-title {
-  font-size: 0.8rem;
+.project-images img {
+  max-width: 100%;
+  margin-top: 8px;
 }
 
-.project-card[data-variant="small"] .blue-fallback h2 {
-  font-size: 0.8rem;
-}
-
-/* The rest of your styles remain unchanged */
-.left-media {
-  width: 60%;
-  position: relative;
-  height: 100%; /* Ensures the media section takes full height */
-}
-
-.blue-fallback {
-  background-color: #007bff;
-  height: 100%;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.media {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.dots-container {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.right-info {
-  width: 40%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Ensures the info section takes full height */
-  overflow-y: auto; /* Scrollable if content overflows */
-}
-
-.hoverable-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: help;
+.project-video video {
+  max-width: 100%;
+  margin-top: 8px;
 }

@@ -1,8 +1,9 @@
 /** @format */
-import React, { useState } from "react"
+
+import React from "react"
 import "./css/project-card.css"
 
-interface Project {
+export interface ProjectData {
 	title: string
 	url: string
 	technologies: string[]
@@ -13,75 +14,52 @@ interface Project {
 }
 
 interface ProjectCardProps {
-	project: Project
-	variant?: "big" | "small"
+	project: ProjectData
 }
 
-const MAX_DESC_LENGTH = 100
-
-const ProjectCard: React.FC<ProjectCardProps> = ({
-	project,
-	variant = "big",
-}) => {
-	const mediaItems = [
-		...project.imgs.map((img) => ({ type: "image", src: img })),
-		...(project.video ? [{ type: "video", src: project.video }] : []),
-	]
-
-	const [mediaIndex, setMediaIndex] = useState(0)
-
-	const truncatedDescription = project.description
-		.map((desc) =>
-			desc.length > MAX_DESC_LENGTH
-				? desc.slice(0, MAX_DESC_LENGTH) + "..."
-				: desc
-		)
-		.join(" ")
-
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 	return (
-		// Use a data attribute to indicate the card variant
-		<div className="project-card" data-variant={variant}>
-			<div className="left-media">
-				{mediaItems.length === 0 ? (
-					<div className="blue-fallback">
-						<h2>{project.title}</h2>
-					</div>
-				) : mediaItems[mediaIndex].type === "image" ? (
-					<img
-						src={mediaItems[mediaIndex].src}
-						alt={project.title}
-						className="media"
-					/>
-				) : (
-					<video src={mediaItems[mediaIndex].src} controls className="media" />
-				)}
-
-				{mediaItems.length > 1 && (
-					<div className="dots-container">
-						{mediaItems.map((_, i) => (
-							<div
-								key={i}
-								className="dot"
-								style={{ backgroundColor: i === mediaIndex ? "white" : "gray" }}
-								onClick={() => setMediaIndex(i)}
-							/>
-						))}
-					</div>
-				)}
+		<div className="project-card">
+			<h2 className="project-title">{project.title}</h2>
+			<a
+				className="project-link"
+				href={project.url}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{project.url}
+			</a>
+			<div className="project-details">
+				<span className="project-stack">Stack: {project.stack}</span>
+				<div className="project-technologies">
+					{project.technologies.map((tech, index) => (
+						<span key={index} className="project-tech">
+							{tech}
+						</span>
+					))}
+				</div>
 			</div>
-
-			<div className="right-info">
-				<h3 className="card-title">{project.title}</h3>
-				<p className="field-title">
-					<strong>Tech:</strong> {project.technologies.join(", ")}
-				</p>
-				<p className="field-title">
-					<strong>Stack:</strong> {project.stack}
-				</p>
-				<p className="hoverable-text" title={project.description.join("\n")}>
-					{truncatedDescription}
-				</p>
+			<div className="project-description">
+				{project.description.map((desc, index) => (
+					<p key={index}>{desc}</p>
+				))}
 			</div>
+			{project.imgs && project.imgs.length > 0 && (
+				<div className="project-images">
+					{project.imgs.map((img, index) => (
+						<img
+							key={index}
+							src={img}
+							alt={`${project.title} screenshot ${index + 1}`}
+						/>
+					))}
+				</div>
+			)}
+			{project.video && (
+				<div className="project-video">
+					<video controls src={project.video}></video>
+				</div>
+			)}
 		</div>
 	)
 }

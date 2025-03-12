@@ -1,87 +1,75 @@
 /** @format */
-import React, { useState } from "react"
-import ProjectCard from "./project-card"
+
+import React, { useState, useEffect } from "react"
+import ProjectCard, { ProjectData } from "./project-card"
 import "./css/project-list.css"
 
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+const ProjectsCarousel: React.FC = () => {
+	const [projects, setProjects] = useState<ProjectData[]>([])
+	const [currentIndex, setCurrentIndex] = useState(0)
 
-interface Project {
-	title: string
-	url: string
-	technologies: string[]
-	stack: string
-	description: string[]
-	imgs: string[]
-	video: string
-}
+	useEffect(() => {
+		fetch("/json/projects.json")
+			.then((response) => response.json())
+			.then((data) => {
+				setProjects(data.projects)
+			})
+			.catch((error) => {
+				console.error("Error fetching projects:", error)
+			})
+	}, [])
 
-interface ProjectsCarouselProps {
-	projects: Project[]
-}
-
-const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
-	const [bigIndex, setBigIndex] = useState(0)
-
-	if (!projects || projects.length === 0) {
-		return <div>No projects found.</div>
+	if (projects.length === 0) {
+		return <div>Loading projects...</div>
 	}
 
-	// Handy mod function to ensure we wrap around properly
-	const mod = (n: number, m: number) => ((n % m) + m) % m
+	const total = projects.length
 
-	const nextProject = () => {
-		setBigIndex((prev) => mod(prev + 1, projects.length))
+	const next = () => {
+		setCurrentIndex((prev) => (prev + 1) % total)
 	}
 
-	const prevProject = () => {
-		setBigIndex((prev) => mod(prev - 1, projects.length))
+	const prev = () => {
+		setCurrentIndex((prev) => (prev - 1 + total) % total)
 	}
 
-	// The featured project
-	const bigProject = projects[bigIndex]
+	const goToIndex = (index: number) => {
+		setCurrentIndex(index)
+	}
 
-	// Next four projects for the 2x2 preview grid
-	const previewProjects: Project[] = []
-	for (let i = 1; i <= 4; i++) {
-		previewProjects.push(projects[mod(bigIndex + i, projects.length)])
+	const previewCount = 3
+	const previews = []
+	for (let i = 1; i <= previewCount; i++) {
+		const index = (currentIndex + i) % total
+		previews.push(
+			<div
+				key={index}
+				className="preview-card"
+				onClick={() => goToIndex(index)}
+			>
+				<h4>{projects[index].title}</h4>
+			</div>
+		)
 	}
 
 	return (
-		<Container fluid style={{ height: "100%" }}>
-			<Row className="project-carousel" style={{ height: "100%" }}>
-				{/* Left Column: Featured Project + Navigation */}
-				<Col md={6} style={{ height: "100%" }}>
-					<div className="big-project" style={{ height: "100%" }}>
-						<ProjectCard project={bigProject} variant="big" />
-						<div className="navigation-buttons">
-							<button onClick={prevProject}>Previous</button>
-							<button onClick={nextProject}>Next</button>
-						</div>
+		<div className="carousel-container">
+			<div className="carousel-main">
+				<button className="nav-button prev-button" onClick={prev}>
+					Prev
+				</button>
+				<div className="project-display">
+					<ProjectCard project={projects[currentIndex]} />
+					<div className="counter">
+						{currentIndex + 1}/{total}
 					</div>
-				</Col>
-				{/* Right Column: 2x2 Grid of Previews */}
-				<Col md={6} style={{ height: "100%" }}>
-					<div className="preview-projects" style={{ height: "100%" }}>
-						<Row style={{ height: "50%" }}>
-							{previewProjects.slice(0, 2).map((project, index) => (
-								<Col key={index} xs={6}>
-									<ProjectCard project={project} variant="small" />
-								</Col>
-							))}
-						</Row>
-						<Row style={{ height: "50%" }}>
-							{previewProjects.slice(2, 4).map((project, index) => (
-								<Col key={index} xs={6}>
-									<ProjectCard project={project} variant="small" />
-								</Col>
-							))}
-						</Row>
-					</div>
-				</Col>
-			</Row>
-		</Container>
+				</div>
+				<button className="nav-button next-button" onClick={next}>
+					Next
+				</button>
+			</div>
+			<div className="carousel-previews">{previews}</div>
+		</div>
 	)
 }
 

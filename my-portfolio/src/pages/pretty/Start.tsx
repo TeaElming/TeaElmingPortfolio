@@ -13,8 +13,9 @@ const StartP: React.FC = () => {
 				{/* Quick Access Section */}
 				<div className="quick-access">
 					<Link to="/projects" className="quick-link">Software Projects</Link>
-					<Link to="/experience" className="quick-link">Work Experience</Link>
-          <Link to="/education" className="quick-link">University Courses</Link>
+
+          <Link to="/education" className="quick-link">Education</Link>
+          <Link to="/contact" className="quick-link">Quick Overview</Link>
 				</div>
 			</div>
 
