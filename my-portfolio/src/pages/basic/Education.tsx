@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import Container from "react-bootstrap/Container"
 import ProgressBar from "react-bootstrap/ProgressBar"
 
-import { UniversityData } from "../../components/page-sections/types"
+import { UniversityData } from "../../components/page-sections/pretty/types"
 
 const EducationB: React.FC = () => {
 	const [edinburghData, setEdinburghData] = useState<UniversityData | null>(
