@@ -1,127 +1,184 @@
 /** @format */
-
-import { useEffect, useRef } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import React, { useEffect, useMemo, useRef } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
 
 import StartB from "./Start"
 import EducationB from "./Education"
 import ProjectsB from "./Projects"
 import AboutB from "./About"
-import "./css/BasicLayout.css"
 
-// Keep pageNames outside the component to avoid re-creating it on every render
-const PAGE_NAMES = ["start", "education", "projects", "about"]
-
-export default function BasicLayout() {
-	const sections = useRef<HTMLDivElement[]>([])
-	const location = useLocation()
+const BasicLayout: React.FC = () => {
 	const navigate = useNavigate()
+	const location = useLocation()
 
-	// Scroll to correct section if user navigates directly
+	// Create refs for each section
+	const startRef = useRef<HTMLDivElement>(null)
+	const educationRef = useRef<HTMLDivElement>(null)
+	const projectsRef = useRef<HTMLDivElement>(null)
+	const aboutRef = useRef<HTMLDivElement>(null)
+
+	// Ref flag to track manual navigation so observer doesn't override it
+	const isManualNav = useRef(false)
+
+	// Memoize the sections array to satisfy ESLint and avoid unnecessary re-renders
+	const sections = useMemo(
+		() => [
+			{ path: "/", ref: startRef },
+			{ path: "/education", ref: educationRef },
+			{ path: "/projects", ref: projectsRef },
+			{ path: "/about", ref: aboutRef },
+		],
+		[startRef, educationRef, projectsRef, aboutRef]
+	)
+
+	// On route change, scroll the matching section into view
 	useEffect(() => {
-		const path = location.pathname.replace("/", "") || "start"
-		const index = PAGE_NAMES.indexOf(path)
-		if (index >= 0 && sections.current[index]) {
-			sections.current[index].scrollIntoView({ behavior: "smooth" })
+		const section = sections.find((sec) => sec.path === location.pathname)
+		if (section && section.ref.current) {
+			section.ref.current.scrollIntoView({ behavior: "smooth" })
 		}
-	}, [location])
+	}, [location.pathname, sections])
 
-	// Use Intersection Observer to detect which section is in view
+	// Reset the manual navigation flag after a route change
 	useEffect(() => {
-		const observerOptions = {
-			// Once 60% of a section is visible, consider it the “active” section
-			threshold: 0.6,
+		if (isManualNav.current) {
+			const timer = setTimeout(() => {
+				isManualNav.current = false
+			}, 500)
+			return () => clearTimeout(timer)
 		}
+	}, [location.pathname])
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					// Find index of the target in sections array
-					const targetIndex = sections.current.findIndex(
-						(sec) => sec === entry.target
-					)
-					if (targetIndex !== -1) {
-						const sectionName = PAGE_NAMES[targetIndex]
-						const newPath = sectionName === "start" ? "/" : `/${sectionName}`
-
-						// Only navigate if not already on that route
-						if (location.pathname !== newPath) {
-							navigate(newPath, { replace: true })
+	// Update URL when a section becomes visible using IntersectionObserver,
+	// but skip if a manual navigation is in progress.
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting && !isManualNav.current) {
+						const currentSection = sections.find(
+							(sec) => sec.ref.current === entry.target
+						)
+						if (currentSection && currentSection.path !== location.pathname) {
+							navigate(currentSection.path, { replace: true })
 						}
-
-						// Optionally add a CSS class for fade-in
-						entry.target.classList.add("in-view")
 					}
-				} else {
-					// Remove the fade-in class if out of view
-					entry.target.classList.remove("in-view")
-				}
-			})
-		}, observerOptions)
+				})
+			},
+			{ threshold: 0.6 }
+		)
 
-		// Capture current sections in a local const,
-		// so the cleanup unobserves the same elements
-		const localSections = sections.current
-		localSections.forEach((section) => observer.observe(section))
+		sections.forEach((sec) => {
+			if (sec.ref.current) observer.observe(sec.ref.current)
+		})
 
 		return () => {
-			localSections.forEach((section) => observer.unobserve(section))
+			sections.forEach((sec) => {
+				if (sec.ref.current) observer.unobserve(sec.ref.current)
+			})
 		}
-	}, [navigate, location.pathname]) // We don't need PAGE_NAMES here since it's top-level
+	}, [navigate, location.pathname, sections])
 
-	// Helper to set the ref
-	const setSectionRef = (index: number) => (el: HTMLDivElement | null) => {
-		if (el) sections.current[index] = el
+	// Styles for the layout container and each section
+	const containerStyle: React.CSSProperties = {
+		height: "100vh",
+		overflowY: "scroll",
+		scrollSnapType: "y mandatory",
+	}
+
+	const sectionStyle: React.CSSProperties = {
+		height: "100vh",
+		scrollSnapAlign: "start",
+	}
+
+	// Style for the left-hand navigation menu
+	const navStyle: React.CSSProperties = {
+		position: "fixed",
+		left: "10px",
+		top: "50%",
+		transform: "translateY(-50%)",
+		zIndex: 1000,
+	}
+
+	const navListStyle: React.CSSProperties = {
+		listStyleType: "none",
+		padding: 0,
+		margin: 0,
+	}
+
+	const navItemStyle: React.CSSProperties = {
+		marginBottom: "10px",
 	}
 
 	return (
-		<div
-			style={{
-				height: "100vh",
-				overflowY: "scroll",
-				scrollSnapType: "y mandatory",
-			}}
-		>
-			<div
-				ref={setSectionRef(0)}
-				className="snap-section fade-section"
-				style={{
-					height: "100vh",
-					scrollSnapAlign: "start",
-				}}
-			>
-				<StartB />
+		<>
+			{/* Left-hand navigation */}
+			<nav style={navStyle}>
+				<ul style={navListStyle}>
+					<li style={navItemStyle}>
+						<button
+							onClick={() => {
+								isManualNav.current = true
+								navigate("/")
+							}}
+							style={{ cursor: "pointer" }}
+						>
+							Start
+						</button>
+					</li>
+					<li style={navItemStyle}>
+						<button
+							onClick={() => {
+								isManualNav.current = true
+								navigate("/education")
+							}}
+							style={{ cursor: "pointer" }}
+						>
+							Education
+						</button>
+					</li>
+					<li style={navItemStyle}>
+						<button
+							onClick={() => {
+								isManualNav.current = true
+								navigate("/projects")
+							}}
+							style={{ cursor: "pointer" }}
+						>
+							Projects
+						</button>
+					</li>
+					<li style={navItemStyle}>
+						<button
+							onClick={() => {
+								isManualNav.current = true
+								navigate("/about")
+							}}
+							style={{ cursor: "pointer" }}
+						>
+							About
+						</button>
+					</li>
+				</ul>
+			</nav>
+
+			{/* Main content container */}
+			<div style={containerStyle}>
+				<div ref={startRef} style={sectionStyle} id="start">
+					<StartB />
+				</div>
+				<div ref={educationRef} style={sectionStyle} id="education">
+					<EducationB />
+				</div>
+				<div ref={projectsRef} style={sectionStyle} id="projects">
+					<ProjectsB />
+				</div>
+				<div ref={aboutRef} style={sectionStyle} id="about">
+					<AboutB />
+				</div>
 			</div>
-			<div
-				ref={setSectionRef(1)}
-				className="snap-section fade-section"
-				style={{
-					height: "100vh",
-					scrollSnapAlign: "start",
-				}}
-			>
-				<EducationB />
-			</div>
-			<div
-				ref={setSectionRef(2)}
-				className="snap-section fade-section"
-				style={{
-					height: "100vh",
-					scrollSnapAlign: "start",
-				}}
-			>
-				<ProjectsB />
-			</div>
-			<div
-				ref={setSectionRef(3)}
-				className="snap-section fade-section"
-				style={{
-					height: "100vh",
-					scrollSnapAlign: "start",
-				}}
-			>
-				<AboutB />
-			</div>
-		</div>
+		</>
 	)
 }
+
+export default BasicLayout
