@@ -19,6 +19,11 @@ import EducationP from "./pages/pretty/Education"
 import ProjectsP from "./pages/pretty/Projects"
 import AboutP from "./pages/pretty/About"
 
+import StartB from "./pages/basic/Start"
+import EducationB from "./pages/basic/Education"
+import ProjectsB from "./pages/basic/Projects"
+import AboutB from "./pages/basic/About"
+
 import PortfolioNavbar from "./components/page-sections/Navbar"
 import PortfolioFooter from "./components/page-sections/Footer"
 
@@ -106,10 +111,10 @@ function AppContent({
 			About: AboutP,
 		},
 		bare: {
-			Start: StartP,
-			Education: EducationP,
-			Projects: ProjectsP,
-			About: AboutP,
+			Start: StartB,
+			Education: EducationB,
+			Projects: ProjectsB,
+			About: AboutB,
 		},
 	}
 
