@@ -1,7 +1,5 @@
 .projects-container {
-  /* Take up the full window height minus navbar/footer, if desired */
   height: calc(100vh - var(--navbar-height) - var(--footer-height));
-  /* Hide overflow to prevent page scrolling if content is large */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -9,14 +7,37 @@
 }
 
 .projects-button-section {
-  /* Style your button row here */
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  align-self: center;
+}
+
+.projects-button-section button {
+  font-style: normal;
+  font-weight: normal;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: rgba(197, 225, 165, 0.9);
+}
+
+/* Active button: cursive (italic) and bold */
+.projects-button-section button.active {
+  font-style: italic;
+  font-weight: bold;
+  background-color: rgba(171, 196, 143, 0.9);
+}
+
+/* Hover effect: cursive (italic) */
+.projects-button-section button:hover {
+  font-style: italic;
 }
 
 .projects-list-section {
-  /* Fill remaining space and allow scrolling inside if needed */
   flex: 1;
   overflow: auto;
 }

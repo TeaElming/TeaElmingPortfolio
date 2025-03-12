@@ -1,22 +1,49 @@
 /** @format */
-import React from "react"
+
+import React, { useState } from "react"
 import ProjectsCarousel from "../../components/projects/project-list"
-import "./css/Projects.css" // <-- import the new CSS file here
+import "./css/Projects.css"
 
 const ProjectsP: React.FC = () => {
+	const [filter, setFilter] = useState("all")
+
+	const handleFilterClick = (newFilter: string) => {
+		setFilter(newFilter)
+	}
+
 	return (
 		<div className="projects-container">
-			{/* Button Section */}
+			{/* Filter Buttons */}
 			<div className="projects-button-section">
-				<button>Full-Stack</button>
-				<button>Front-End</button>
-				<button>Back-End</button>
-				<button>View All</button>
+				<button
+					className={filter === "all" ? "active" : ""}
+					onClick={() => handleFilterClick("all")}
+				>
+					View All
+				</button>
+				<button
+					className={filter === "fullstack" ? "active" : ""}
+					onClick={() => handleFilterClick("fullstack")}
+				>
+					Full-Stack
+				</button>
+				<button
+					className={filter === "frontend" ? "active" : ""}
+					onClick={() => handleFilterClick("frontend")}
+				>
+					Front-End
+				</button>
+				<button
+					className={filter === "backend" ? "active" : ""}
+					onClick={() => handleFilterClick("backend")}
+				>
+					Back-End
+				</button>
 			</div>
 
-			{/* Projects Grid Area */}
+			{/* Carousel Section */}
 			<div className="projects-list-section">
-				<ProjectsCarousel />
+				<ProjectsCarousel filter={filter} />
 			</div>
 		</div>
 	)

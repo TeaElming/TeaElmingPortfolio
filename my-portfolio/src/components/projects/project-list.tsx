@@ -4,7 +4,11 @@ import React, { useState, useEffect } from "react"
 import ProjectCard, { ProjectData } from "./project-card"
 import "./css/project-list.css"
 
-const ProjectsCarousel: React.FC = () => {
+interface ProjectsCarouselProps {
+	filter: string
+}
+
+const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ filter }) => {
 	const [projects, setProjects] = useState<ProjectData[]>([])
 	const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -19,11 +23,28 @@ const ProjectsCarousel: React.FC = () => {
 			})
 	}, [])
 
+	// Reset index when the filter changes
+	useEffect(() => {
+		setCurrentIndex(0)
+	}, [filter])
+
+	// Filter projects based on the selected filter
+	const filteredProjects =
+		filter === "all"
+			? projects
+			: projects.filter(
+					(project) => project.stack.toLowerCase() === filter.toLowerCase()
+			  )
+
 	if (projects.length === 0) {
 		return <div>Loading projects...</div>
 	}
 
-	const total = projects.length
+	if (filteredProjects.length === 0) {
+		return <div>No projects found.</div>
+	}
+
+	const total = filteredProjects.length
 
 	const next = () => {
 		setCurrentIndex((prev) => (prev + 1) % total)
@@ -37,9 +58,11 @@ const ProjectsCarousel: React.FC = () => {
 		setCurrentIndex(index)
 	}
 
+	// Show up to 3 preview cards, but not more than available (excluding the current project)
 	const previewCount = 3
+	const numberOfPreviews = Math.min(previewCount, total - 1)
 	const previews = []
-	for (let i = 1; i <= previewCount; i++) {
+	for (let i = 1; i <= numberOfPreviews; i++) {
 		const index = (currentIndex + i) % total
 		previews.push(
 			<div
@@ -47,7 +70,7 @@ const ProjectsCarousel: React.FC = () => {
 				className="preview-card"
 				onClick={() => goToIndex(index)}
 			>
-				<h4>{projects[index].title}</h4>
+				<h4>{filteredProjects[index].title}</h4>
 			</div>
 		)
 	}
@@ -59,7 +82,7 @@ const ProjectsCarousel: React.FC = () => {
 					Prev
 				</button>
 				<div className="project-display">
-					<ProjectCard project={projects[currentIndex]} />
+					<ProjectCard project={filteredProjects[currentIndex]} />
 					<div className="counter">
 						{currentIndex + 1}/{total}
 					</div>

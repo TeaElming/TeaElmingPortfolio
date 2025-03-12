@@ -192,7 +192,7 @@
         "An interactive website GUI allowing users to select a LSOA and view its education levels according to Census data. The GUI allowed for selections from map, list, or search of specific LSOA. In addition, comparison could be made against the average education levels based on the IMD-score.",
         "Using only LSOAs for visualisation is not ideal since each area is so small, but it was suitable for the purpose of the assignment."
       ],
-      "imgs": [],
+      "imgs": ["/imgs/projects/startPage.png"],
       "video": ""
     }
   ]
