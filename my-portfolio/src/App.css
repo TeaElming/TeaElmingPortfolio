@@ -165,3 +165,38 @@
     linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.65)),
     url("/imgs/leaves.jpg");
 }
+
+
+
+/* ======== Basic (bare) styles below ======== */
+[data-version="bare"] body {
+  /* use the same base font or change as you wish */
+  font-family: "Arial", sans-serif;
+  /* enable smooth scrolling globally */
+  scroll-behavior: smooth;
+}
+
+/* Maybe a simpler background for bare */
+[data-version="bare"] #root {
+  width: 100vw;
+  min-height: 100vh;
+  background: #ffffff; /* or anything you want */
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* BasicLayout uses its own scroll container */
+}
+
+/* Optionally hide scrollbars (if you like) on that scroll container */
+[data-version="bare"] div[style*="scroll-snap-type"] {
+  scrollbar-width: none; /* Firefox */
+}
+[data-version="bare"] div[style*="scroll-snap-type"]::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* If you still want a different glow for 'bare' mode, do it here */
+[data-version="bare"] .cursor-glow {
+  background: rgba(0, 0, 0, 0.1);
+  filter: blur(40px);
+}

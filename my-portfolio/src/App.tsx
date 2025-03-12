@@ -1,5 +1,4 @@
 /** @format */
-
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import {
@@ -9,7 +8,7 @@ import {
 	useLocation,
 } from "react-router-dom"
 import { useState, useEffect } from "react"
-import React from "react"
+
 import Form from "react-bootstrap/Form"
 
 import "./App.css"
@@ -19,10 +18,7 @@ import EducationP from "./pages/pretty/Education"
 import ProjectsP from "./pages/pretty/Projects"
 import AboutP from "./pages/pretty/About"
 
-import StartB from "./pages/basic/Start"
-import EducationB from "./pages/basic/Education"
-import ProjectsB from "./pages/basic/Projects"
-import AboutB from "./pages/basic/About"
+import BasicLayout from "./pages/basic/BasicLayout"
 
 import PortfolioNavbar from "./components/page-sections/Navbar"
 import PortfolioFooter from "./components/page-sections/Footer"
@@ -102,22 +98,6 @@ function AppContent({
 		return () => window.removeEventListener("mousemove", handleMouseMove)
 	}, [])
 
-	// Separate route objects for "prettier" vs. "bare"
-	const routes = {
-		prettier: {
-			Start: StartP,
-			Education: EducationP,
-			Projects: ProjectsP,
-			About: AboutP,
-		},
-		bare: {
-			Start: StartB,
-			Education: EducationB,
-			Projects: ProjectsB,
-			About: AboutB,
-		},
-	}
-
 	return (
 		<>
 			{/* Toggle container */}
@@ -168,24 +148,23 @@ function AppContent({
 			{/* Main content */}
 			<div className="content-container">
 				<Routes>
-					<Route
-						path="/"
-						element={React.createElement(routes[version].Start)}
-					/>
-
-					<Route
-						path="/education"
-						element={React.createElement(routes[version].Education)}
-					/>
-					<Route
-						path="/projects"
-						element={React.createElement(routes[version].Projects)}
-					/>
-					<Route
-						path="/about"
-						element={React.createElement(routes[version].About)}
-					/>
-					{/* Add more routes as needed */}
+					{version === "bare" ? (
+						// Single route that scroll-snaps among sections in BasicLayout
+						<>
+							<Route path="/" element={<BasicLayout />} />
+							<Route path="/education" element={<BasicLayout />} />
+							<Route path="/projects" element={<BasicLayout />} />
+							<Route path="/about" element={<BasicLayout />} />
+						</>
+					) : (
+						// Prettier: separate pages for each route
+						<>
+							<Route path="/" element={<StartP />} />
+							<Route path="/education" element={<EducationP />} />
+							<Route path="/projects" element={<ProjectsP />} />
+							<Route path="/about" element={<AboutP />} />
+						</>
+					)}
 				</Routes>
 			</div>
 

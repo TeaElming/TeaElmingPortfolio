@@ -1,0 +1,19 @@
+/* src/pages/basic/css/BasicLayout.css */
+
+/* Start with 0 opacity, then fade to 1 when .in-view is applied */
+.fade-section {
+  opacity: 0;
+  transition: opacity 0.6s ease; /* Adjust speed as desired */
+}
+
+/* When the IntersectionObserver sees that the section is in view, it adds .in-view */
+.fade-section.in-view {
+  opacity: 1;
+}
+
+/* Optionally style each section with a border or background so the transition is more obvious */
+.snap-section {
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box;
+}
