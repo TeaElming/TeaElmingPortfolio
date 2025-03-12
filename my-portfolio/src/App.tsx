@@ -17,6 +17,7 @@ import "./App.css"
 import StartP from "./pages/pretty/Start"
 import EducationP from "./pages/pretty/Education"
 import ProjectsP from "./pages/pretty/Projects"
+import AboutP from "./pages/pretty/About"
 
 import PortfolioNavbar from "./components/page-sections/Navbar"
 import PortfolioFooter from "./components/page-sections/Footer"
@@ -102,11 +103,13 @@ function AppContent({
 			Start: StartP,
 			Education: EducationP,
 			Projects: ProjectsP,
+			About: AboutP,
 		},
 		bare: {
 			Start: StartP,
 			Education: EducationP,
 			Projects: ProjectsP,
+			About: AboutP,
 		},
 	}
 
@@ -172,6 +175,10 @@ function AppContent({
 					<Route
 						path="/projects"
 						element={React.createElement(routes[version].Projects)}
+					/>
+					<Route
+						path="/about"
+						element={React.createElement(routes[version].About)}
 					/>
 					{/* Add more routes as needed */}
 				</Routes>

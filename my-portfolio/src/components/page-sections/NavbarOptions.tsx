@@ -61,7 +61,7 @@ function NavbarDropdown({ onToggle }: NavbarDropdownProps) {
 			<Collapse in={isOpen}>
 				<div id="example-collapse-text" className="navbar-dropdown">
 					<ul>
-						{["/", "/projects", "/education", "/contact"].map((path) => (
+						{["/", "/projects", "/education", "/about"].map((path) => (
 							<li key={path}>
 								<Link
 									to={path}
