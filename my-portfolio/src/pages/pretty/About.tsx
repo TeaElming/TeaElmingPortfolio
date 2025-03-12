@@ -1,18 +1,23 @@
 /** @format */
 
-import React from "react"
+import React, { useState } from "react"
 import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
 import RequestCallForm from "../../components/forms/request-call-form"
 import "./css/About.css"
 
 const AboutP: React.FC = () => {
+	const [showModal, setShowModal] = useState(false)
+
+	const openModal = () => setShowModal(true)
+	const closeModal = () => setShowModal(false)
+
 	return (
 		<div className="about-container">
 			<div className="about-content">
 				<section className="about-info">
 					<div className="about-intro">
 						<p>
-							I am a recent Computer Science-graduate who thrives in challenging
+							I am a soon-to-be Computer Science-graduate who thrives in challenging
 							environments that require problem-solving and continuous learning.
 						</p>
 					</div>
@@ -64,11 +69,12 @@ const AboutP: React.FC = () => {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<i>
-								Please phone through WhatsApp or request a call through an
-								online platform.
-							</i>
-						</a>
+							Phone through WhatsApp
+						</a>{" "}
+						or{" "}
+						<span onClick={openModal} className="request-call-link">
+							Request a Call
+						</span>
 					</p>
 					<p>
 						<strong>LinkedIn:</strong> <FaLinkedin />{" "}
@@ -98,8 +104,20 @@ const AboutP: React.FC = () => {
 					>
 						View CV
 					</a>
-					{/* Insert the RequestCallForm here */}
-					<RequestCallForm />
+
+					{showModal && (
+						<div className="modal-overlay" onClick={closeModal}>
+							<div
+								className="modal-content"
+								onClick={(e) => e.stopPropagation()}
+							>
+								<button className="close-button" onClick={closeModal}>
+									&times;
+								</button>
+								<RequestCallForm />
+							</div>
+						</div>
+					)}
 				</aside>
 			</div>
 		</div>
