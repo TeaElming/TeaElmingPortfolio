@@ -27,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				{project.url}
+				<i className="bi bi-github"></i> {project.url}
 			</a>
 			<div className="project-details">
 				<div className="project-technologies">
