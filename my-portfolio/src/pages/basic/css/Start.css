@@ -1,3 +1,5 @@
 .startPageB {
   background-color: rgb(255, 213, 0);
+  height: 100vh;
+	overflow: auto;
 }

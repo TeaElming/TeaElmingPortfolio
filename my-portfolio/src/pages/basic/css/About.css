@@ -1,3 +1,5 @@
 .aboutB-container {
   background-color: rgb(0, 108, 202);
+  height: 100vh;
+	overflow: auto;
 }

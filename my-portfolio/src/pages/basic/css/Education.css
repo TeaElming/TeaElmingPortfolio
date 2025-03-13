@@ -1,4 +1,6 @@
 .educationB-container {
   background-color: rgb(107, 247, 126);
+  height: 100vh;
+	overflow: auto;
 }
 
