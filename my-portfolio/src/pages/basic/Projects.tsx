@@ -10,9 +10,7 @@ const ProjectsB: React.FC = () => {
 
 	return (
 		<div className="projectsB-container">
-      <h1>Projects</h1>
         <ProjectGrid />
-
 		</div>
 	)
 }

@@ -37,7 +37,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: auto; /* allow scrolling if needed */
+  overflow: auto;
+  /* allow scrolling if needed */
 }
 
 
@@ -82,7 +83,8 @@
   position: relative;
   z-index: 2;
   margin-left: 100px;
-  padding: 0 0 20px 0; /* added padding-bottom to avoid touching the footer */
+  padding: 0 0 20px 0;
+  /* added padding-bottom to avoid touching the footer */
   max-width: 80%;
   text-align: left;
   color: var(--text-color);
@@ -180,19 +182,24 @@
 [data-version="bare"] #root {
   width: 100vw;
   min-height: 100vh;
-  background: #ffffff; /* or anything you want */
+  background: #ffffff;
+  /* or anything you want */
   color: #000000;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* BasicLayout uses its own scroll container */
+  overflow: hidden;
+  /* BasicLayout uses its own scroll container */
 }
 
 /* Optionally hide scrollbars (if you like) on that scroll container */
 [data-version="bare"] div[style*="scroll-snap-type"] {
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 [data-version="bare"] div[style*="scroll-snap-type"]::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+  /* Chrome/Safari */
 }
 
 /* If you still want a different glow for 'bare' mode, do it here */
@@ -203,4 +210,21 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+
+[data-version='bare'][data-theme="light"] #root {
+  background-image: url("/imgs/colourgradientlight.jpg");
+  color: #000000;
+}
+
+[data-version='bare'][data-theme="dark"] #root {
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.65)),
+    url("/imgs/starsdark.jpg");
+    background-size: 100% auto; /* The width will always fit */
+    background-repeat: repeat-y; /* Repeat vertically */
+    background-position: top center; /* Optional: position at top center */
+  color: #ffffff;
 }

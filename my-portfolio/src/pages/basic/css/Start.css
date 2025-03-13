@@ -1,5 +1,5 @@
 .startPageB {
-  background-color: rgb(255, 213, 0);
+  /*background-color: rgba(255, 255, 255, 0.17); */
   height: 100vh;
 	overflow: auto;
   /* Enable flex layout to center vertically */

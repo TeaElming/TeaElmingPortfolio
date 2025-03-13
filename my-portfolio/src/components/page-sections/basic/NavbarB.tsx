@@ -2,7 +2,7 @@
 import { Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
 
-import FooterB from "./FooterB"   
+import FooterB from "./FooterB"
 import "./css/Navbar.css"
 
 const NavbarB = () => {
@@ -12,7 +12,7 @@ const NavbarB = () => {
 				<Nav className="flex-column">
 					<ul>
 						<li>
-							<Nav.Link as={NavLink} to="/start">
+							<Nav.Link as={NavLink} to="/">
 								Start
 							</Nav.Link>
 						</li>

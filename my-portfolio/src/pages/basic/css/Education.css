@@ -1,6 +1,6 @@
 /* Main container */
 .educationB-container {
-  background-color: rgb(107, 247, 126);
+  /*background-color: rgba(255, 255, 255, 0.17); */
   height: 100vh;
   display: flex;
   padding: 20px;
