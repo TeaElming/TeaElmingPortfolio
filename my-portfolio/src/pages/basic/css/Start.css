@@ -2,4 +2,11 @@
   background-color: rgb(255, 213, 0);
   height: 100vh;
 	overflow: auto;
+  /* Enable flex layout to center vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
 }

@@ -5,6 +5,7 @@ import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
 import RequestCallForm from "../../components/forms/request-call-form"
 import "./css/About.css"
 
+
 const AboutB: React.FC = () => {
 	const [showModal, setShowModal] = useState(false)
 
