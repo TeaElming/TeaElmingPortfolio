@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react"
 import Container from "react-bootstrap/Container"
 import ProgressBar from "react-bootstrap/ProgressBar"
 
+import "./css/Education.css"
+
 import { UniversityData } from "../../components/page-sections/pretty/types"
 
 const EducationB: React.FC = () => {
@@ -37,9 +39,8 @@ const EducationB: React.FC = () => {
   //--------------------------------------------------------------------------------
 
 	return (
-		<Container className="education-container">
-
-			<div className="degree-info">
+		<Container className="educationB-container">
+			<div className="degreeB-info">
 				<div className="uni-section">
 					<h5>Computer Science</h5>
 					<h6>Linnaeus University (Sep 2022 – Jun 2025)</h6>

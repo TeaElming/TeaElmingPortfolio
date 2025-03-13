@@ -1,12 +1,12 @@
 /** @format */
 import React from "react"
 import { Link } from "react-router-dom"
-
+import "./css/Start.css"
 
 const StartB: React.FC = () => {
 	return (
-		<div>
-			<div className="startPage-container">
+		<div className="startPageB">
+			<div className="startPageB-container">
 				<h1>Tea Elming</h1>
 				<p>Software Developer</p>
 
@@ -19,7 +19,7 @@ const StartB: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="startPage-description">
+			<div className="startPageB-description">
 				<p>
 					Former primary teacher with a background in Mathematics who thoroughly
 					enjoys problem-solving and being technically challenged, thus deciding

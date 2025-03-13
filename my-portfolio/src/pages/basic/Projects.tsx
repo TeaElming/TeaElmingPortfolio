@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import ProjectsCarousel from "../../components/projects/project-list"
 
+import "./css/Projects.css"
 
 const ProjectsB: React.FC = () => {
 	const [filter, setFilter] = useState("all")
@@ -12,7 +13,7 @@ const ProjectsB: React.FC = () => {
 	}
 
 	return (
-		<div className="projects-container">
+		<div className="projectsB-container">
 			{/* Filter Buttons */}
 			<div className="projects-button-section">
 				<button

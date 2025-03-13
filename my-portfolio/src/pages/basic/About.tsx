@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
 import RequestCallForm from "../../components/forms/request-call-form"
+import "./css/About.css"
 
 const AboutB: React.FC = () => {
 	const [showModal, setShowModal] = useState(false)
@@ -11,16 +12,16 @@ const AboutB: React.FC = () => {
 	const closeModal = () => setShowModal(false)
 
 	return (
-		<div className="about-container">
-			<div className="about-content">
-				<section className="about-info">
-					<div className="about-intro">
+		<div className="aboutB-container">
+			<div className="aboutB-content">
+				<section className="aboutB-info">
+					<div className="aboutB-intro">
 						<p>
 							I am a soon-to-be Computer Science-graduate who thrives in challenging
 							environments that require problem-solving and continuous learning.
 						</p>
 					</div>
-					<section className="about-skills">
+					<section className="aboutB-skills">
 						<h2>Skills & Technologies</h2>
 						<div className="skills-grid">
 							<p>
@@ -55,7 +56,7 @@ const AboutB: React.FC = () => {
 						</div>
 					</section>
 				</section>
-				<aside className="about-contact">
+				<aside className="aboutB-contact">
 					<h2>Contact & CV</h2>
 					<p>
 						<strong>Email:</strong> <FaEnvelope />{" "}
