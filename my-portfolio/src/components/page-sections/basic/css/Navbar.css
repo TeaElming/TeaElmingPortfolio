@@ -1,0 +1,33 @@
+/* Navbar.css */
+.navbarB {
+  position: fixed;      /* fix the nav in place */
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;        /* stretch to full viewport height */
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center all children */
+  align-items: center;     /* horizontally center all children */
+  padding: 1rem;
+  z-index: 9999;        /* ensure it stays on top of other elements if needed */
+}
+
+/* Default link styles */
+.navbarB .nav-link {
+  color: blue;
+  padding: 0.5rem 0;
+  text-decoration: none;
+}
+
+/* Hover state */
+.navbarB .nav-link:hover {
+  color: purple;
+}
+
+/* Active link */
+.navbarB .nav-link.active {
+  color: green;
+  font-weight: bold;
+}
