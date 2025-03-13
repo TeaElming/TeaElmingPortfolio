@@ -1,17 +1,27 @@
 /* Navbar.css */
 .navbarB {
-  position: fixed;      /* fix the nav in place */
+  position: fixed;
   top: 0;
   left: 0;
   width: 200px;
-  height: 100vh;        /* stretch to full viewport height */
+  height: 100vh;
   background: #f8f9fa;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertically center all children */
-  align-items: center;     /* horizontally center all children */
   padding: 1rem;
-  z-index: 9999;        /* ensure it stays on top of other elements if needed */
+  z-index: 99;  /* keep on top if needed */
+}
+
+/*
+   Nav items container takes up remaining vertical space
+   so the footer can stay at the bottom.
+*/
+.navbarB .nav-items {
+  flex: 1; /* fill the vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* or flex-start if you want them top-aligned */
+  align-items: center;      /* center horizontally */
 }
 
 /* Default link styles */
@@ -21,13 +31,23 @@
   text-decoration: none;
 }
 
-/* Hover state */
+/* Hover link style */
 .navbarB .nav-link:hover {
   color: purple;
 }
 
-/* Active link */
+/* Active link style */
 .navbarB .nav-link.active {
   color: green;
   font-weight: bold;
+}
+
+/* Footer section pinned at bottom */
+.footerB {
+  margin-top: auto; /* push it to the bottom of the flex container */
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  /* optional: add some margin or padding if you'd like */
+  padding-bottom: 0.5rem;
 }
