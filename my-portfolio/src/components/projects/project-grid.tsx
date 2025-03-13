@@ -4,18 +4,21 @@ import ProjectCard, { ProjectData } from "./project-card"
 import "./css/project-grid.css"
 import "./css/project-card.css"
 
-const WIDTH_RATIO = 0.28 // 3 tiles wide (approx 30% each)
-const HEIGHT_RATIO = 0.4 // 2 tiles high (approx 40% each)
+type FilterType = "all" | "fullstack" | "frontend" | "backend"
+
+const WIDTH_RATIO = 0.28 // approx 3 tiles wide
+const HEIGHT_RATIO = 0.4 // approx 2 tiles high
 const TILE_GAP = 20
 const MIN_TILE_WIDTH = 200 // Minimum width in pixels
 const MIN_TILE_HEIGHT = 150 // Minimum height in pixels
-const MAX_PROJECTS_PER_PAGE = 6 // 3 wide × 2 high
+const MAX_PROJECTS_PER_PAGE = 6 // 3×2 grid
 
 const ProjectGrid: React.FC = () => {
 	const [projects, setProjects] = useState<ProjectData[]>([])
 	const [selectedProject, setSelectedProject] = useState<number | null>(null)
 	const [currentPage, setCurrentPage] = useState(0)
 	const [projectsPerPage, setProjectsPerPage] = useState(MAX_PROJECTS_PER_PAGE)
+	const [filter, setFilter] = useState<FilterType>("all")
 
 	const containerRef = useRef<HTMLDivElement>(null)
 
@@ -26,6 +29,18 @@ const ProjectGrid: React.FC = () => {
 			.catch((error) => console.error("Error fetching projects:", error))
 	}, [])
 
+	// Reset page when filter changes
+	useEffect(() => {
+		setCurrentPage(0)
+	}, [filter])
+
+	// Filter projects based on selected filter.
+	const filteredProjects = projects.filter((project) => {
+		if (filter === "all") return true
+		// Assuming project.stack is a string such as "frontend", "backend", or "fullstack".
+		return project.stack.toLowerCase() === filter
+	})
+
 	useEffect(() => {
 		const updateProjectsPerPage = () => {
 			if (!containerRef.current) return
@@ -33,25 +48,24 @@ const ProjectGrid: React.FC = () => {
 			const width = containerRef.current.offsetWidth
 			const height = containerRef.current.offsetHeight
 
-			// Calculate tile dimensions based on ratios
+			// Calculate tile dimensions based on ratios.
 			let tileWidth = width * WIDTH_RATIO
 			let tileHeight = height * HEIGHT_RATIO
 
-			// Enforce minimum dimensions
+			// Enforce minimum dimensions.
 			tileWidth = Math.max(tileWidth, MIN_TILE_WIDTH)
 			tileHeight = Math.max(tileHeight, MIN_TILE_HEIGHT)
 
-			// Calculate max columns and rows that fit without overflowing
+			// Calculate max columns/rows that fit without overflowing.
 			const columns = Math.min(3, Math.floor(width / (tileWidth + TILE_GAP)))
 			const rows = Math.min(2, Math.floor(height / (tileHeight + TILE_GAP)))
 
-			// At most 6 tiles (3×2) per page
 			const calculatedProjectsPerPage = Math.min(
 				columns * rows,
 				MAX_PROJECTS_PER_PAGE
 			)
 			setProjectsPerPage(calculatedProjectsPerPage)
-			setCurrentPage(0) // reset to first page on resize
+			setCurrentPage(0) // Reset page on resize.
 		}
 
 		updateProjectsPerPage()
@@ -59,28 +73,73 @@ const ProjectGrid: React.FC = () => {
 		return () => window.removeEventListener("resize", updateProjectsPerPage)
 	}, [])
 
-	const totalPages = Math.max(Math.ceil(projects.length / projectsPerPage), 1)
+	const totalPages = Math.max(
+		Math.ceil(filteredProjects.length / projectsPerPage),
+		1
+	)
 
-	const nextPage = () => setCurrentPage((p) => Math.min(p + 1, totalPages - 1))
-	const prevPage = () => setCurrentPage((p) => Math.max(p - 1, 0))
+	const nextPage = () => {
+		if (currentPage < totalPages - 1) {
+			setCurrentPage((p) => p + 1)
+		}
+	}
+
+	const prevPage = () => {
+		if (currentPage > 0) {
+			setCurrentPage((p) => p - 1)
+		}
+	}
 
 	const openProject = (index: number) => setSelectedProject(index)
 	const closeProject = () => setSelectedProject(null)
 
 	const startIndex = currentPage * projectsPerPage
-	const currentProjects = projects.slice(
+	const currentProjects = filteredProjects.slice(
 		startIndex,
 		startIndex + projectsPerPage
 	)
 
-	// Safely read container size (fallback to 0 if not defined yet)
+	// Get container dimensions.
 	const containerWidth = containerRef.current?.offsetWidth ?? 0
 	const containerHeight = containerRef.current?.offsetHeight ?? 0
 
 	return (
 		<div className="project-grid-container" ref={containerRef}>
+			{/* Filter Buttons */}
+			<div className="filter-buttons">
+				<button
+					className={filter === "all" ? "active" : ""}
+					onClick={() => setFilter("all")}
+				>
+					View All
+				</button>
+				<button
+					className={filter === "fullstack" ? "active" : ""}
+					onClick={() => setFilter("fullstack")}
+				>
+					Fullstack
+				</button>
+				<button
+					className={filter === "frontend" ? "active" : ""}
+					onClick={() => setFilter("frontend")}
+				>
+					Frontend
+				</button>
+				<button
+					className={filter === "backend" ? "active" : ""}
+					onClick={() => setFilter("backend")}
+				>
+					Backend
+				</button>
+			</div>
+
+			{/* Navigation Arrows */}
 			{totalPages > 1 && (
-				<button className="grid-nav prev" onClick={prevPage}>
+				<button
+					className="grid-nav prev"
+					onClick={prevPage}
+					disabled={currentPage === 0}
+				>
 					&larr;
 				</button>
 			)}
@@ -90,7 +149,6 @@ const ProjectGrid: React.FC = () => {
 					<p>No projects found.</p>
 				) : (
 					currentProjects.map((project, i) => {
-						// Style to reflect ratio + minimums, without using non-null assertions:
 						const thisTileWidth = Math.max(
 							containerWidth * WIDTH_RATIO,
 							MIN_TILE_WIDTH
@@ -124,7 +182,8 @@ const ProjectGrid: React.FC = () => {
 									))}
 								</div>
 								<div className="hover-overlay">
-									<p>{project.description.join(" ").slice(0, 150)}...</p>
+									{/* Join description array and slice first 50 characters */}
+									<p>{project.description.join(" ").slice(0, 50)}...</p>
 								</div>
 							</div>
 						)
@@ -133,7 +192,11 @@ const ProjectGrid: React.FC = () => {
 			</div>
 
 			{totalPages > 1 && (
-				<button className="grid-nav next" onClick={nextPage}>
+				<button
+					className="grid-nav next"
+					onClick={nextPage}
+					disabled={currentPage === totalPages - 1}
+				>
 					&rarr;
 				</button>
 			)}
@@ -141,6 +204,7 @@ const ProjectGrid: React.FC = () => {
 			{selectedProject !== null && (
 				<div className="project-modal-overlay" onClick={closeProject}>
 					<div className="project-modal" onClick={(e) => e.stopPropagation()}>
+						{/* Pass the full project info to the modal */}
 						<ProjectCard project={projects[selectedProject]} />
 						<div className="modal-nav">
 							<button

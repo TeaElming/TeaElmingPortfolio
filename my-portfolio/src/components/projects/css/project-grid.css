@@ -2,26 +2,60 @@
   width: 100%;
   height: 90%;
   position: relative;
-  overflow: hidden; /* Prevent overflow */
+  overflow: hidden;
+  /* Prevent overflow */
   border: 1px solid #ccc;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.filter-buttons button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover {
+  background-color: #ccc;
+}
+
+.filter-buttons button:disabled {
+  cursor: default;
+  opacity: 0.6;
 }
 
 .project-grid {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;       /* Fill container */
-  overflow: hidden;   /* Prevent overflow */
-  justify-content: center;    /* Center horizontally */
-  align-content: center;      /* Center rows within extra space */
-  align-items: center;        /* Center items along cross-axis */
+  height: 100%;
+  /* Fill container */
+  overflow: hidden;
+  /* Prevent overflow */
+  justify-content: center;
+  /* Center horizontally */
+  align-content: center;
+  /* Center rows within extra space */
+  align-items: center;
+  /* Center items along cross-axis */
 }
 
 .project-tile {
   position: relative;
-  background: #eee; /* placeholder background */
+  background: #eee;
+  /* placeholder background */
   cursor: pointer;
-  box-sizing: border-box; /* ensures margin/padding doesn't expand tile size */
+  box-sizing: border-box;
+  /* ensures margin/padding doesn't expand tile size */
 }
 
 /* Hover overlay to show partial text */
@@ -62,7 +96,7 @@
   box-sizing: border-box;
 }
 
-/* Simple nav buttons for the grid */
+/* Grid nav buttons */
 .grid-nav {
   position: absolute;
   top: 50%;
@@ -72,6 +106,12 @@
   border: none;
   padding: 10px;
   cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.grid-nav:disabled {
+  cursor: default;
+  opacity: 0.5;
 }
 
 .grid-nav.prev {
