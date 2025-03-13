@@ -182,8 +182,8 @@ const ProjectGrid: React.FC = () => {
 									))}
 								</div>
 								<div className="hover-overlay">
-									{/* Join description array and slice first 50 characters */}
-									<p>{project.description.join(" ").slice(0, 50)}...</p>
+									{/* Join description array and slice first 150 characters */}
+									<p>{project.description.join(" ").slice(0, 150)}...</p>
 								</div>
 							</div>
 						)
