@@ -1,0 +1,19 @@
+[data-version='prettier'][data-theme="dark"] {
+  --bg-gradient: linear-gradient(to bottom, rgba(40, 54, 24, 0.9) 50%, rgba(96, 108, 56, 0.8) 90%);
+  --bg-pattern: url("/imgs/leaves.png");
+  --bg-color: #283618;
+  --text-color: #fefae0;
+  --cursor-glow: #606c38;
+  --footer-bg: #dda15e;
+  --footer-text: #bc6c25;
+}
+
+[data-version='prettier'][data-theme="dark"][data-page='start'] #root {
+  background-image: url("/imgs/dark-green-wave.jpg");
+}
+
+[data-version='prettier'][data-theme="dark"][data-page='other'] #root {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.65)),
+    url("/imgs/leaves.jpg");
+}

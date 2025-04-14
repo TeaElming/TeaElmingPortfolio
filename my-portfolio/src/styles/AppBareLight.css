@@ -1,0 +1,32 @@
+[data-version='bare'][data-theme="light"] #root {
+  background-image: url("/imgs/colourgradientlight.jpg");
+  color: #000000;
+}
+
+[data-version='bare'] body {
+  font-family: "Arial", sans-serif;
+  scroll-behavior: smooth;
+}
+
+[data-version='bare'] #root {
+  width: 100vw;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+[data-version='bare'] div[style*="scroll-snap-type"] {
+  scrollbar-width: none;
+}
+
+[data-version='bare'] div[style*="scroll-snap-type"]::-webkit-scrollbar {
+  display: none;
+}
+
+[data-version='bare'] .cursor-glow {
+  background: rgba(0, 0, 0, 0.1);
+  filter: blur(40px);
+}
