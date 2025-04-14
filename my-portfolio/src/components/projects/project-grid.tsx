@@ -1,4 +1,3 @@
-/** @format */
 import React, { useState, useEffect, useRef } from "react"
 import ProjectCard, { ProjectData } from "./project-card"
 import "./css/project-grid.css"
@@ -22,6 +21,18 @@ const ProjectGrid: React.FC = () => {
 
 	const containerRef = useRef<HTMLDivElement>(null)
 
+	// When modal opens/closes, update body class
+	useEffect(() => {
+		const body = document.querySelector("body")
+		if (selectedProject !== null) {
+			body?.classList.add("modal-open")
+		} else {
+			body?.classList.remove("modal-open")
+		}
+		// Cleanup in case component unmounts while modal is open.
+		return () => body?.classList.remove("modal-open")
+	}, [selectedProject])
+
 	useEffect(() => {
 		fetch("/json/projects.json")
 			.then((response) => response.json())
@@ -37,7 +48,6 @@ const ProjectGrid: React.FC = () => {
 	// Filter projects based on selected filter.
 	const filteredProjects = projects.filter((project) => {
 		if (filter === "all") return true
-		// Assuming project.stack is a string such as "frontend", "backend", or "fullstack".
 		return project.stack.toLowerCase() === filter
 	})
 
@@ -182,7 +192,6 @@ const ProjectGrid: React.FC = () => {
 									))}
 								</div>
 								<div className="hover-overlay">
-									{/* Join description array and slice first 150 characters */}
 									<p>{project.description.join(" ").slice(0, 150)}...</p>
 								</div>
 							</div>
@@ -204,7 +213,6 @@ const ProjectGrid: React.FC = () => {
 			{selectedProject !== null && (
 				<div className="project-modal-overlay" onClick={closeProject}>
 					<div className="project-modal" onClick={(e) => e.stopPropagation()}>
-						{/* Pass the full project info to the modal */}
 						<ProjectCard project={projects[selectedProject]} />
 						<div className="modal-nav">
 							<button

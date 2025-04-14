@@ -1,3 +1,4 @@
+/* Prettier mode - Light */
 [data-version='prettier'][data-theme="light"] .project-card {
   border: 1px solid #ccc;
   padding: 16px;
@@ -7,47 +8,47 @@
   width: 100%;
   height: 350px;
   overflow-y: auto;
-  /* vertical scroll for overflow content */
   box-sizing: border-box;
 }
 
+/* Prettier mode - Dark */
 [data-version='prettier'][data-theme="dark"] .project-card {
   border: 1px solid #ccc;
   padding: 16px;
   margin: 16px;
   border-radius: 8px;
-  background: #283618;
+  background: var(--footer-bg);
   width: 100%;
   height: 350px;
   overflow-y: auto;
-  /* vertical scroll for overflow content */
   box-sizing: border-box;
 }
 
+/* Bare mode - Light */
 [data-version='bare'][data-theme="light"] .project-card {
-  border: 1px solid #ccc;
   padding: 16px;
   margin: 16px;
   border-radius: 8px;
-  background: #bd0000;
   width: 100%;
   height: 350px;
   overflow-y: auto;
-  /* vertical scroll for overflow content */
   box-sizing: border-box;
 }
 
+/* Bare mode - Dark */
 [data-version='bare'][data-theme="dark"] .project-card {
-  border: 1px solid #ccc;
   padding: 16px;
   margin: 16px;
   border-radius: 8px;
-  background: #283618;
   width: 100%;
   height: 350px;
   overflow-y: auto;
-  /* vertical scroll for overflow content */
   box-sizing: border-box;
+}
+
+/* Remove margin for the project card inside the modal in bare mode */
+[data-version='bare'] .project-modal .project-card {
+  margin: 0;
 }
 
 .project-title {
