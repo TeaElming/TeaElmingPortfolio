@@ -1,7 +1,7 @@
 [data-version='bare'][data-theme="dark"] #root {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.65)),
-    url("/imgs/starsdark.jpg");
+    url("/imgs/northernlightsdark.jpg");
   background-size: 100% auto;
   background-repeat: repeat-y;
   background-position: top center;

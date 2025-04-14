@@ -1,11 +1,12 @@
 [data-version='prettier'] {
   --bg-gradient: linear-gradient(to bottom, rgba(241, 248, 233, 0.9) 30%, rgba(197, 225, 165, 0.9) 90%);
   --bg-pattern: url("/imgs/leaves.png");
-  --bg-color: #f1f8e9;
-  --text-color: #3a403c;
-  --cursor-glow: #dae5b4;
-  --footer-bg: #b9c88d;
-  --footer-text: #4a4e23;
+  --bg-color: #ffffff;
+  --text-color: #2f3d2f;
+  --cursor-glow: #bce4ae;
+  --footer-bg: #7ca567;
+  --footer-text: #ffffff;
+  --accent-color: #a4c48c;
   --navbar-height: 60px;
   --footer-height: 50px;
 }
@@ -110,8 +111,4 @@
 
 [data-version='prettier'][data-page='start'] #root {
   background-image: url("/imgs/green-wave2.jpg");
-}
-
-[data-version='prettier'][data-page='other'] #root {
-  background-image: url("/imgs/green-wave.jpg");
 }
