@@ -45,9 +45,13 @@ const BasicLayout = () => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
 					const id = entry.target.getAttribute("id")
-					if (id && location.pathname !== `/${id}`) {
-						navigate(`/${id}`, { replace: true })
+					if (id) {
+						const targetPath = id === "start" ? "/" : `/${id}`
+						if (location.pathname !== targetPath) {
+							navigate(targetPath, { replace: true })
+						}
 					}
+          
 				}
 			})
 		}

@@ -8,7 +8,7 @@ import {
 	useLocation,
 } from "react-router-dom"
 import { useState, useEffect } from "react"
-
+import { Navigate } from "react-router-dom"
 import Form from "react-bootstrap/Form"
 
 import "./App.css"
@@ -149,9 +149,11 @@ function AppContent({
 			<div className="content-container">
 				<Routes>
 					{version === "bare" ? (
-						<Route path="/*" element={<BasicLayout />} />
+						<>
+							<Route path="/start" element={<Navigate to="/" replace />} />
+							<Route path="/*" element={<BasicLayout />} />
+						</>
 					) : (
-						// Prettier: separate pages for each route
 						<>
 							<Route path="/" element={<StartP />} />
 							<Route path="/education" element={<EducationP />} />
