@@ -112,3 +112,12 @@
 [data-version='prettier'][data-page='start'] #root {
   background-image: url("/imgs/green-wave2.jpg");
 }
+
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #91d17a !important;
+}
