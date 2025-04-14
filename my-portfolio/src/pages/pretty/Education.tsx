@@ -4,7 +4,10 @@ import React, { useEffect, useState } from "react"
 import Container from "react-bootstrap/Container"
 import ProgressBar from "react-bootstrap/ProgressBar"
 import "./css/Education.css"
-import { UniversityData, Year } from "../../components/page-sections/pretty/types"
+import {
+	UniversityData,
+	Year,
+} from "../../components/page-sections/pretty/types"
 
 const EducationP: React.FC = () => {
 	const [edinburghData, setEdinburghData] = useState<UniversityData | null>(
@@ -46,7 +49,9 @@ const EducationP: React.FC = () => {
 	const renderCourses = (data: Year[]) =>
 		data.map((yearData: Year) => (
 			<div key={yearData.year} className="education-entry">
-				<h4 className="year-title"> --- Year {yearData.year} --- </h4>
+				<h4 className="year-title"> Year {yearData.year}
+          
+        </h4>
 				{yearData.courses.map((course, idx) => (
 					<div key={idx} className="course-entry">
 						<h5>
@@ -61,17 +66,16 @@ const EducationP: React.FC = () => {
 			</div>
 		))
 
-  //--------------------------------------------------------------------------------
-  // Calculate progress for Comp Sci Degree
+	//--------------------------------------------------------------------------------
+	// Calculate progress for Comp Sci Degree
 	const now = Date.now()
 	const degreeStart = new Date("2022-08-29").getTime()
 	const degreeEnd = new Date("2025-06-20").getTime()
 	const progress = ((now - degreeStart) / (degreeEnd - degreeStart)) * 100
-  //--------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------
 
 	return (
 		<Container className="education-container">
-
 			<div className="degree-info">
 				<div className="uni-section">
 					<h5>Computer Science</h5>

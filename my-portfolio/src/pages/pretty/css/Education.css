@@ -38,6 +38,7 @@
   border: 1px solid #ccc;
 }
 
+
 .scrollable-column {
   flex: 1;
   overflow-y: auto;
@@ -64,6 +65,23 @@
   color: #555;
 }
 
+[data-theme="dark"] .year-title {
+  color: var(--footer-text) !important;
+}
+
+[data-theme="dark"] .course-entry p {
+  color: var(--footer-text) !important;
+}
+
+
+[data-version='prettier'] .course-search-input {
+  background-color: var(--accent-color);
+}
+
+[data-version='prettier'] input.course-search-input::placeholder {
+  color: var(--text-color) !important;
+}
+
 .scrollable-column::-webkit-scrollbar {
   width: 6px;
 }
@@ -71,4 +89,10 @@
 .scrollable-column::-webkit-scrollbar-thumb {
   background-color: #aaa;
   border-radius: 3px;
+}
+
+/* Example: custom green bar */
+[data-version='prettier'] .progress-bar {
+  background-color: var(--accent-color) !important;
+  color: var(--text-color);
 }
