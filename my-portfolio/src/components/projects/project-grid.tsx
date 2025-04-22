@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect, useRef } from "react"
 import ProjectCard, { ProjectData } from "./project-card"
 import "./css/project-grid.css"
@@ -213,12 +215,15 @@ const ProjectGrid: React.FC = () => {
 			{selectedProject !== null && (
 				<div className="project-modal-overlay" onClick={closeProject}>
 					<div className="project-modal" onClick={(e) => e.stopPropagation()}>
-						<ProjectCard project={projects[selectedProject]} />
+						<ProjectCard project={filteredProjects[selectedProject]} />
 						<div className="modal-nav">
-							<button
+
+              <button
 								onClick={() =>
 									setSelectedProject(
-										(prev) => (prev! - 1 + projects.length) % projects.length
+										(prev) =>
+											(prev! - 1 + filteredProjects.length) %
+											filteredProjects.length
 									)
 								}
 							>
@@ -226,7 +231,9 @@ const ProjectGrid: React.FC = () => {
 							</button>
 							<button
 								onClick={() =>
-									setSelectedProject((prev) => (prev! + 1) % projects.length)
+									setSelectedProject(
+										(prev) => (prev! + 1) % filteredProjects.length
+									)
 								}
 							>
 								Next &gt;
