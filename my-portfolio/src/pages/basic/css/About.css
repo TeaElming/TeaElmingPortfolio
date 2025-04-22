@@ -1,23 +1,12 @@
 .aboutB-container {
-  /*background-color: rgba(255, 255, 255, 0.17); */
   height: 100vh;
   overflow: auto;
-
-  /* Enable flex layout to center vertically */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 10px;
 }
-
-
-/*[data-version='bare'][data-theme="light"] .aboutBB-container {
-}
-
-[data-version='bare'][data-theme="dark"] .aboutBB-container {
-} */
 
 .aboutB-header h1 {
   text-align: center;
@@ -30,7 +19,6 @@
   flex-wrap: wrap;
 }
 
-/* Left column: introduction and skills */
 .aboutB-info {
   flex: 2;
   min-width: 300px;
@@ -48,7 +36,6 @@
   margin: 0.5rem 0;
 }
 
-/* Right column: contact details and CV link */
 .aboutB-contact {
   flex: 1;
   min-width: 250px;
@@ -108,16 +95,24 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 2rem;
+  background-color: var(--form-bg);
   border-radius: 8px;
   position: relative;
   width: 90%;
   max-width: 500px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+[data-version='prettier'] .modal-content {
+  max-height: calc(100vh - 55px);
+  margin-top: 5px;
+  margin-bottom: 50px;
 }
 
 .close-button {
@@ -150,12 +145,9 @@
   color: #0056b3;
 }
 
-
-
 [data-version='bare'][data-theme="light"] a {
   color: #283618;
 }
-
 
 [data-version='bare'][data-theme="light"] a:hover {
   color: #0056b3;

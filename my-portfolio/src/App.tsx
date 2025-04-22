@@ -26,7 +26,7 @@ import PortfolioFooter from "./components/page-sections/pretty/Footer"
 function App() {
 	const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark")
 	const [version, setVersion] = useState<"prettier" | "bare">(
-		(localStorage.getItem("version") as "prettier" | "bare") || "prettier"
+		(localStorage.getItem("version") as "prettier" | "bare") || "bare"
 	)
 
 	const toggleTheme = () => {
@@ -115,7 +115,7 @@ function AppContent({
 				}}
 			>
 				<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-					<span>Pretty</span>
+					<span>Personal</span>
 					<Form.Check
 						type="switch"
 						id="version-switch"
@@ -123,7 +123,7 @@ function AppContent({
 						onChange={toggleVersion}
 						style={{ margin: 0 }}
 					/>
-					<span>Basic</span>
+					<span>Neutral</span>
 				</div>
 
 				<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>

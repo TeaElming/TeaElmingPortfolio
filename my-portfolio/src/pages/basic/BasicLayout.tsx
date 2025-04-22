@@ -51,7 +51,6 @@ const BasicLayout = () => {
 							navigate(targetPath, { replace: true })
 						}
 					}
-          
 				}
 			})
 		}
@@ -70,11 +69,11 @@ const BasicLayout = () => {
 				<section id="start" className="full-page">
 					<StartB />
 				</section>
-				<section id="education" className="full-page">
-					<EducationB />
-				</section>
 				<section id="projects" className="full-page">
 					<ProjectsB />
+				</section>
+				<section id="education" className="full-page">
+					<EducationB />
 				</section>
 				<section id="about" className="full-page">
 					<AboutB />

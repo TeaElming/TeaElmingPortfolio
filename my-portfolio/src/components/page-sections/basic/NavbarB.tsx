@@ -17,15 +17,16 @@ const NavbarB = () => {
 							</Nav.Link>
 						</li>
 						<li>
-							<Nav.Link as={NavLink} to="/education">
-								Education
-							</Nav.Link>
-						</li>
-						<li>
 							<Nav.Link as={NavLink} to="/projects">
 								Projects
 							</Nav.Link>
 						</li>
+						<li>
+							<Nav.Link as={NavLink} to="/education">
+								Education
+							</Nav.Link>
+						</li>
+
 						<li>
 							<Nav.Link as={NavLink} to="/about">
 								About
