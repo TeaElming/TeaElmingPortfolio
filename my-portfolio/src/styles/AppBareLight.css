@@ -30,3 +30,14 @@
   background: rgba(0, 0, 0, 0.1);
   filter: blur(40px);
 }
+
+/* Variable definitions for light and dark themes */
+[data-version='bare'][data-theme="light"] {
+  --edu-bg: #fff;
+  --edu-text: #283618;
+  --edu-muted-text: #555;
+  --edu-shadow: rgba(0, 0, 0, 0.1);
+  --edu-border: #ccc;
+  --edu-button-bg: #283618;
+  --edu-button-hover: #4a632f;
+}
