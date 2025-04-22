@@ -192,7 +192,27 @@
         "An interactive website GUI allowing users to select a LSOA and view its education levels according to Census data. The GUI allowed for selections from map, list, or search of specific LSOA. In addition, comparison could be made against the average education levels based on the IMD-score.",
         "Using only LSOAs for visualisation is not ideal since each area is so small, but it was suitable for the purpose of the assignment."
       ],
-      "imgs": ["/imgs/projects/startPage.png"],
+      "imgs": [
+        "/imgs/projects/startPage.png"
+      ],
+      "video": ""
+    },
+    {
+      "title": "robust-sentiment-swedish-api-limited",
+      "url": "https://github.com/TeaElming/robust-sentiment-swedish-api-limited",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Transformers",
+        "Docker"
+      ],
+      "stack": "backend",
+      "description": [
+        "This FastAPI project offers a modular sentiment analysis API using KBLab's Swedish BERT models. It is split into two microservices: one for tokenization and one for sentiment classification.",
+        "Supports long texts through 512-token sliding windows with 50% overlap, making it suitable for complex and lengthy Swedish-language input.",
+        "Includes clearly separated architecture for easy scaling, RESTful endpoints for both tokenization and sentiment analysis, and is fully containerisable using Docker."
+      ],
+      "imgs": [],
       "video": ""
     }
   ]
