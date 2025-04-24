@@ -13,6 +13,8 @@ const BasicLayout = () => {
 	const navigate = useNavigate()
 	const isScrollingRef = useRef(false)
 
+  
+
 	// When the URL changes (via a nav click), scroll to the proper section
 	useEffect(() => {
 		const path =

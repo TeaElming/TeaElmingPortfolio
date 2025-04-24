@@ -28,6 +28,7 @@ function App() {
 	const [version, setVersion] = useState<"prettier" | "bare">(
 		(localStorage.getItem("version") as "prettier" | "bare") || "bare"
 	)
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
 	const toggleTheme = () => {
 		const newTheme = theme === "dark" ? "light" : "dark"
@@ -47,7 +48,13 @@ function App() {
 		document.documentElement.setAttribute("data-version", version)
 	}, [theme, version])
 
-	// Wrap all the actual route + location logic in a subcomponent
+	useEffect(() => {
+		const handleResize = () => setWindowWidth(window.innerWidth)
+		window.addEventListener("resize", handleResize)
+		return () => window.removeEventListener("resize", handleResize)
+	}, [])
+
+	// Pass windowWidth as prop
 	return (
 		<Router>
 			<AppContent
@@ -55,6 +62,7 @@ function App() {
 				version={version}
 				toggleTheme={toggleTheme}
 				toggleVersion={toggleVersion}
+				windowWidth={windowWidth}
 			/>
 		</Router>
 	)
@@ -65,6 +73,7 @@ interface AppContentProps {
 	version: "prettier" | "bare"
 	toggleTheme: () => void
 	toggleVersion: () => void
+	windowWidth: number
 }
 
 function AppContent({
@@ -72,6 +81,7 @@ function AppContent({
 	version,
 	toggleTheme,
 	toggleVersion,
+	windowWidth,
 }: AppContentProps) {
 	const location = useLocation()
 
@@ -100,44 +110,50 @@ function AppContent({
 
 	return (
 		<>
-			{/* Toggle container */}
-			<div
-				className="toggle-container"
-				style={{
-					position: "fixed",
-					top: "10px",
-					right: "10px",
-					zIndex: 999,
-					display: "flex",
-					alignItems: "center",
-					gap: "25px",
-					fontSize: "0.9rem",
-				}}
-			>
-				<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-					<span>Personal</span>
-					<Form.Check
-						type="switch"
-						id="version-switch"
-						checked={version === "bare"}
-						onChange={toggleVersion}
-						style={{ margin: 0 }}
-					/>
-					<span>Neutral</span>
-				</div>
+			{/* Toggle container - only render under correct conditions */}
+			{!(
+				version === "bare" &&
+				windowWidth < 1300 &&
+				location.pathname !== "/"
+			) && (
+				<div
+					className="toggle-container"
+					style={{
+						position: "fixed",
+						top: "10px",
+						right: "10px",
+						zIndex: 999,
+						display: "flex",
+						alignItems: "center",
+						gap: "25px",
+						fontSize: "0.9rem",
+					}}
+				>
+					<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+						<span>Personal</span>
+						<Form.Check
+							type="switch"
+							id="version-switch"
+							checked={version === "bare"}
+							onChange={toggleVersion}
+							style={{ margin: 0 }}
+						/>
+						<span>Neutral</span>
+					</div>
 
-				<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-					<span>Light</span>
-					<Form.Check
-						type="switch"
-						id="theme-switch"
-						checked={theme === "dark"}
-						onChange={toggleTheme}
-						style={{ margin: 0 }}
-					/>
-					<span>Dark</span>
+					<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+						<span>Light</span>
+						<Form.Check
+							type="switch"
+							id="theme-switch"
+							checked={theme === "dark"}
+							onChange={toggleTheme}
+							style={{ margin: 0 }}
+						/>
+						<span>Dark</span>
+					</div>
 				</div>
-			</div>
+			)}
 
 			{/* Render the navbar only in prettier mode */}
 			{version === "prettier" && <PortfolioNavbar />}
