@@ -160,3 +160,36 @@
 [data-version='bare'][data-theme="dark"] a:hover {
   color: #0056b3;
 }
+
+
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 1000px) {
+  .aboutB-content {
+    flex-direction: column;
+    gap: 32px;
+    max-width: 98vw;
+    padding: 20px 4vw;
+    height: 100vh;
+    overflow-y: auto; /* scroll if content overflows */
+  }
+
+  .aboutB-info,
+  .aboutB-contact {
+    margin-left: 0;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Optional: make the modal overlay always fill the screen and be scrollable */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
