@@ -23,12 +23,21 @@ import BasicLayout from "./pages/basic/BasicLayout"
 import PortfolioNavbar from "./components/page-sections/pretty/Navbar"
 import PortfolioFooter from "./components/page-sections/pretty/Footer"
 
+import MobileSPA from "./pages/mobileSPA/MobileSPA"
+
+function isMobileDevice(): boolean {
+	return /android|iphone|ipad|ipod|windows phone/i.test(navigator.userAgent)
+}
+
 function App() {
 	const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark")
 	const [version, setVersion] = useState<"prettier" | "bare">(
 		(localStorage.getItem("version") as "prettier" | "bare") || "bare"
 	)
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+	const [isMobileView, setIsMobileView] = useState(
+		window.innerWidth < 1024 || isMobileDevice()
+	)
 
 	const toggleTheme = () => {
 		const newTheme = theme === "dark" ? "light" : "dark"
@@ -49,21 +58,29 @@ function App() {
 	}, [theme, version])
 
 	useEffect(() => {
-		const handleResize = () => setWindowWidth(window.innerWidth)
+		const handleResize = () => {
+			const newWidth = window.innerWidth
+			setWindowWidth(newWidth)
+			setIsMobileView(newWidth < 1024 || isMobileDevice())
+		}
+		handleResize() // Ensure accurate value on mount
 		window.addEventListener("resize", handleResize)
 		return () => window.removeEventListener("resize", handleResize)
 	}, [])
 
-	// Pass windowWidth as prop
 	return (
 		<Router>
-			<AppContent
-				theme={theme}
-				version={version}
-				toggleTheme={toggleTheme}
-				toggleVersion={toggleVersion}
-				windowWidth={windowWidth}
-			/>
+			{isMobileView ? (
+				<MobileSPA />
+			) : (
+				<AppContent
+					theme={theme}
+					version={version}
+					toggleTheme={toggleTheme}
+					toggleVersion={toggleVersion}
+					windowWidth={windowWidth}
+				/>
+			)}
 		</Router>
 	)
 }

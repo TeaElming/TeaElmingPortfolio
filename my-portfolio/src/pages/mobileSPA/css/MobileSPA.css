@@ -1,0 +1,11 @@
+.mobile-spa {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 8vw 2vw 8vw 2vw;
+  width: 100vw;
+  box-sizing: border-box;
+}
+.mobile-spa > * {
+  margin-bottom: 32px;
+}
