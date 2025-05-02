@@ -1,0 +1,41 @@
+.mobile-navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu-toggle {
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+  color: var(--edu-text);
+}
+
+.theme-toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.mobile-dropdown {
+	position: fixed;
+	top: 48px;
+	left: 0;
+	right: 0;
+	background: var(--bs-body-bg);
+	border-bottom: 1px solid var(--bs-border-color);
+	z-index: 999;
+	text-align: center;
+}
+
+.dropdown-item {
+	padding: 10px;
+	border-top: 1px solid var(--bs-border-color);
+	cursor: pointer;
+}

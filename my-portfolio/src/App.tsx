@@ -51,7 +51,6 @@ function App() {
 		localStorage.setItem("version", newVersion)
 	}
 
-	// Apply theme + version to <html> attributes
 	useEffect(() => {
 		document.documentElement.setAttribute("data-theme", theme)
 		document.documentElement.setAttribute("data-version", version)
@@ -63,7 +62,7 @@ function App() {
 			setWindowWidth(newWidth)
 			setIsMobileView(newWidth < 1024 || isMobileDevice())
 		}
-		handleResize() // Ensure accurate value on mount
+		handleResize()
 		window.addEventListener("resize", handleResize)
 		return () => window.removeEventListener("resize", handleResize)
 	}, [])
@@ -71,7 +70,7 @@ function App() {
 	return (
 		<Router>
 			{isMobileView ? (
-				<MobileSPA />
+				<MobileSPA theme={theme} toggleTheme={toggleTheme} />
 			) : (
 				<AppContent
 					theme={theme}
@@ -79,6 +78,7 @@ function App() {
 					toggleTheme={toggleTheme}
 					toggleVersion={toggleVersion}
 					windowWidth={windowWidth}
+					isMobileView={isMobileView}
 				/>
 			)}
 		</Router>
@@ -91,6 +91,7 @@ interface AppContentProps {
 	toggleTheme: () => void
 	toggleVersion: () => void
 	windowWidth: number
+	isMobileView: boolean
 }
 
 function AppContent({
@@ -99,6 +100,7 @@ function AppContent({
 	toggleTheme,
 	toggleVersion,
 	windowWidth,
+	isMobileView,
 }: AppContentProps) {
 	const location = useLocation()
 
@@ -110,7 +112,6 @@ function AppContent({
 		}
 	}, [location])
 
-	// Cursor glow effect
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
 			const glow = document.getElementById("cursor-glow")
@@ -127,10 +128,9 @@ function AppContent({
 
 	return (
 		<>
-			{/* Toggle container - only render under correct conditions */}
 			{!(
 				version === "bare" &&
-				windowWidth < 1300 &&
+				windowWidth < 1100 &&
 				location.pathname !== "/"
 			) && (
 				<div
@@ -146,18 +146,22 @@ function AppContent({
 						fontSize: "0.9rem",
 					}}
 				>
-					<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-						<span>Personal</span>
-						<Form.Check
-							type="switch"
-							id="version-switch"
-							checked={version === "bare"}
-							onChange={toggleVersion}
-							style={{ margin: 0 }}
-						/>
-						<span>Neutral</span>
-					</div>
+					{/* Only show version toggle if not in mobile view */}
+					{!isMobileView && (
+						<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+							<span>Personal</span>
+							<Form.Check
+								type="switch"
+								id="version-switch"
+								checked={version === "bare"}
+								onChange={toggleVersion}
+								style={{ margin: 0 }}
+							/>
+							<span>Neutral</span>
+						</div>
+					)}
 
+					{/* Always show theme toggle */}
 					<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
 						<span>Light</span>
 						<Form.Check
@@ -172,13 +176,10 @@ function AppContent({
 				</div>
 			)}
 
-			{/* Render the navbar only in prettier mode */}
 			{version === "prettier" && <PortfolioNavbar />}
 
-			{/* Cursor glow element */}
 			<div id="cursor-glow" className="cursor-glow"></div>
 
-			{/* Main content */}
 			<div className="content-container">
 				<Routes>
 					{version === "bare" ? (
@@ -197,7 +198,6 @@ function AppContent({
 				</Routes>
 			</div>
 
-			{/* Render the footer only in prettier mode */}
 			{version === "prettier" && <PortfolioFooter />}
 		</>
 	)
