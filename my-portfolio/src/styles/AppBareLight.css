@@ -1,5 +1,12 @@
 [data-version='bare'][data-theme="light"] #root {
-  background-image: url("/imgs/colourgradientlight.jpg");
+  background: linear-gradient(
+    -45deg,
+    #c9f4ce,
+    #d6ded1,
+    #d6f4d7,
+    #e8f8c7,
+    #fbfbd0
+  );
   color: #000000;
 }
 
