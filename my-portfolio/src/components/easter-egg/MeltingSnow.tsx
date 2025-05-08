@@ -28,8 +28,7 @@ const MeltingSnow: React.FC = () => {
 				Arctic. It was brilliant, until the fuse box broke, leaving us without
 				power and heating, causing the water pipes to freeze. Four days were
 				spent melting snow on the woodfired stove to get water, cutting and
-				collecting logs from the barn outside daily. A bit chilly at the time,
-				but a great memory!
+				collecting logs from the barn outside daily. It was like trying to run a modern web app without Node.js — cold, unsupported, and everything took way longer than it should.
 			</p>
 
 			<video

@@ -15,8 +15,7 @@ const LatestProject: React.FC = () => {
 			<h3>Last summer's non-coding build.</h3>
 			<p>
 				<i>
-					Cutting and sanding 60 slates of timber without electric tools took
-					its time.
+					Cutting and sanding 60 slates of timber by hand felt a lot like building a full-stack app without any libraries — technically possible, deeply character-building, but I will never take <code>npm install</code> for granted again.”
 				</i>
 			</p>
 			<img

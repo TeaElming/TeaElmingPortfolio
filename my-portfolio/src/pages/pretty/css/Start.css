@@ -37,6 +37,7 @@
   display: inline-block; /* Ensures block-level behavior for uniformity */
 }
 
+
 .quick-link:hover {
   background-color: var(--quick-link-hover-bg);
   color: var(--quick-link-hover-text);

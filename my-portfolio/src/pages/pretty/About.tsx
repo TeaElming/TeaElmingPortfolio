@@ -4,6 +4,9 @@ import React, { useState } from "react"
 import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
 import RequestCallForm from "../../components/forms/request-call-form"
 import "./css/About.css"
+import EasterEgg from "../../components/easter-egg/EasterEgg"
+import MeltingSnow from "../../components/easter-egg/MeltingSnow"
+import SparringHobby from "../../components/easter-egg/SparringHobby"
 
 const AboutP: React.FC = () => {
 	const [showModal, setShowModal] = useState(false)
@@ -17,8 +20,9 @@ const AboutP: React.FC = () => {
 				<section className="about-info">
 					<div className="about-intro">
 						<p>
-							I am a soon-to-be Computer Science-graduate who thrives in challenging
-							environments that require problem-solving and continuous learning.
+							I am a soon-to-be Computer Science-graduate who thrives in
+							challenging environments that require problem-solving and
+							continuous learning.
 						</p>
 					</div>
 					<section className="about-skills">
@@ -104,6 +108,11 @@ const AboutP: React.FC = () => {
 					>
 						View CV
 					</a>
+					<EasterEgg
+						child={<MeltingSnow />}
+						hoverText="A character building experience."
+					/>
+					<EasterEgg child={<SparringHobby />} hoverText="Hobbies?" />
 
 					{showModal && (
 						<div className="modal-overlay" onClick={closeModal}>

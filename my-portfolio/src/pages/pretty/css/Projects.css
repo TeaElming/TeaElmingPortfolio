@@ -42,6 +42,13 @@
   overflow: auto;
 }
 
+.hidden-EasterEgg {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  z-index: 1000; /* ensure it's above other content */
+}
+
 /* Optional: style the scrollbar for .projects-list-section */
 .projects-list-section::-webkit-scrollbar {
   width: 6px;

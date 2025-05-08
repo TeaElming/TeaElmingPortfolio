@@ -24,7 +24,7 @@ const SparringHobby: React.FC = () => {
     >
       <h3>One of my favourite past times.</h3>
       <p>
-        I have been training different martial arts for over 20 years. I have been lucky enough to get to spend a lot of time in Thailand the past few years, training Muay Thai daily. It is a great form of exercise and so much fun!
+        I have been training different martial arts for over 20 years. I have been lucky enough to get to spend a lot of time in Thailand the past few years, training Muay Thai daily. Great for fitness — and a surprisingly accurate metaphor for debugging: take hits, stay calm, and remember it's all part of the process.
       </p>
 
       <video

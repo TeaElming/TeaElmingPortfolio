@@ -4,30 +4,33 @@ import { Link } from "react-router-dom"
 import "./css/Start.css"
 
 import EasterEgg from "../../components/easter-egg/EasterEgg"
-import LatestProject from "../../components/easter-egg/LatestProject"
 import FavouriteGift from "../../components/easter-egg/FavouriteGift"
-import MeltingSnow from "../../components/easter-egg/MeltingSnow"
-import SparringHobby from "../../components/easter-egg/SparringHobby"
-
 
 const StartP: React.FC = () => {
 	return (
 		<div>
 			<div className="startPage-container">
 				<h1>Tea Elming</h1>
-				<p>Software Developer</p>
-        <EasterEgg child={<LatestProject />} hoverText="Want to see my latest non-coding build?" />
-        <EasterEgg child={<FavouriteGift />} hoverText="One of my favourite birthday gifts." />
-
-        <EasterEgg child={<MeltingSnow />} hoverText="A character building experience." />
-        <EasterEgg child={<SparringHobby />} hoverText="Click to see how I like to exercise." />
+				<p>
+					Software Developer{" "}
+					<EasterEgg
+						child={<FavouriteGift />}
+						hoverText="One of my favourite birthday gifts."
+					/>
+				</p>
 
 				{/* Quick Access Section */}
 				<div className="quick-access">
-					<Link to="/projects" className="quick-link">Software Projects</Link>
+					<Link to="/projects" className="quick-link">
+						Software Projects
+					</Link>
 
-          <Link to="/education" className="quick-link">Education</Link>
-          <Link to="/about" className="quick-link">Quick Overview</Link>
+					<Link to="/education" className="quick-link">
+						Education
+					</Link>
+					<Link to="/about" className="quick-link">
+						Quick Overview
+					</Link>
 				</div>
 			</div>
 
