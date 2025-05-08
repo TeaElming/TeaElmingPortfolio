@@ -3,12 +3,18 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./css/Start.css"
 
+import EasterEgg from "../../components/easter-egg/EasterEgg"
+
+
+const MySecretComponent = () => <div>This is a hidden surprise!</div>
+
 const StartP: React.FC = () => {
 	return (
 		<div>
 			<div className="startPage-container">
 				<h1>Tea Elming</h1>
 				<p>Software Developer</p>
+        <EasterEgg child={<MySecretComponent />} hoverText="Hovering here? 👀" />
 
 				{/* Quick Access Section */}
 				<div className="quick-access">
