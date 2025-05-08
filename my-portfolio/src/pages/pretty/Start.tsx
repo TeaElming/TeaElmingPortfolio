@@ -4,9 +4,11 @@ import { Link } from "react-router-dom"
 import "./css/Start.css"
 
 import EasterEgg from "../../components/easter-egg/EasterEgg"
+import LatestProject from "../../components/easter-egg/LatestProject"
+import FavouriteGift from "../../components/easter-egg/FavouriteGift"
+import MeltingSnow from "../../components/easter-egg/MeltingSnow"
+import SparringHobby from "../../components/easter-egg/SparringHobby"
 
-
-const MySecretComponent = () => <div>This is a hidden surprise!</div>
 
 const StartP: React.FC = () => {
 	return (
@@ -14,7 +16,11 @@ const StartP: React.FC = () => {
 			<div className="startPage-container">
 				<h1>Tea Elming</h1>
 				<p>Software Developer</p>
-        <EasterEgg child={<MySecretComponent />} hoverText="Hovering here? 👀" />
+        <EasterEgg child={<LatestProject />} hoverText="Want to see my latest non-coding build?" />
+        <EasterEgg child={<FavouriteGift />} hoverText="One of my favourite birthday gifts." />
+
+        <EasterEgg child={<MeltingSnow />} hoverText="A character building experience." />
+        <EasterEgg child={<SparringHobby />} hoverText="Click to see how I like to exercise." />
 
 				{/* Quick Access Section */}
 				<div className="quick-access">

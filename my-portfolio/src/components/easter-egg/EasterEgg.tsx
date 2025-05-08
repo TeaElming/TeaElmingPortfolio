@@ -31,10 +31,9 @@ const EasterEgg: React.FC<EasterEggProps> = ({ child, hoverText }) => {
 				<img
 					src={isBroken ? "/imgs/brokenEasterEgg.png" : "/imgs/easterEgg.png"}
 					alt="Easter Egg"
-					style={{ width: "100px", height: "auto" }}
+					style={{ width: "30px", height: "auto" }}
 				/>
 			</div>
-
 			{showPopup && (
 				<div
 					style={{
@@ -57,8 +56,16 @@ const EasterEgg: React.FC<EasterEggProps> = ({ child, hoverText }) => {
 							backgroundColor: "white",
 							padding: "20px",
 							borderRadius: "8px",
-							minWidth: "300px",
-							minHeight: "200px",
+							width: "90vw",
+							maxWidth: "600px",
+							height: "auto",
+							maxHeight: "80vh",
+							overflowY: "auto",
+							overflowX: "hidden",
+							boxSizing: "border-box",
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
 						}}
 					>
 						{child || <div style={{ textAlign: "center" }}>Surprise!</div>}
