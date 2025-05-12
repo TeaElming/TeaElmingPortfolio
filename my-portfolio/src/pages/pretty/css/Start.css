@@ -1,59 +1,86 @@
 .startPage-container {
-  position: relative;        /* establish a positioning context */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	padding: 2rem;
+	box-sizing: border-box;
+	gap: 100px; /* Distance between left and right sections */
+	position: relative;
 }
 
+/* Left Side: Info Text aligned with top of first button */
 .startPage-description {
-  position: absolute;        /* position it relative to .startPage-container */
-  bottom: 100px;
-  left: 100px;
-  width: 500px;
+	position: relative;
+	top: 60px; /* Adjust this value until the top aligns perfectly */
+	max-width: 500px;
+	text-align: left;
 }
 
+/* Right Side: Name, Role, Buttons */
+.right-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 20px;
+}
+
+.name {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin: 0;
+}
+
+.role {
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+/* Quick Access Buttons - Original Styling Preserved */
 .quick-access {
-  display: flex;
-  flex-direction: column; /* Stack links vertically */
-  align-items: center; /* Center the links horizontally */
-  gap: 10px; /* Reduce spacing between links */
-  margin-top: 20px;
-  width: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin-top: 20px;
+	width: 200px;
 }
 
 .quick-link {
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px 0; /* Consistent padding for uniform height */
-  width: 100%; /* Ensure all links are the same width */
-  text-align: center; /* Center text inside the links */
-  border: 2px solid var(--quick-link-border);
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  color: var(--quick-link-text);
-  display: inline-block; /* Ensures block-level behavior for uniformity */
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px 0;
+	width: 100%;
+	text-align: center;
+	border: 2px solid var(--quick-link-border);
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+	color: var(--quick-link-text);
+	display: inline-block;
+	background-color: transparent;
+	cursor: pointer;
 }
 
-
 .quick-link:hover {
-  background-color: var(--quick-link-hover-bg);
-  color: var(--quick-link-hover-text);
+	background-color: var(--quick-link-hover-bg);
+	color: var(--quick-link-hover-text);
 }
 
 /* Light Mode Colors */
 [data-version='prettier'][data-theme="light"] {
-  --quick-link-text: #1d3557;        /* Dark blue text */
-  --quick-link-border: #457b9d;      /* Soft blue border */
-  --quick-link-hover-bg: #457b9d;    /* Blue background on hover */
-  --quick-link-hover-text: #f1faee;  /* Light text on hover */
+	--quick-link-text: #1d3557;
+	--quick-link-border: #457b9d;
+	--quick-link-hover-bg: #457b9d;
+	--quick-link-hover-text: #f1faee;
 }
 
 /* Dark Mode Colors */
 [data-version='prettier'][data-theme="dark"] {
-  --quick-link-text: #f1faee;        /* Light text */
-  --quick-link-border: #a8dadc;      /* Soft cyan border */
-  --quick-link-hover-bg: #a8dadc;    /* Cyan background on hover */
-  --quick-link-hover-text: #1d3557;  /* Dark text on hover */
+	--quick-link-text: #f1faee;
+	--quick-link-border: #a8dadc;
+	--quick-link-hover-bg: #a8dadc;
+	--quick-link-hover-text: #1d3557;
 }

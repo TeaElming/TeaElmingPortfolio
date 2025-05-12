@@ -35,9 +35,11 @@ function App() {
 		(localStorage.getItem("version") as "prettier" | "bare") || "bare"
 	)
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-	const [isMobileView, setIsMobileView] = useState(
-		window.innerWidth < 1024 || isMobileDevice()
-	)
+	// const [isMobileView, setIsMobileView] = useState(
+		//window.innerWidth < 1024 || isMobileDevice()
+	//)
+  const [isMobileView, setIsMobileView] = useState(false) // Force desktop view just for now for testing
+
 
 	const toggleTheme = () => {
 		const newTheme = theme === "dark" ? "light" : "dark"
@@ -56,16 +58,17 @@ function App() {
 		document.documentElement.setAttribute("data-version", version)
 	}, [theme, version])
 
-	useEffect(() => {
-		const handleResize = () => {
-			const newWidth = window.innerWidth
-			setWindowWidth(newWidth)
-			setIsMobileView(newWidth < 1024 || isMobileDevice())
-		}
-		handleResize()
-		window.addEventListener("resize", handleResize)
-		return () => window.removeEventListener("resize", handleResize)
-	}, [])
+// useEffect(() => {
+// 	const handleResize = () => {
+// 		const newWidth = window.innerWidth
+// 		setWindowWidth(newWidth)
+// 		setIsMobileView(newWidth < 1024 || isMobileDevice())
+// 	}
+// 	handleResize()
+// 	window.addEventListener("resize", handleResize)
+// 	return () => window.removeEventListener("resize", handleResize)
+// }, [])
+
 
 	return (
 		<Router>
