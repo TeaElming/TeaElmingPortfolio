@@ -13,8 +13,6 @@ const BasicLayout = () => {
 	const navigate = useNavigate()
 	const isScrollingRef = useRef(false)
 
-  
-
 	// When the URL changes (via a nav click), scroll to the proper section
 	useEffect(() => {
 		const path =
@@ -37,7 +35,7 @@ const BasicLayout = () => {
 		const options = {
 			root: null,
 			rootMargin: "0px",
-			threshold: 0.6,
+			threshold: 0.3, // Trigger when 30% of a section is visible
 		}
 
 		const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -67,7 +65,10 @@ const BasicLayout = () => {
 	return (
 		<div style={{ display: "flex" }}>
 			<NavbarB />
-			<div style={{ marginLeft: "220px", flex: 1 }}>
+			<div
+				className="content-scroll-container"
+				style={{ marginLeft: "220px", flex: 1 }}
+			>
 				<section id="start" className="full-page">
 					<StartB />
 				</section>
