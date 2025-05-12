@@ -18,25 +18,34 @@
 
 .project-display {
   position: relative;
-  width: clamp(600px, 40vw, 900px); /* Min 600px, scales up to 900px */
-  height: clamp(400px, 50vh, 600px); /* Min 400px, scales up to 600px */
+  width: clamp(600px, 40vw, 900px);
+  /* Min 600px, scales up to 900px */
+  height: clamp(400px, 50vh, 600px);
+  /* Min 400px, scales up to 600px */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .nav-button {
-  background-color: rgba(197, 225, 165, 0.9);
-  border: none;
-  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
   padding: 8px 16px;
+  width: 80px;
+  text-align: center;
+  border: 2px solid var(--quick-link-border);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  color: var(--quick-link-text);
+  background-color: transparent;
   cursor: pointer;
-  border-radius: 4px;
-  min-width: 80px;
 }
 
+
 .nav-button:hover {
-  background-color: rgba(171, 196, 143, 0.9);
+  background-color: var(--quick-link-hover-bg);
+  color: var(--quick-link-hover-text);
 }
 
 .counter {
@@ -51,11 +60,12 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-top: -15px;
 }
 
 .preview-card {
   background: var(--footer-bg);
-  border: 1px solid #ccc;
+  border: 1px solid var(--quick-link-border);
   padding: 8px;
   border-radius: 4px;
   cursor: pointer;

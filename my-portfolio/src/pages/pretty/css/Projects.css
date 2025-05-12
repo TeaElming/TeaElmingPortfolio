@@ -16,6 +16,34 @@
   justify-content: center;
 }
 
+.projects-button-section button {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 150px;
+  text-align: center;
+  border: 2px solid var(--quick-link-border);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  color: var(--quick-link-text);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.projects-button-section button:hover {
+  background-color: var(--quick-link-hover-bg);
+  color: var(--quick-link-hover-text);
+}
+
+.projects-button-section button.active {
+  font-style: italic;
+  font-weight: bold;
+  background-color: var(--quick-link-hover-bg);
+  color: var(--quick-link-hover-text);
+  border-color: var(--quick-link-border);
+}
+
 .projects-list-section {
   width: 100%;
   display: flex;
