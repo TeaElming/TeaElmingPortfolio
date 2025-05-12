@@ -15,12 +15,16 @@ const LatestProject: React.FC = () => {
 			<h3>Last summer's non-coding build.</h3>
 			<p>
 				<i>
-					Cutting and sanding 60 slates of timber by hand felt a lot like building a full-stack app without any libraries — technically possible, deeply character-building, but I will never take <code>npm install</code> for granted again.
+					Cutting and sanding 60 slates of timber by hand felt a lot like
+					building a full-stack app without any libraries — technically
+					possible, deeply character-building, but I will never take{" "}
+					<code>npm install</code> for granted again.
 				</i>
 			</p>
 			<img
 				src="/imgs/easterEggs/deck.jpg"
 				alt="Picture of a wooden deck down by a river with sunloungers."
+				loading="lazy"
 				style={{
 					width: "100%",
 					height: "auto",
