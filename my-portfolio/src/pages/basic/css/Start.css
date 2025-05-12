@@ -1,12 +1,34 @@
 .startPageB {
-  /*background-color: rgba(255, 255, 255, 0.17); */
   height: 100vh;
-	overflow: auto;
-  /* Enable flex layout to center vertically */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 10px;
+  max-width: 60vw;
+  margin: 0 auto; /* Center horizontally */
+  text-align: center;
+}
+
+.startPageB-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startPageB-container h1 {
+  margin: 0;
+}
+
+.startPageB-container p {
+  margin: 0;
+  font-size: 1.4rem;
+  width: fit-content; /* Match the width to the content (same as h1 width) */
+}
+
+/* Description section stays within max width and centered */
+.startPageB-description {
+  margin-top: 2rem;
+  max-width: 60vw;
+  text-align: center;
 }

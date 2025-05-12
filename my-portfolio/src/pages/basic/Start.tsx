@@ -16,6 +16,13 @@ const StartB: React.FC = () => {
 					enjoys problem-solving and being technically challenged, thus deciding
 					to return to university to study Computer Science.
 				</p>
+				<p>
+					Naturally curious and highly self-motivated, I am comfortable working
+					independently to explore solutions but equally enjoy collaborating in
+					pairs or teams to share ideas and refine outcomes. I am always keen to
+					learn and continuously seek out more effective ways of approaching
+					problems.
+				</p>
 			</div>
 		</div>
 	)
