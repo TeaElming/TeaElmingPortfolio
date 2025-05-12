@@ -1,12 +1,15 @@
-/* Enable scroll snapping on the container */
 .content-scroll-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh; /* Ensure it fills the viewport height */
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+	height: 100vh;
+	scroll-behavior: smooth;
 }
 
-/* Snap points for sections */
 .full-page {
-  scroll-snap-align: start;
-  height: 100vh; /* Each section fills the viewport */
+	scroll-snap-align: start;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
 }
