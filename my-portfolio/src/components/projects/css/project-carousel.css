@@ -1,0 +1,87 @@
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.carousel-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.project-display {
+  position: relative;
+  width: clamp(600px, 40vw, 900px); /* Min 600px, scales up to 900px */
+  height: clamp(400px, 50vh, 600px); /* Min 400px, scales up to 600px */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-button {
+  background-color: rgba(197, 225, 165, 0.9);
+  border: none;
+  color: var(--text-color);
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  min-width: 80px;
+}
+
+.nav-button:hover {
+  background-color: rgba(171, 196, 143, 0.9);
+}
+
+.counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.carousel-previews {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.preview-card {
+  background: var(--footer-bg);
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: clamp(150px, 12vw, 200px);
+  height: 100px;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.preview-card h4 {
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.preview-card:hover {
+  background-color: rgba(171, 196, 143, 0.2);
+}

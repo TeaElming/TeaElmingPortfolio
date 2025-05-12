@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import ProjectCard, { ProjectData } from "./project-card"
-import "./css/project-list.css"
+import "./css/project-carousel.css"
 
 interface ProjectsCarouselProps {
 	filter: string

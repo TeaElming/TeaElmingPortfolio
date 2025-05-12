@@ -1,12 +1,16 @@
 [data-version='prettier'][data-theme="dark"] {
-  --bg-gradient: linear-gradient(to bottom, rgba(0.9, 85, 48, 255) 50%, rgb(74, 107, 52) 90%);
-  --bg-color: #0f2b1c;
-  --text-color: #e9f5ea;
-  --cursor-glow: #7ca567;
-  --footer-bg: #344d2f;
-  --footer-text: #cde9a3;
-  --accent-color: #a4c48c;
+  --bg-gradient: linear-gradient(to bottom right, #071C0B, #0D2F16);
+  --bg-color: #0A1F12;          /* Darker, rich green base matching background */
+  --text-color: #CDE9D6;        /* Softer mint for readability */
+  --cursor-glow: #00ff66a3;       /* Vibrant neon green from wave lines */
+  --footer-bg: #0D2F16;         /* Consistent with gradient end color */
+  --footer-text: #00FF66;       /* Muted green for subtle contrast */
+  --accent-color: #00FF66;      /* Bright accent matching wave lines */
+  --button-border: #00FF66;     /* Buttons pop with the same accent */
+  --button-hover-bg: #00FF66;   /* Vibrant hover background */
+  --button-hover-text: #071C0B; /* Dark text on neon hover for contrast */
 }
+
 
 [data-version='prettier'][data-theme="dark"][data-page='start'] #root {
   background-image: url("/imgs/darkBackgroundWave.png");

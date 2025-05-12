@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react"
-import ProjectsCarousel from "../../components/projects/project-list"
+import ProjectsCarousel from "../../components/projects/project-carousel"
 import "./css/Projects.css"
 import EasterEgg from "../../components/easter-egg/EasterEgg"
 import LatestProject from "../../components/easter-egg/LatestProject"
