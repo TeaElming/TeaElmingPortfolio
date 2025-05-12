@@ -13,7 +13,7 @@
 /* Left Side: Info Text aligned with top of first button */
 .startPage-description {
 	position: relative;
-	top: 60px; /* Adjust this value until the top aligns perfectly */
+	top: 90px; /* Adjust this value until the top aligns perfectly */
 	max-width: 500px;
 	text-align: left;
 }
@@ -44,7 +44,7 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 10px;
-	margin-top: 20px;
+	margin-top: 10px;
 	width: 200px;
 }
 
