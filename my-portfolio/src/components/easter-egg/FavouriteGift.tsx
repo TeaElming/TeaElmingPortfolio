@@ -26,6 +26,7 @@ const FavouriteGift: React.FC = () => {
 			<img
 				src="/imgs/easterEggs/cutWood.jpg"
 				alt="Picture of a pile of cut up logs next to a chainsaw."
+				loading="lazy"
 				style={{
 					width: "100%",
 					height: "auto",
