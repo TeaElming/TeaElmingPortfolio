@@ -49,9 +49,7 @@ const EducationP: React.FC = () => {
 	const renderCourses = (data: Year[]) =>
 		data.map((yearData: Year) => (
 			<div key={yearData.year} className="education-entry">
-				<h4 className="year-title"> Year {yearData.year}
-          
-        </h4>
+				<h4 className="year-title"> Year {yearData.year}</h4>
 				{yearData.courses.map((course, idx) => (
 					<div key={idx} className="course-entry">
 						<h5>
@@ -80,12 +78,16 @@ const EducationP: React.FC = () => {
 				<div className="uni-section">
 					<h5>Computer Science</h5>
 					<h6>Linnaeus University (Sep 2022 – Jun 2025)</h6>
-					<ProgressBar now={progress} label={`${progress.toFixed(2)}%`} />
+					<ProgressBar
+						className="progress-outer"
+						now={progress}
+						label={`${progress.toFixed(2)}%`}
+					/>
 				</div>
 				<div className="uni-section">
 					<h5>Primary Education with Mathematics </h5>
 					<h6>University of Edinburgh (Sep 2016 – Jun 2020)</h6>
-					<ProgressBar now={100} label={`100%`} />
+					<ProgressBar className="progress-outer" now={100} label={`100%`} />
 				</div>
 			</div>
 
