@@ -1,206 +1,71 @@
-/** ProjectGrid.css **/
-
 .project-grid-container {
   width: 100%;
   height: 90%;
-  position: relative;
   overflow: hidden;
 }
 
-/* Filter Buttons */
-.filter-buttons {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
+/* filter buttons */
+.filter-buttons { text-align: center; margin-bottom: 10px; }
 .filter-buttons button {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  color: #333;
-  padding: 8px 12px;
-  margin: 5px;
-  margin-top: 15px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  padding: 8px 12px; margin: 5px 8px 0 0;
+  background:#f0f0f0; border:1px solid #ccc; cursor:pointer;
+  transition: background .2s;
 }
-
 .filter-buttons button.active,
-.filter-buttons button:hover {
-  background-color: #ccc;
+.filter-buttons button:hover { background:#ccc; }
+
+/* wrapper holds row + arrows */
+.project-grid-wrapper {
+  height: calc(100% - 60px);      /* account for filter area */
+  display: flex; align-items: center; justify-content: center;
+  position: relative; padding: 0 60px; box-sizing: border-box;
 }
 
-.filter-buttons button:disabled {
-  cursor: default;
-  opacity: 0.6;
-}
-
-.project-grid {
+/* the single row */
+.project-row {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  flex-wrap: nowrap;              /* one row only */
   justify-content: center;
-  align-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-/* Project Tile Default */
+/* cards */
 .project-tile {
-  position: relative;
-  background: #eee;
-  cursor: pointer;
-  box-sizing: border-box;
+  background:#eee; border-radius:8px; padding:8px;
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center; cursor:pointer; position:relative;
 }
 
-/* Bare mode: visible project tiles with yellow background and centered text */
-[data-version='bare'][data-theme="dark"] .project-tile {
-  background: rgb(13, 3, 57);
-  text-align: center;
-  border-radius: 8px;
-  padding: 5px;
-}
+[data-version='bare'][data-theme='dark'] .project-tile { background:rgb(13,3,57); }
+[data-version='bare'][data-theme='light'] .project-tile{ background:rgb(163,234,250); }
 
-[data-version='bare'][data-theme="light"] .project-tile {
-  background: rgb(163, 234, 250);
-  text-align: center;
-  border-radius: 8px;
-  padding: 8px;
-}
-
-/* Hover overlay to show partial text */
+/* hover overlay */
 .hover-overlay {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 5px;
-  box-sizing: border-box;
-  opacity: 0;
-  transition: opacity 0.2s;
+  position:absolute; left:0; bottom:0; width:100%; height:60%;
+  background:rgba(0,0,0,.7); color:#fff; padding:10px;
+  opacity:0; transition:opacity .3s; border-radius:0 0 8px 8px;
 }
+.project-tile:hover .hover-overlay { opacity:1; }
 
-.project-tile:hover .hover-overlay {
-  opacity: 1;
-}
-
-/* Modal overlay and content */
-.project-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-/* Bare mode: prevent any scrolling of background content when modal is open */
-[data-version='bare'] .project-modal-overlay {
-  overscroll-behavior: none;
-  touch-action: none;
-}
-
-/* Default Modal styling */
-.project-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Bare mode Modal adjustments: size to fit content and arrange children vertically */
-[data-version='bare'] .project-modal {
-  border-radius: 8px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  box-sizing: border-box;
-  height: auto;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-[data-version='bare'][data-theme="dark"] .project-modal {
-  background: #022e3b;
-}
-
-[data-version='bare'][data-theme="light"] .project-modal {
-  background: #c2ebc0;
-}
-
-/* Modal Navigation (Prev/Next) */
-.modal-nav {
-  margin-top: 10px;
-}
-
-[data-version='bare'] .modal-nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 10px;
-}
-
-[data-version='bare'][data-theme="dark"] .modal-nav button {
-  background-color: #045169;
-  border-radius: 8px;
-}
-
-[data-version='bare'][data-theme="light"] .modal-nav button {
-  background-color: #96c294;
-  border-radius: 8px;
-}
-
-/* Grid nav buttons (for page navigation) */
+/* nav arrows */
 .grid-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background: #ccc;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  transition: opacity 0.2s;
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:#ccc; border:none; border-radius:50%; padding:14px;
+  font-size:1.4rem; cursor:pointer; user-select:none;
+  transition:transform .2s;
 }
+.grid-nav:hover     { transform:translateY(-50%) scale(1.1); }
+.grid-nav:disabled  { opacity:.5; cursor:default; }
+.grid-nav.prev { left:10px; }
+.grid-nav.next { right:10px; }
 
-.grid-nav:disabled {
-  cursor: default;
-  opacity: 0.5;
+/* modal (unchanged from previous) */
+.project-modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.5); }
+.project-modal {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  background:#fff; border-radius:8px; padding:20px; max-width:90vw; max-height:90vh; overflow:auto;
 }
-
-.grid-nav.prev {
-  left: 10px;
-}
-
-.grid-nav.next {
-  right: 10px;
-}
-
-/* Modal close button */
-.modal-close {
-  background: transparent;
-  border: none;
-  font-size: 1.5em;
-  cursor: pointer;
-}
-
-/* Bare mode: position the close button in the top right corner of the modal */
-[data-version='bare'] .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-
- [data-version='bare'] body.modal-open {
-  overflow: hidden;
-}
+[data-version='bare'][data-theme='dark']  .project-modal { background:#022e3b; }
+[data-version='bare'][data-theme='light'] .project-modal { background:#c2ebc0; }
+.modal-nav { display:flex; justify-content:space-between; margin-top:10px; }
+.modal-close { background:none; border:none; font-size:1.5rem; position:absolute; top:8px; right:12px; cursor:pointer; }
