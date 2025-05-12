@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useState } from "react"
+import "./css/EasterEgg.css"
 
 interface EasterEggProps {
 	child?: React.ReactNode
@@ -22,53 +23,25 @@ const EasterEgg: React.FC<EasterEggProps> = ({ child, hoverText }) => {
 	}
 
 	return (
-		<div style={{ position: "relative", display: "inline-block" }}>
+		<div className="easter-egg-container">
 			<div
 				title={hoverText || "Click for an Easter egg treat"}
 				onClick={handleClick}
-				style={{ cursor: "pointer" }}
+				className="easter-egg-click"
 			>
 				<img
 					src={isBroken ? "/imgs/brokenEasterEgg.png" : "/imgs/easterEgg.png"}
 					alt="Easter Egg"
-					style={{ width: "30px", height: "auto" }}
+					className="easter-egg-img"
 				/>
 			</div>
 			{showPopup && (
-				<div
-					style={{
-						position: "fixed",
-						top: 0,
-						left: 0,
-						right: 0,
-						bottom: 0,
-						backgroundColor: "rgba(0,0,0,0.5)",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						zIndex: 9999,
-					}}
-					onClick={handleClose}
-				>
+				<div className="easter-egg-popup-overlay" onClick={handleClose}>
 					<div
+						className="easter-egg-popup-content"
 						onClick={(e) => e.stopPropagation()}
-						style={{
-							backgroundColor: "white",
-							padding: "20px",
-							borderRadius: "8px",
-							width: "90vw",
-							maxWidth: "600px",
-							height: "auto",
-							maxHeight: "80vh",
-							overflowY: "auto",
-							overflowX: "hidden",
-							boxSizing: "border-box",
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "center",
-						}}
 					>
-						{child || <div style={{ textAlign: "center" }}>Surprise!</div>}
+						{child || <div className="easter-egg-surprise">Surprise!</div>}
 					</div>
 				</div>
 			)}

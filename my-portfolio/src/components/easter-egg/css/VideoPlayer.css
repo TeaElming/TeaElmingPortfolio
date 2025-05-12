@@ -1,0 +1,21 @@
+.video-player-container {
+  max-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+
+.video-player-title {
+  margin-bottom: 0.5rem;
+}
+
+.video-player-element {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  max-height: 40vh;
+  object-fit: contain;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
