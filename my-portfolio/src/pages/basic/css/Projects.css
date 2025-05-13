@@ -1,5 +1,51 @@
+.projectsB-root {
+  padding: 2rem;
+  color: var(--edu-text);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .projectsB-container {
-  /*background-color: rgba(255, 255, 255, 0.17); */
-  height: 100vh;
-	overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.projectsB-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.projectsB-button {
+  background-color: var(--edu-button-bg);
+  color: var(--edu-text);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.projectsB-button:hover {
+  background-color: var(--edu-button-hover);
+}
+
+.projectsB-button.active {
+  box-shadow: 0 0 10px var(--edu-shadow);
+  font-weight: bold;
+}
+
+.projectsB-carousel {
+  width: 100%;
+}
+
+.projectsB-button-section button {
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  margin: 0.25rem;
 }

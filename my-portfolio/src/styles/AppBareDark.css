@@ -23,3 +23,13 @@
   --edu-button-bg: #6b8e23;
   --edu-button-hover: #8faa3f;
 }
+
+
+[data-version='bare'][data-theme="dark"] {
+  --quick-link-border: #666;
+  --quick-link-text: #f0f0f0;
+  --quick-link-hover-bg: #444;
+  --quick-link-hover-text: #fff;
+  --text-color: #aaa;
+  --footer-bg: #2a2a2a;
+}

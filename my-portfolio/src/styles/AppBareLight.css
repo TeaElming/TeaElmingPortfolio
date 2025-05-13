@@ -48,3 +48,12 @@
   --edu-button-bg: #283618;
   --edu-button-hover: #4a632f;
 }
+
+[data-version='bare'][data-theme="light"] {
+  --quick-link-border: #ccc;
+  --quick-link-text: #283618;
+  --quick-link-hover-bg: #d6f4d7;
+  --quick-link-hover-text: #000;
+  --text-color: #555;
+  --footer-bg: #f4f4f4;
+}
