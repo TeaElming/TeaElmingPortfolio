@@ -89,7 +89,7 @@
 }
 
 .modal-content {
-  background-color: var(--bg-color);
+  background-color: var(--bg-color) !important;
   color: var(--text-color);
   padding: 2rem;
   border-radius: 8px;

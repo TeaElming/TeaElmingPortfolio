@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react"
-import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
 import RequestCallForm from "../../components/forms/request-call-form"
 import "./css/About.css"
 import EasterEgg from "../../components/easter-egg/EasterEgg"
@@ -67,18 +67,10 @@ const AboutP: React.FC = () => {
             <a href="mailto:tea.elming@gmail.com">tea.elming@gmail.com</a>
           </p>
           <p>
-            <strong>Phone:</strong> <FaWhatsapp />{" "}
-            <a
-              href="https://wa.me/447706687781"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-							Phone through WhatsApp
-            </a>{" "}
-						or{" "}
-            <span onClick={openModal} className="request-call-link">
+            <strong>Phone:</strong>
+            <p onClick={openModal} className="request-call-link">
 							Request a Call
-            </span>
+            </p>
           </p>
           <p>
             <strong>LinkedIn:</strong> <FaLinkedin />{" "}
