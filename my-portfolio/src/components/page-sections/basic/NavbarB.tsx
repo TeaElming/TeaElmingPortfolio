@@ -6,40 +6,40 @@ import FooterB from "./FooterB"
 import "./css/Navbar.css"
 
 const NavbarB = () => {
-	return (
-		<div className="navbarB">
-			<div className="nav-items">
-				<Nav className="flex-column">
-					<ul>
-						<li>
-							<Nav.Link as={NavLink} to="/">
+  return (
+    <div className="navbarB">
+      <div className="nav-items">
+        <Nav className="flex-column">
+          <ul>
+            <li>
+              <Nav.Link as={NavLink} to="/">
 								Start
-							</Nav.Link>
-						</li>
-						<li>
-							<Nav.Link as={NavLink} to="/projects">
+              </Nav.Link>
+            </li>
+            <li>
+              <Nav.Link as={NavLink} to="/projects">
 								Projects
-							</Nav.Link>
-						</li>
-						<li>
-							<Nav.Link as={NavLink} to="/education">
+              </Nav.Link>
+            </li>
+            <li>
+              <Nav.Link as={NavLink} to="/education">
 								Education
-							</Nav.Link>
-						</li>
+              </Nav.Link>
+            </li>
 
-						<li>
-							<Nav.Link as={NavLink} to="/about">
+            <li>
+              <Nav.Link as={NavLink} to="/about">
 								About
-							</Nav.Link>
-						</li>
-					</ul>
-				</Nav>
-			</div>
+              </Nav.Link>
+            </li>
+          </ul>
+        </Nav>
+      </div>
 
-			{/* Footer pinned at bottom via flex rules */}
-			<FooterB />
-		</div>
-	)
+      {/* Footer pinned at bottom via flex rules */}
+      <FooterB />
+    </div>
+  )
 }
 
 export default NavbarB

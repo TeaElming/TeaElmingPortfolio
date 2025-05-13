@@ -18,49 +18,49 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-	return (
-		<div className="project-card">
-			<h2 className="project-title">{project.title}</h2>
-			<a
-				className="project-link"
-				href={project.url}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<i className="bi bi-github"></i> {project.url}
-			</a>
-			<div className="project-details">
-				<div className="project-technologies">
-					{project.technologies.map((tech, index) => (
-						<span key={index} className="project-tech">
-							{tech}
-						</span>
-					))}
-				</div>
-			</div>
-			<div className="project-description">
-				{project.description.map((desc, index) => (
-					<p key={index}>{desc}</p>
-				))}
-			</div>
-			{project.imgs && project.imgs.length > 0 && (
-				<div className="project-images">
-					{project.imgs.map((img, index) => (
-						<img
-							key={index}
-							src={img}
-							alt={`${project.title} screenshot ${index + 1}`}
-						/>
-					))}
-				</div>
-			)}
-			{project.video && (
-				<div className="project-video">
-					<video controls src={project.video}></video>
-				</div>
-			)}
-		</div>
-	)
+  return (
+    <div className="project-card">
+      <h2 className="project-title">{project.title}</h2>
+      <a
+        className="project-link"
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i className="bi bi-github"></i> {project.url}
+      </a>
+      <div className="project-details">
+        <div className="project-technologies">
+          {project.technologies.map((tech, index) => (
+            <span key={index} className="project-tech">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="project-description">
+        {project.description.map((desc, index) => (
+          <p key={index}>{desc}</p>
+        ))}
+      </div>
+      {project.imgs && project.imgs.length > 0 && (
+        <div className="project-images">
+          {project.imgs.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`${project.title} screenshot ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+      {project.video && (
+        <div className="project-video">
+          <video controls src={project.video}></video>
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default ProjectCard

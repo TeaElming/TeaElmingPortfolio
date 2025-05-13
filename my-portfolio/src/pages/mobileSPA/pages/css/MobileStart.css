@@ -1,0 +1,23 @@
+.mobile-start {
+  padding: 3rem 1.25rem 4rem;
+  background: var(--edu-bg);
+  color: var(--edu-text);
+  text-align: center;
+}
+
+.mobile-start h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.mobile-start h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+
+.mobile-start p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}

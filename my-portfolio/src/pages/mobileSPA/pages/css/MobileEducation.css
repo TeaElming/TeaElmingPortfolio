@@ -1,0 +1,51 @@
+.mobile-education {
+  padding: 3rem 1.25rem 4rem;
+  background: var(--edu-bg);
+  color: var(--edu-text);
+}
+
+.mobile-education h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.uni-block {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--edu-border);
+  border-radius: 0.75rem;
+}
+
+.uni-toggle {
+  width: 100%;
+  background: var(--edu-button-bg);
+  color: var(--edu-text);
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.uni-toggle:hover {
+  background: var(--edu-button-hover);
+}
+
+.courses-wrapper {
+  background: var(--edu-bg);
+  padding: 0.85rem 1rem 1.1rem;
+}
+
+.year-block h4 {
+  margin: 0.6rem 0 0.3rem;
+  font-size: 0.95rem;
+}
+
+.course-line {
+  font-size: 0.85rem;
+  margin: 0.2rem 0 0.5rem;
+  color: var(--edu-muted-text);
+}
+
+.chevron {
+  font-size: 0.9rem;
+}

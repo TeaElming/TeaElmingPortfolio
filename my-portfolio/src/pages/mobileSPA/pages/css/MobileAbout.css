@@ -1,0 +1,83 @@
+.mobile-about {
+  padding: 3rem 1.25rem 4rem;
+  background: var(--edu-bg);
+  color: var(--edu-text);
+}
+
+.mobile-about h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.mobile-about h3 {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.skills-list {
+  list-style: disc inside;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--edu-muted-text);
+  margin: 0.5rem 0 1rem;
+}
+
+.contact-lines a,
+.call-btn {
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--quick-link-text);
+  text-decoration: none;
+}
+
+.call-btn {
+  background: var(--edu-button-bg);
+  border: 1px solid var(--edu-border);
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+}
+
+.call-btn:hover,
+.contact-lines a:hover {
+  background: var(--quick-link-hover-bg);
+  color: var(--quick-link-hover-text);
+}
+
+.cv-link {
+  margin-top: 0.8rem;
+  font-weight: bold;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: var(--edu-bg);
+  color: var(--edu-text);
+  padding: 1.5rem 1.25rem 1.25rem;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 0.75rem;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--edu-text);
+  cursor: pointer;
+}

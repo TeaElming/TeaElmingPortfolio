@@ -10,24 +10,24 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ baseSrc, title, poster }) => {
-	const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-	const getVideoSrc = () => `${baseSrc}.mp4`
+  const getVideoSrc = () => `${baseSrc}.mp4`
 
-	return (
-		<div className="video-player-container">
-			{title && <h3 className="video-player-title">{title}</h3>}
+  return (
+    <div className="video-player-container">
+      {title && <h3 className="video-player-title">{title}</h3>}
 
-			<video
-				ref={videoRef}
-				src={getVideoSrc()}
-				preload="metadata"
-				controls
-				poster={poster}
-				className="video-player-element"
-			/>
-		</div>
-	)
+      <video
+        ref={videoRef}
+        src={getVideoSrc()}
+        preload="metadata"
+        controls
+        poster={poster}
+        className="video-player-element"
+      />
+    </div>
+  )
 }
 
 export default VideoPlayer
