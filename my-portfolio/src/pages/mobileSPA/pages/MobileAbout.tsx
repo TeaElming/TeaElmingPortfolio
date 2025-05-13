@@ -11,20 +11,40 @@ const MobileAbout: React.FC = () => {
     <section id="about" className="mobile-about">
       <h2>About Me</h2>
       <p>
-				Soon-to-be Computer Science graduate who thrives on problem-solving and
-				continuous learning.
+							I am a soon-to-be Computer Science-graduate who thrives in challenging
+							environments that require problem-solving and continuous learning.
       </p>
 
       <h3>Skills & Technologies</h3>
       <ul className="skills-list">
         <li>
-          <strong>Frontend:</strong> React, TypeScript, D3, Leaflet …
+          <strong>Frontend:</strong> HTML5, CSS3, JavaScript, React,
+								Bootstrap, TypeScript, D3.js, JFreeChart, Recharts, Leaflet
         </li>
         <li>
-          <strong>Backend:</strong> Node, Python, Java, JWT …
+          <strong>Backend:</strong> Node.js, Express, Python, Java,
+								Microservices, JWT Authentication
         </li>
         <li>
-          <strong>DevOps:</strong> Docker, Kubernetes, Terraform …
+          <strong>Testing:</strong> Jest, Test-Driven Development (TDD),
+								Unit Testing, Postman
+        </li>
+        <li>
+          <strong>Cloud & DevOps:</strong> OpenStack, Terraform, Ansible,
+								Docker, Kubernetes, Infrastructure as Code (IaC), CI/CD
+        </li>
+        <li>
+          <strong>APIs:</strong> RESTful API Development (HATEOAS), API
+								Documentation, GraphQL (usage only)
+        </li>
+        <li>
+          <strong>Databases:</strong> MongoDB, MySQL, Database Design and
+								Management
+        </li>
+        <li>
+          <strong>Software Principles:</strong> Object-Oriented
+								Programming, Design Patterns, UML, SOLID Principles, Clean Code
+								Practices, Dependency Injection
         </li>
       </ul>
 
