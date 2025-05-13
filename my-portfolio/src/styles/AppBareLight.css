@@ -1,59 +1,35 @@
 [data-version='bare'][data-theme="light"] #root {
   background: linear-gradient(
     -45deg,
-    #c9f4ce,
-    #d6ded1,
-    #d6f4d7,
-    #e8f8c7,
-    #fbfbd0
+    #d0e9c2,
+    #f3f8d9,
+    #e9f4c2,
+    #fff5c8,
+    #daf4c4
   );
-  color: #000000;
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #1e241d;
 }
 
-[data-version='bare'] body {
-  font-family: "Arial", sans-serif;
-  scroll-behavior: smooth;
-}
 
-[data-version='bare'] #root {
-  width: 100vw;
-  min-height: 100vh;
-  background: #ffffff;
-  color: #000000;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-[data-version='bare'] div[style*="scroll-snap-type"] {
-  scrollbar-width: none;
-}
-
-[data-version='bare'] div[style*="scroll-snap-type"]::-webkit-scrollbar {
-  display: none;
-}
-
-[data-version='bare'] .cursor-glow {
-  background: rgba(0, 0, 0, 0.1);
-  filter: blur(40px);
-}
-
-/* Variable definitions for light and dark themes */
+/* Light theme variables: natural greens and soft earth tones */
 [data-version='bare'][data-theme="light"] {
-  --edu-bg: #c1d9c663;
-  --edu-text: #283618;
+  --edu-bg: #f3f8ec;
+  --edu-text: #2f3d2f;
   --edu-muted-text: #555;
-  --edu-shadow: rgba(0, 0, 0, 0.1);
-  --edu-border: #ccc;
-  --edu-button-bg: #c9f4ce;
-  --edu-button-hover: #a8e9b0;
-}
+  --edu-shadow: rgba(0, 0, 0, 0.05);
+  --edu-border: #c9d7b5;
+  --edu-button-bg: #d7efc2;
+  --edu-button-hover: #c1e8a9;
 
-[data-version='bare'][data-theme="light"] {
-  --quick-link-border: #ccc;
-  --quick-link-text: #283618;
-  --quick-link-hover-bg: #d6f4d7;
+  --quick-link-border: #b7cfb2;
+  --quick-link-text: #2a3c1f;
+  --quick-link-hover-bg: #e2f5d5;
   --quick-link-hover-text: #000;
-  --text-color: #555;
-  --footer-bg: #f4f4f4;
+
+  --text-color: #333;
+  --footer-bg: #eef2e0;
+
+  --navbar-bg: rgba(255, 250, 214, 0.9);
 }

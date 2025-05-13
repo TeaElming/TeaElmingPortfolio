@@ -1,13 +1,11 @@
 [data-version='bare'][data-theme="dark"] #root {
-  background: linear-gradient(
-    -45deg,
-    #1e241d,
-    #888072,
-    #273929,
-    #5c644d,
-    #1a1a1a
-  );
-  background-size: 400% 400%;
+  background: linear-gradient(-45deg,
+      #1e241d,
+      #888072,
+      #273929,
+      #5c644d,
+      #1a1a1a);
+  background-size: 300% 300%;
   animation: gradientShift 15s ease infinite;
   color: #ffffff;
 }
@@ -32,4 +30,6 @@
   --quick-link-hover-text: #fff;
   --text-color: #aaa;
   --footer-bg: #2a2a2a;
+
+  --navbar-bg: rgba(33, 38, 29, 0.589);
 }

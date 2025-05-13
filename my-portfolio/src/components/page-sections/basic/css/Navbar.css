@@ -5,7 +5,7 @@
   left: 0;
   width: 160px;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.17);
+  background-color: var(--navbar-bg);
   display: flex;
   flex-direction: column;
   padding: 1rem;
