@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 160px;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.17);
   display: flex;
@@ -11,6 +11,14 @@
   padding: 1rem;
   z-index: 99;  /* keep on top if needed */
 }
+
+/* remove bullets & default spacing */
+.navbarB ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 
 /*
    Nav items container takes up remaining vertical space
@@ -22,6 +30,7 @@
   flex-direction: column;
   justify-content: center;  /* or flex-start if you want them top-aligned */
   align-items: center;      /* center horizontally */
+
 }
 
 /* Default link styles */

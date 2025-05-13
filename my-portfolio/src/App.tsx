@@ -86,12 +86,12 @@ function App() {
 }
 
 interface AppContentProps {
-	theme: string
-	version: "prettier" | "bare"
-	toggleTheme: () => void
-	toggleVersion: () => void
-	windowWidth: number
-	isMobileView: boolean
+  theme: string
+  version: "prettier" | "bare"
+  toggleTheme: () => void
+  toggleVersion: () => void
+  windowWidth: number
+  isMobileView: boolean
 }
 
 function AppContent({
@@ -105,11 +105,10 @@ function AppContent({
   const location = useLocation()
 
   useEffect(() => {
-    if (location.pathname === "/") {
-      document.documentElement.setAttribute("data-page", "start")
-    } else {
-      document.documentElement.setAttribute("data-page", "other")
-    }
+    document.documentElement.setAttribute(
+      "data-page",
+      location.pathname === "/" ? "start" : "other"
+    )
   }, [location])
 
   useEffect(() => {
@@ -128,48 +127,35 @@ function AppContent({
 
   return (
     <>
+      {/* ─── Toggle Bar ────────────────────────── */}
       {!(
         version === "bare" &&
-				windowWidth < 1100 &&
-				location.pathname !== "/"
+        windowWidth < 1000 &&
+        location.pathname !== "/"
       ) && (
-        <div
-          className="toggle-container"
-          style={{
-            position: "fixed",
-            top: "10px",
-            right: "10px",
-            zIndex: 999,
-            display: "flex",
-            alignItems: "center",
-            gap: "25px",
-            fontSize: "0.9rem",
-          }}
-        >
-          {/* Only show version toggle if not in mobile view */}
+        <div className="toggle-container">
           {!isMobileView && (
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div className="toggle-group">
               <span>Personal</span>
               <Form.Check
                 type="switch"
                 id="version-switch"
                 checked={version === "bare"}
                 onChange={toggleVersion}
-                style={{ margin: 0 }}
+                className="toggle-switch"
               />
               <span>Neutral</span>
             </div>
           )}
 
-          {/* Always show theme toggle */}
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div className="toggle-group">
             <span>Light</span>
             <Form.Check
               type="switch"
               id="theme-switch"
               checked={theme === "dark"}
               onChange={toggleTheme}
-              style={{ margin: 0 }}
+              className="toggle-switch"
             />
             <span>Dark</span>
           </div>
@@ -177,9 +163,9 @@ function AppContent({
       )}
 
       {version === "prettier" && <PortfolioNavbar />}
-
       <div id="cursor-glow" className="cursor-glow"></div>
 
+      {/* ─── Main content ──────────────────────── */}
       <div className="content-container">
         <Routes>
           {version === "bare" ? (

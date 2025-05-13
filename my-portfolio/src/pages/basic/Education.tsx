@@ -3,78 +3,87 @@ import React, { useEffect, useState } from "react"
 import Container from "react-bootstrap/Container"
 import ProgressBar from "react-bootstrap/ProgressBar"
 import "./css/Education.css"
-import {
+import type {
   UniversityData,
   Year,
 } from "../../components/page-sections/pretty/types"
 
 const EducationB: React.FC = () => {
-  const [edinburghData, setEdinburghData] = useState<UniversityData | null>(null)
+  const [edinburghData, setEdinburghData] = useState<UniversityData | null>(
+    null
+  )
   const [linnaeusData, setLinnaeusData] = useState<UniversityData | null>(null)
-  const [searchQuery, setSearchQuery] = useState("")
-  const [activeUniversity, setActiveUniversity] = useState<string | null>(null)
 
+  /* new: start with Linnaeus open */
+  const [activeUniversity, setActiveUniversity] = useState<string>("linnaeus")
+  const [searchQuery, setSearchQuery] = useState("")
+
+  /* ─── Fetch data ─────────────────────────── */
   useEffect(() => {
     fetch("/json/edinburghUni.json")
-      .then((res) => res.json())
+      .then((r) => r.json())
       .then(setEdinburghData)
       .catch(console.error)
 
     fetch("/json/linnaeusUni.json")
-      .then((res) => res.json())
+      .then((r) => r.json())
       .then(setLinnaeusData)
       .catch(console.error)
   }, [])
 
   if (!edinburghData || !linnaeusData) return <p>Loading...</p>
 
-  const filterCourses = (data: UniversityData, query: string) => {
-    const lowerQuery = query.toLowerCase()
+  /* ─── Utils ──────────────────────────────── */
+  const filterCourses = (data: UniversityData, q: string) => {
+    const lower = q.toLowerCase()
     return data.years
-      .map((year) => ({
-        ...year,
-        courses: year.courses.filter(
-          (course) =>
-            course.coursename.toLowerCase().includes(lowerQuery) ||
-						course.description.toLowerCase().includes(lowerQuery)
+      .map((y) => ({
+        ...y,
+        courses: y.courses.filter(
+          (c) =>
+            c.coursename.toLowerCase().includes(lower) ||
+						c.description.toLowerCase().includes(lower)
         ),
       }))
-      .filter((year) => year.courses.length > 0)
+      .filter((y) => y.courses.length > 0)
   }
 
-  const renderCourses = (data: Year[]) =>
-    data.map((yearData: Year) => (
-      <div key={yearData.year} className="educationB-entry">
-        <h4 className="year-title"> --- Year {yearData.year} --- </h4>
-        {yearData.courses.map((course, idx) => (
+  const renderCourses = (yrs: Year[]) =>
+    yrs.map((y) => (
+      <div key={y.year} className="educationB-entry">
+        <h4 className="year-title">Year {y.year}</h4>
+        {y.courses.map((c, idx) => (
           <div key={idx} className="course-entry">
             <h5>
-              {course.coursename}{" "}
+              {c.coursename}{" "}
               <i>
-								({course.credits} credits, {course.field})
+								({c.credits} credits, {c.field})
               </i>
             </h5>
-            <p>{course.description}</p>
+            <p>{c.description}</p>
           </div>
         ))}
       </div>
     ))
 
-  // Calculate progress for Comp Sci Degree
+  /* ─── Progress bar for CS degree ─────────── */
   const now = Date.now()
-  const degreeStart = new Date("2022-08-29").getTime()
-  const degreeEnd = new Date("2025-06-20").getTime()
-  const progress = ((now - degreeStart) / (degreeEnd - degreeStart)) * 100
+  const progress =
+		((now - new Date("2022-08-29").getTime()) /
+			(new Date("2025-06-20").getTime() - new Date("2022-08-29").getTime())) *
+		100
 
-  // Toggle course visibility
-  const handleToggleCourses = (university: string) => {
-    if (activeUniversity === university) {
-      setActiveUniversity(null) // Close if already open
+  /* ─── Toggle course visibility ───────────── */
+  const handleToggleCourses = (uni: string) => {
+    if (activeUniversity === uni) {
+      setActiveUniversity("") // close
     } else {
-      setActiveUniversity(university) // Open if not open
+      setActiveUniversity(uni) // switch/open
     }
+    setSearchQuery("") // reset search whenever we toggle
   }
 
+  /* ─── Render ─────────────────────────────── */
   return (
     <Container className="educationB-container">
       <div className="degreeB-info">
@@ -97,14 +106,13 @@ const EducationB: React.FC = () => {
         </div>
       </div>
 
-      {/* Conditionally render the course section */}
       {activeUniversity && (
         <div className="coursesB-section">
           <div className="uniB-group">
             <input
               type="text"
               className="course-search-input"
-              placeholder="Search courses..."
+              placeholder="Search courses…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
