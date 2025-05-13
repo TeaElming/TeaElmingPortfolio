@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react"
-import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhone } from "react-icons/fa"
 import RequestCallForm from "../../components/forms/request-call-form"
 import "./css/About.css"
 
@@ -64,11 +64,12 @@ const AboutB: React.FC = () => {
             <a href="mailto:tea.elming@gmail.com">tea.elming@gmail.com</a>
           </p>
           <p>
-            <strong>Phone:</strong>
-            <p onClick={openModal} className="request-call-link">
+            <strong>Phone:</strong> <FaPhone />{" "}
+            <span onClick={openModal} className="request-call-link">
 							Request a Call
-            </p>
+            </span>
           </p>
+
           <p>
             <strong>LinkedIn:</strong> <FaLinkedin />{" "}
             <a

@@ -1,6 +1,6 @@
 /** @format */
 import React, { useState } from "react"
-import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhone  } from "react-icons/fa"
 import RequestCallForm from "../../../components/forms/request-call-form"
 import "./css/MobileAbout.css"
 
@@ -55,7 +55,7 @@ const MobileAbout: React.FC = () => {
         </a>
 
         <button className="call-btn" onClick={() => setOpen(true)}>
-					Request a Call
+          <FaPhone /> Request a Call
         </button>
         <a
           href="https://www.linkedin.com/in/tea-elming/"
