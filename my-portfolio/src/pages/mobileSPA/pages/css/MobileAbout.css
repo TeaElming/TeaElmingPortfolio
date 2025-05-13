@@ -62,8 +62,9 @@
 }
 
 .modal-content {
-  background: var(--edu-bg);
-  color: var(--edu-text);
+  background-color: var( --quick-link-border) !important;
+  color: var(--text-color);
+  border: var(--edu-border) 1px solid;
   padding: 1.5rem 1.25rem 1.25rem;
   width: 90%;
   max-width: 420px;

@@ -1,6 +1,6 @@
 /** @format */
 import React, { useState } from "react"
-import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
 import RequestCallForm from "../../../components/forms/request-call-form"
 import "./css/MobileAbout.css"
 
@@ -53,13 +53,7 @@ const MobileAbout: React.FC = () => {
         <a href="mailto:tea.elming@gmail.com">
           <FaEnvelope /> tea.elming@gmail.com
         </a>
-        <a
-          href="https://wa.me/447706687781"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaWhatsapp /> WhatsApp
-        </a>
+
         <button className="call-btn" onClick={() => setOpen(true)}>
 					Request a Call
         </button>

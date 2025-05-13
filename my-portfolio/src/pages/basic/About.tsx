@@ -1,10 +1,9 @@
 /** @format */
 
 import React, { useState } from "react"
-import { FaWhatsapp, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
 import RequestCallForm from "../../components/forms/request-call-form"
 import "./css/About.css"
-
 
 const AboutB: React.FC = () => {
   const [showModal, setShowModal] = useState(false)
@@ -18,8 +17,9 @@ const AboutB: React.FC = () => {
         <section className="aboutB-info">
           <div className="aboutB-intro">
             <p>
-							I am a soon-to-be Computer Science-graduate who thrives in challenging
-							environments that require problem-solving and continuous learning.
+							I am a soon-to-be Computer Science-graduate who thrives in
+							challenging environments that require problem-solving and
+							continuous learning.
             </p>
           </div>
           <section className="aboutB-skills">
@@ -64,18 +64,10 @@ const AboutB: React.FC = () => {
             <a href="mailto:tea.elming@gmail.com">tea.elming@gmail.com</a>
           </p>
           <p>
-            <strong>Phone:</strong> <FaWhatsapp />{" "}
-            <a
-              href="https://wa.me/447706687781"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-							Phone through WhatsApp
-            </a>{" "}
-						or{" "}
-            <span onClick={openModal} className="request-call-link">
+            <strong>Phone:</strong>
+            <p onClick={openModal} className="request-call-link">
 							Request a Call
-            </span>
+            </p>
           </p>
           <p>
             <strong>LinkedIn:</strong> <FaLinkedin />{" "}
@@ -107,9 +99,9 @@ const AboutB: React.FC = () => {
           </a>
 
           {showModal && (
-            <div className="modal-overlay" onClick={closeModal}>
+            <div className="modalB-overlay" onClick={closeModal}>
               <div
-                className="modal-content"
+                className="modalB-content"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button className="close-button" onClick={closeModal}>
