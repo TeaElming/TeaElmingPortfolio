@@ -20,6 +20,13 @@
   /* Dark text on neon hover for contrast */
 }
 
+[data-version='prettier'][data-theme="dark"] {
+  --quick-link-text: #f1faee;
+  --quick-link-border: #a8dadc;
+  --quick-link-hover-bg: #a8dadc;
+  --quick-link-hover-text: #1d3557;
+}
+
 
 [data-version='prettier'][data-theme="dark"][data-page='start'] #root {
   background-image: url("/imgs/darkBackgroundWave.png");

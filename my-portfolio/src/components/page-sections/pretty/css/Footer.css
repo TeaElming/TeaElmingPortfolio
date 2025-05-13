@@ -6,7 +6,7 @@
 
 .custom-footer {
   width: 100%;
-  padding: 0.75rem 1.5rem;
+  padding: 5px;
   background-color: var(--footer-bg);
   color: var(--text-color);
   display: flex;
@@ -19,14 +19,14 @@
 .nav-icons {
   display: flex;
   gap: 1.2rem;
-  margin-right: 20px;
 }
 
 .nav-icons a,
 .nav-icons i {
   color: var(--text-color);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   transition: color 0.25s;
+  margin: 0;
 }
 
 .nav-icons a:hover i {

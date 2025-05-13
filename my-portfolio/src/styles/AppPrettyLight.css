@@ -138,3 +138,11 @@
 .form-check-input:checked {
   background-color: #91d17a !important;
 }
+
+/* Light mode */
+[data-version='prettier'][data-theme="light"] {
+  --quick-link-text: #1d3557;
+  --quick-link-border: #457b9d;
+  --quick-link-hover-bg: #5facdb;
+  --quick-link-hover-text: #f1faee;
+}
