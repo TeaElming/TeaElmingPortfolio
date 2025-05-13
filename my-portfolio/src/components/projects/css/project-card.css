@@ -25,6 +25,26 @@
   text-decoration: underline;
 }
 
+/* container for the tech “chips” */
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* individual chip */
+.project-tech {
+  display: inline-block;
+  /* needed if you keep <span> */
+  padding: 4px 8px;
+  border: 1px solid var(--quick-link-border);
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--text-color);
+  background: var(--footer-bg);
+}
+
+
 .project-description {
   margin-top: 8px;
   text-align: left;

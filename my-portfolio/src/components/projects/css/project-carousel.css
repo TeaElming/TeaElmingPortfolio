@@ -86,10 +86,12 @@
   margin: 0;
   padding: 0;
   line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  /* allow wrapping */
+  white-space: normal;        /* was nowrap */
+  overflow-wrap: break-word;  /* break long words if needed */
 }
+
 
 
 .preview-card:hover {
