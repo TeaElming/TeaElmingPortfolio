@@ -1,82 +1,69 @@
 /** @format */
 
-import { useState, useCallback } from "react"
-import Nav from "react-bootstrap/Nav"
-import NavbarDropdown from "./NavbarOptions"
+import { Link, useLocation } from "react-router-dom"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tooltip from "react-bootstrap/Tooltip"
 
 import "./css/Navbar.css"
 
 function PortfolioNavbar() {
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [isHovering, setIsHovering] = useState(false)
-
-  // Handles when the dropdown is toggled
-  const handleDropdownToggle = useCallback((isOpen: boolean) => {
-    setDropdownOpen(isOpen)
-
-    // Ensure the tooltip disappears when the dropdown opens
-    if (isOpen) {
-      setIsHovering(false)
-    }
-  }, [])
+  const location = useLocation()
 
   return (
-    <Nav
-      variant="underline"
-      defaultActiveKey="/start"
-      className="d-flex flex-row align-items-center"
-    >
-      <Nav.Item>
-        <OverlayTrigger
-          placement="bottom"
-          overlay={<Tooltip>Menu</Tooltip>}
-          show={!dropdownOpen && isHovering} // Fix: Hide tooltip if dropdown is open
-        >
-          <div
-            style={{ display: "inline-block" }}
-            onMouseEnter={() => !dropdownOpen && setIsHovering(true)} // Prevents tooltip from appearing when dropdown is open
-            onMouseLeave={() => setIsHovering(false)}
+    <nav className="portfolio-nav">
+      {/* ── LEFT: page links ───────────────────── */}
+      <div className="nav-links">
+        {[
+          { to: "/", label: "Home" },
+          { to: "/projects", label: "Projects" },
+          { to: "/education", label: "Education" },
+          { to: "/about", label: "About" },
+        ].map(({ to, label }) => (
+          <Link
+            key={to}
+            to={to}
+            className={
+              location.pathname === to ? "nav-item active-link" : "nav-item"
+            }
           >
-            <NavbarDropdown onToggle={handleDropdownToggle} />
-          </div>
-        </OverlayTrigger>
-      </Nav.Item>
+            {label}
+          </Link>
+        ))}
+      </div>
 
-      <Nav.Item>
-        <OverlayTrigger
-          placement="bottom"
-          overlay={<Tooltip>LinkedIn</Tooltip>}
-        >
-          <Nav.Link
+      {/* ── CENTRE: social / CV icons ──────────── */}
+      <div className="nav-icons">
+        <OverlayTrigger placement="bottom" overlay={<Tooltip>LinkedIn</Tooltip>}>
+          <a
             href="https://www.linkedin.com/in/tea-elming/"
             target="_blank"
+            rel="noopener noreferrer"
           >
-            <i className="bi bi-linkedin"></i>
-          </Nav.Link>
+            <i className="bi bi-linkedin" />
+          </a>
         </OverlayTrigger>
-      </Nav.Item>
 
-      <Nav.Item>
         <OverlayTrigger placement="bottom" overlay={<Tooltip>GitHub</Tooltip>}>
-          <Nav.Link href="https://github.com/TeaElming" target="_blank">
-            <i className="bi bi-github"></i>
-          </Nav.Link>
+          <a
+            href="https://github.com/TeaElming"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="bi bi-github" />
+          </a>
         </OverlayTrigger>
-      </Nav.Item>
 
-      <Nav.Item>
         <OverlayTrigger placement="bottom" overlay={<Tooltip>CV</Tooltip>}>
-          <Nav.Link
+          <a
             href="/TeaElming_GraduateSoftwareDeveloper.pdf"
             target="_blank"
+            rel="noopener noreferrer"
           >
-            <i className="bi bi-person-vcard"></i>
-          </Nav.Link>
+            <i className="bi bi-person-vcard" />
+          </a>
         </OverlayTrigger>
-      </Nav.Item>
-    </Nav>
+      </div>
+    </nav>
   )
 }
 
