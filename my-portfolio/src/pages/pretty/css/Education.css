@@ -1,10 +1,11 @@
 .education-container {
   height: calc(100vh - var(--navbar-height) - var(--footer-height));
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
+  overflow: hidden;
 }
+
 
 .degree-info {
   display: flex;
@@ -13,8 +14,9 @@
 }
 
 .uni-section {
-  flex: 1;
+  flex-shrink: 0;
 }
+
 
 .courses-section {
   flex: 1;
@@ -23,12 +25,35 @@
   overflow: hidden;
 }
 
+.education-grid {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.linnaeus-column,
+.edinburgh-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+/* Add right border only to the Linnaeus column */
+.edinburgh-column {
+  border-left: 1px solid var(--accent-color);
+  padding-left: 1rem;
+}
+
 .uni-group {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
+
 
 .course-search-input {
   padding: 0.5rem;
@@ -42,6 +67,7 @@
   overflow-y: auto;
   padding-right: 0.5rem;
 }
+
 
 .education-entry {
   margin-bottom: 1rem;

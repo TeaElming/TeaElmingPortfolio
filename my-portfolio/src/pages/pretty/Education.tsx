@@ -74,47 +74,50 @@ const EducationP: React.FC = () => {
 
   return (
     <Container className="education-container">
-      <div className="degree-info">
-        <div className="uni-section">
-          <h5>Computer Science</h5>
-          <h6>Linnaeus University (Sep 2022 – Jun 2025)</h6>
-          <ProgressBar
-            className="progress-outer"
-            now={progress}
-            label={`${progress.toFixed(2)}%`}
-          />
-        </div>
-        <div className="uni-section">
-          <h5>Primary Education with Mathematics </h5>
-          <h6>University of Edinburgh (Sep 2016 – Jun 2020)</h6>
-          <ProgressBar className="progress-outer" now={100} label={`100%`} />
-        </div>
-      </div>
-
-      <div className="courses-section">
-        <div className="uni-group">
-          <input
-            type="text"
-            className="course-search-input"
-            placeholder="Search Linnaeus courses..."
-            value={searchQueryLNU}
-            onChange={(e) => setSearchQueryLNU(e.target.value)}
-          />
-          <div className="scrollable-column">
-            {renderCourses(filterCourses(linnaeusData, searchQueryLNU))}
+      <div className="education-grid">
+        {/* LNU COLUMN */}
+        <div className="linnaeus-column">
+          <div className="uni-section">
+            <h5>Computer Science</h5>
+            <h6>Linnaeus University (Sep 2022 – Jun 2025)</h6>
+            <ProgressBar
+              className="progress-outer"
+              now={progress}
+              label={`${progress.toFixed(2)}%`}
+            />
+          </div>
+          <div className="uni-group">
+            <input
+              type="text"
+              className="course-search-input"
+              placeholder="Search Linnaeus courses..."
+              value={searchQueryLNU}
+              onChange={(e) => setSearchQueryLNU(e.target.value)}
+            />
+            <div className="scrollable-column">
+              {renderCourses(filterCourses(linnaeusData, searchQueryLNU))}
+            </div>
           </div>
         </div>
 
-        <div className="uni-group">
-          <input
-            type="text"
-            className="course-search-input"
-            placeholder="Search Edinburgh courses..."
-            value={searchQueryEDI}
-            onChange={(e) => setSearchQueryEDI(e.target.value)}
-          />
-          <div className="scrollable-column">
-            {renderCourses(filterCourses(edinburghData, searchQueryEDI))}
+        {/* EDI COLUMN */}
+        <div className="edinburgh-column">
+          <div className="uni-section">
+            <h5>Primary Education with Mathematics</h5>
+            <h6>University of Edinburgh (Sep 2016 – Jun 2020)</h6>
+            <ProgressBar className="progress-outer" now={100} label={`100%`} />
+          </div>
+          <div className="uni-group">
+            <input
+              type="text"
+              className="course-search-input"
+              placeholder="Search Edinburgh courses..."
+              value={searchQueryEDI}
+              onChange={(e) => setSearchQueryEDI(e.target.value)}
+            />
+            <div className="scrollable-column">
+              {renderCourses(filterCourses(edinburghData, searchQueryEDI))}
+            </div>
           </div>
         </div>
       </div>

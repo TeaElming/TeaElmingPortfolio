@@ -40,7 +40,7 @@
 
 /* Variable definitions for light and dark themes */
 [data-version='bare'][data-theme="light"] {
-  --edu-bg: #fff;
+  --edu-bg: #c1d9c663;
   --edu-text: #283618;
   --edu-muted-text: #555;
   --edu-shadow: rgba(0, 0, 0, 0.1);
