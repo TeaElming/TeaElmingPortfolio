@@ -45,8 +45,8 @@
   --edu-muted-text: #555;
   --edu-shadow: rgba(0, 0, 0, 0.1);
   --edu-border: #ccc;
-  --edu-button-bg: #283618;
-  --edu-button-hover: #4a632f;
+  --edu-button-bg: #c9f4ce;
+  --edu-button-hover: #a8e9b0;
 }
 
 [data-version='bare'][data-theme="light"] {

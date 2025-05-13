@@ -30,7 +30,7 @@
   margin-top: 10px;
   padding: 6px 12px;
   background-color: var(--edu-button-bg);
-  color: white;
+  color: var(--quick-link-text);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -68,6 +68,8 @@
   border: 1px solid var(--edu-border);
   border-radius: 4px;
   width: 100%;
+  background-color: var(--footer-bg);
+  color: var(--text-color);
 }
 
 /* Scrollable section for course lists */
