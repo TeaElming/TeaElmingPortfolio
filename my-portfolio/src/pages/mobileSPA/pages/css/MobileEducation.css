@@ -1,3 +1,4 @@
+/* ─── Section wrapper ────────────────────────── */
 .mobile-education {
   padding: 3rem 1.25rem 4rem;
   background: var(--edu-bg);
@@ -9,34 +10,60 @@
   margin-bottom: 2rem;
 }
 
+/* ─── University accordion block ─────────────── */
 .uni-block {
-  margin-bottom: 1.5rem;
   border: 1px solid var(--edu-border);
+  color: #fff;
   border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;               /* keeps inner corners rounded */
 }
 
+/* toggle button (always visible) */
 .uni-toggle {
   width: 100%;
-  background: var(--edu-button-bg);
-  color: var(--edu-text);
   padding: 0.9rem 1rem;
   font-size: 1rem;
+  color: var(--edu-text);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  gap: 0.75rem;                   /* icon / text spacing */
 }
 
 .uni-toggle:hover {
   background: var(--edu-button-hover);
 }
 
-.courses-wrapper {
-  background: var(--edu-bg);
-  padding: 0.85rem 1rem 1.1rem;
+/* small arrow */
+.chevron {
+  font-size: 0.9rem;
 }
 
+/* ─── Expanded course section ────────────────── */
+.courses-wrapper {
+  background: var(--edu-bg);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;                    /* space between search + year blocks */
+}
+
+/* search box */
+.course-search-input {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--edu-border);
+  border-radius: 0.5rem;
+  background: var(--edu-bg);
+  color: var(--edu-text);
+  font-size: 0.95rem;
+}
+
+/* year & course text */
 .year-block h4 {
-  margin: 0.6rem 0 0.3rem;
+  margin: 0.4rem 0 0.25rem;
   font-size: 0.95rem;
 }
 
@@ -44,19 +71,5 @@
   font-size: 0.85rem;
   margin: 0.2rem 0 0.5rem;
   color: var(--edu-muted-text);
-}
-
-.chevron {
-  font-size: 0.9rem;
-}
-
-.course-search-input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  margin: 1rem 0;
-  border-radius: 0.5rem;
-  border: 1px solid var(--edu-border);
-  background: var(--edu-bg);
-  color: var(--edu-text);
-  font-size: 0.95rem;
+  line-height: 1.35;
 }
