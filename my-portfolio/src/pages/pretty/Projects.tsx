@@ -14,41 +14,29 @@ const ProjectsP: React.FC = () => {
   }
 
   return (
-    <div>
-      <div className="projects-container">
-        {/* Filter Buttons */}
-        <div className="projects-button-section">
-          <button
-            className={filter === "all" ? "active" : ""}
-            onClick={() => handleFilterClick("all")}
-          >
-						View All
-          </button>
-          <button
-            className={filter === "fullstack" ? "active" : ""}
-            onClick={() => handleFilterClick("fullstack")}
-          >
-						Full-Stack
-          </button>
-          <button
-            className={filter === "frontend" ? "active" : ""}
-            onClick={() => handleFilterClick("frontend")}
-          >
-						Front-End
-          </button>
-          <button
-            className={filter === "backend" ? "active" : ""}
-            onClick={() => handleFilterClick("backend")}
-          >
-						Back-End
-          </button>
+    <div className="projectsP-root">
+      <div className="projectsP-container">
+        <div className="projectsP-button-section">
+          {["all", "fullstack", "frontend", "backend"].map((type) => (
+            <button
+              key={type}
+              className={`projectsP-button ${
+                filter === type ? "active" : ""
+              }`}
+              onClick={() => handleFilterClick(type)}
+            >
+              {type === "all"
+                ? "View All"
+                : type.charAt(0).toUpperCase() + type.slice(1) + "-End"}
+            </button>
+          ))}
         </div>
 
-        {/* Carousel Section */}
-        <div className="projects-list-section">
+        <div className="projectsP-carousel">
           <ProjectsCarousel filter={filter} />
         </div>
       </div>
+
       <div className="hidden-EasterEgg">
         <EasterEgg
           child={<LatestProject />}

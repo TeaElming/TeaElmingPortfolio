@@ -1,56 +1,63 @@
-.projects-container {
-  height: calc(100vh - var(--navbar-height) - var(--footer-height));
+.projectsP-root {
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  display: flex;
+  align-items: center;       /* Center horizontally */
+  justify-content: center;   /* Center vertically */
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+.projectsP-container {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 2rem;
   gap: 2rem;
-  color: var(--text-color);
   text-align: center;
-
 }
 
-.projects-button-section {
+/* Filter buttons container */
+.projectsP-button-section {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  margin-top: -15px;
+  margin-bottom: -15px;
 }
 
-.projects-button-section button {
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px 0;
-  width: 150px;
-  text-align: center;
-  border: 2px solid var(--quick-link-border);
+/* Filter button style */
+.projectsP-button {
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  color: var(--quick-link-text);
-  background-color: transparent;
+  padding: 0.6rem 1.2rem;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-.projects-button-section button:hover {
+.projectsP-button:hover {
   background-color: var(--quick-link-hover-bg);
   color: var(--quick-link-hover-text);
 }
 
-.projects-button-section button.active {
-  font-style: italic;
+.projectsP-button.active {
+  box-shadow: 0 0 10px var(--edu-shadow);
   font-weight: bold;
-  background-color: var(--quick-link-hover-bg);
-  color: var(--quick-link-hover-text);
-  border-color: var(--quick-link-border);
 }
 
-.projects-list-section {
+/* Carousel section */
+.projectsP-carousel {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
+/* Easter Egg */
 .hidden-EasterEgg {
   position: fixed;
   bottom: 50px;
