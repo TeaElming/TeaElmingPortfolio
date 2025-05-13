@@ -4,7 +4,37 @@
   min-height: 100vh;
 }
 
-.content-container {
-  flex-grow: 1;
+.custom-footer {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
+/* Left side (copyright) */
+.footer-left {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Right side (icons) */
+.nav-icons {
+  display: flex;
+  gap: 1.2rem;
+  margin-right: 20px;
+}
+
+.nav-icons a,
+.nav-icons i {
+  color: var(--text-color);
+  font-size: 1.25rem;
+  transition: color 0.25s;
+}
+
+.nav-icons a:hover i {
+  color: var(--accent-color);
+}

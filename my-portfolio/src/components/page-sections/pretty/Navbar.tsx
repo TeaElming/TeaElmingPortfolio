@@ -1,8 +1,6 @@
 /** @format */
 
 import { Link, useLocation } from "react-router-dom"
-import OverlayTrigger from "react-bootstrap/OverlayTrigger"
-import Tooltip from "react-bootstrap/Tooltip"
 
 import "./css/Navbar.css"
 
@@ -29,39 +27,6 @@ function PortfolioNavbar() {
             {label}
           </Link>
         ))}
-      </div>
-
-      {/* ── CENTRE: social / CV icons ──────────── */}
-      <div className="nav-icons">
-        <OverlayTrigger placement="bottom" overlay={<Tooltip>LinkedIn</Tooltip>}>
-          <a
-            href="https://www.linkedin.com/in/tea-elming/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="bi bi-linkedin" />
-          </a>
-        </OverlayTrigger>
-
-        <OverlayTrigger placement="bottom" overlay={<Tooltip>GitHub</Tooltip>}>
-          <a
-            href="https://github.com/TeaElming"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="bi bi-github" />
-          </a>
-        </OverlayTrigger>
-
-        <OverlayTrigger placement="bottom" overlay={<Tooltip>CV</Tooltip>}>
-          <a
-            href="/TeaElming_GraduateSoftwareDeveloper.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="bi bi-person-vcard" />
-          </a>
-        </OverlayTrigger>
       </div>
     </nav>
   )

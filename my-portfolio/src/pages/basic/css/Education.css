@@ -65,6 +65,7 @@
 .course-search-input {
   padding: 8px;
   margin-bottom: 10px;
+  height: 2rem;
   border: 1px solid var(--edu-border);
   border-radius: 4px;
   width: 100%;

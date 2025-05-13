@@ -29,25 +29,6 @@
   text-decoration: wavy underline;
 }
 
-/* ───────── CENTRE group (icons) ─────── */
-.nav-icons {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 1.2rem;
-}
-
-.nav-icons a,
-.nav-icons i {
-  color: var(--text-color);
-  font-size: 1.25rem;
-  transition: color 0.25s;
-}
-
-.nav-icons a:hover i {
-  color: var(--accent-color);
-}
 
 /* Keep existing icon hover from overriding */
 .nav-link,
