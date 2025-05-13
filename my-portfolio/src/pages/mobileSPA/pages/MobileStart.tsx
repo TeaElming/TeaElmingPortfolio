@@ -8,12 +8,16 @@ const MobileStart: React.FC = () => (
     <h2>Software Developer</h2>
 
     <p>
-      Former primary teacher with a background in mathematics—now thriving on
-      technical challenges in computer&nbsp;science.
+			Former primary teacher with a background in Mathematics who thoroughly
+			enjoys problem-solving and being technically challenged, thus deciding to
+			return to university to study Computer Science.
     </p>
     <p>
-      Curious, self-motivated and collaborative; I love exploring solutions
-      independently and refining them with a team.
+			Naturally curious and highly self-motivated, I am comfortable working
+			independently to explore solutions but equally enjoy collaborating in
+			pairs or teams to share ideas and refine outcomes. I am always keen to
+			learn and continuously seek out more effective ways of approaching
+			problems.
     </p>
   </section>
 )

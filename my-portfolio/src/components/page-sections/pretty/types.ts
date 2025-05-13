@@ -14,5 +14,6 @@ export interface Year {
 
 export interface UniversityData {
   university: string
+  programme: string
   years: Year[]
 }

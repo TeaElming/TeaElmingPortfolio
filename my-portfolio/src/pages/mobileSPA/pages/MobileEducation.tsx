@@ -1,14 +1,12 @@
 /** @format */
 import React, { useEffect, useState } from "react"
-import type {
-  UniversityData,
-  Year,
-} from "../../../components/page-sections/pretty/types"
+import type { UniversityData, Year } from "../../../components/page-sections/pretty/types"
 import "./css/MobileEducation.css"
 
 const MobileEducation: React.FC = () => {
   const [uni, setUni] = useState<UniversityData[]>([])
   const [active, setActive] = useState<string | null>(null)
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     Promise.all([
@@ -18,6 +16,20 @@ const MobileEducation: React.FC = () => {
       .then(setUni)
       .catch(console.error)
   }, [])
+
+  const filterCourses = (data: Year[], query: string) => {
+    const lower = query.toLowerCase()
+    return data
+      .map((year) => ({
+        ...year,
+        courses: year.courses.filter(
+          (c) =>
+            c.coursename.toLowerCase().includes(lower) ||
+            c.description.toLowerCase().includes(lower)
+        ),
+      }))
+      .filter((year) => year.courses.length > 0)
+  }
 
   const renderCourses = (years: Year[]) =>
     years.map((y) => (
@@ -35,25 +47,40 @@ const MobileEducation: React.FC = () => {
     <section id="education" className="mobile-education">
       <h2>Education</h2>
 
-      {uni.map((u) => (
-        <div key={u.university} className="uni-block">
-          <button
-            className="uni-toggle"
-            onClick={() =>
-              setActive(active === u.university ? null : u.university)
-            }
-          >
-            {u.university}
-            <span className="chevron">
-              {active === u.university ? "▲" : "▼"}
-            </span>
-          </button>
+      {uni.map((u) => {
+        const isActive = active === u.university
+        const visibleCourses = isActive
+          ? filterCourses(u.years, searchQuery)
+          : []
 
-          {active === u.university && (
-            <div className="courses-wrapper">{renderCourses(u.years)}</div>
-          )}
-        </div>
-      ))}
+        return (
+          <div key={u.university} className="uni-block">
+            <button
+              className="uni-toggle"
+              onClick={() => {
+                setSearchQuery("")
+                setActive(isActive ? null : u.university)
+              }}
+            >
+              {u.programme} – {u.university}
+              <span className="chevron">{isActive ? "▲" : "▼"}</span>
+            </button>
+
+            {isActive && (
+              <div className="courses-wrapper">
+                <input
+                  type="text"
+                  className="course-search-input"
+                  placeholder="Search courses…"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                {renderCourses(visibleCourses)}
+              </div>
+            )}
+          </div>
+        )
+      })}
     </section>
   )
 }
