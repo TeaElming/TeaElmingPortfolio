@@ -7,7 +7,7 @@ import "./css/Footer.css"
 const PortfolioFooter: React.FC = () => {
   return (
     <footer className="custom-footer">
-      <p className="footer-left">© Tea Elming {new Date().getFullYear()}</p>
+
 
       <div className="nav-icons">
         <OverlayTrigger placement="top" overlay={<Tooltip>LinkedIn</Tooltip>}>

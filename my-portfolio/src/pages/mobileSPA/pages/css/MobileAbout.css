@@ -24,7 +24,12 @@
 
 .contact-lines a,
 .call-btn {
-  display: block;
+  display: flex;
+  /* was block            */
+  align-items: center;
+  /* vertical centring    */
+  gap: 0.5rem;
+  /* space between icon & text */
   margin: 0.5rem 0;
   font-size: 0.9rem;
   color: var(--quick-link-text);
@@ -35,9 +40,11 @@
   background: var(--edu-button-bg);
   border: 1px solid var(--edu-border);
   border-radius: 0.5rem;
-  padding: 0.45rem 0.8rem;
+  padding: 0.45rem 0;
   cursor: pointer;
 }
+
+
 
 .call-btn:hover,
 .contact-lines a:hover {
@@ -62,7 +69,7 @@
 }
 
 .modal-content {
-  background-color: var( --quick-link-border) !important;
+  background-color: var(--quick-link-border) !important;
   color: var(--text-color);
   border: var(--edu-border) 1px solid;
   padding: 1.5rem 1.25rem 1.25rem;
