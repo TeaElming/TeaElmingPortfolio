@@ -6,9 +6,9 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { Navigate } from "react-router-dom"
 import Form from "react-bootstrap/Form"
 
 import "./App.css"
@@ -34,6 +34,7 @@ function App() {
   const [version, setVersion] = useState<"prettier" | "bare">(
     (localStorage.getItem("version") as "prettier" | "bare") || "bare"
   )
+  const [storedVersion, setStoredVersion] = useState<"prettier" | "bare">(version)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [isMobileView, setIsMobileView] = useState(
     window.innerWidth < 1024 || isMobileDevice()
@@ -49,6 +50,7 @@ function App() {
     const newVersion = version === "prettier" ? "bare" : "prettier"
     setVersion(newVersion)
     localStorage.setItem("version", newVersion)
+    setStoredVersion(newVersion)
   }
 
   useEffect(() => {
@@ -59,13 +61,27 @@ function App() {
   useEffect(() => {
     const handleResize = () => {
       const newWidth = window.innerWidth
+      const mobile = newWidth < 1000 || isMobileDevice()
+
       setWindowWidth(newWidth)
-      setIsMobileView(newWidth < 1000 || isMobileDevice())
+      setIsMobileView(mobile)
+
+      if (mobile) {
+        if (version !== "bare") {
+          setStoredVersion(version)
+          setVersion("bare")
+        }
+      } else {
+        if (version === "bare" && storedVersion !== "bare") {
+          setVersion(storedVersion)
+        }
+      }
     }
+
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  }, [version, storedVersion])
 
   return (
     <Router>

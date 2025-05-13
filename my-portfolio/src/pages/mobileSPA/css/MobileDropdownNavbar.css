@@ -28,14 +28,14 @@
 	top: 48px;
 	left: 0;
 	right: 0;
-	background: var(--bs-body-bg);
-	border-bottom: 1px solid var(--bs-border-color);
+	background: var(--edu-button-bg);
+	border-bottom: 1px solid var(--edu-border);
 	z-index: 999;
 	text-align: center;
 }
 
 .dropdown-item {
 	padding: 10px;
-	border-top: 1px solid var(--bs-border-color);
+	border-top: 1px solid var(--edu-border);
 	cursor: pointer;
 }

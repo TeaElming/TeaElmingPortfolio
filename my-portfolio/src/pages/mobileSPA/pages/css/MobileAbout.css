@@ -31,19 +31,19 @@
   gap: 0.5rem;
   /* space between icon & text */
   margin: 0.5rem 0;
+  padding-left: 0.5rem;
   font-size: 0.9rem;
+  height: 2rem;
   color: var(--quick-link-text);
   text-decoration: none;
+  border-radius: 0.5rem;
 }
 
 .call-btn {
-  background: var(--edu-button-bg);
-  border: 1px solid var(--edu-border);
-  border-radius: 0.5rem;
+
   padding: 0.45rem 0;
   cursor: pointer;
 }
-
 
 
 .call-btn:hover,
@@ -55,6 +55,13 @@
 .cv-link {
   margin-top: 0.8rem;
   font-weight: bold;
+  background: var(--edu-button-bg) !important;
+  border: 1px solid var(--edu-border) !important;
+}
+
+.cv-link:hover {
+  background: var(--quick-link-hover-bg) !important;
+  color: var(--quick-link-hover-text) !important;
 }
 
 /* Modal */
