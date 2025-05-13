@@ -15,7 +15,10 @@ const BasicLayout = () => {
 	const location = useLocation()
 	const navigate = useNavigate()
 	const isScrollingRef = useRef(false)
-	const [currentSection, setCurrentSection] = useState<string>("start")
+	const initialSection =
+		location.pathname === "/" ? "start" : location.pathname.slice(1)
+	const [currentSection, setCurrentSection] = useState<string>(initialSection)
+  
 
 	// Scroll to the section when the URL changes
 	useEffect(() => {
