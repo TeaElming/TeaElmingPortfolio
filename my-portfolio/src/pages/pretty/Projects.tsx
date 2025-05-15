@@ -27,7 +27,7 @@ const ProjectsP: React.FC = () => {
             >
               {type === "all"
                 ? "View All"
-                : type.charAt(0).toUpperCase() + type.slice(1) + "-End"}
+                : type.charAt(0).toUpperCase() + type.slice(1) }
             </button>
           ))}
         </div>

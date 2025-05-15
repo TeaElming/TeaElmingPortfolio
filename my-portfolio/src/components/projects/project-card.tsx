@@ -38,22 +38,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ))}
         </div>
       </div>
-      <div className="project-description">
-        {project.description.map((desc, index) => (
-          <p key={index}>{desc}</p>
-        ))}
-      </div>
-      {project.imgs && project.imgs.length > 0 && (
-        <div className="project-images">
-          {project.imgs.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`${project.title} screenshot ${index + 1}`}
-            />
+      <div className="project-scrollable-content">
+        <div className="project-description">
+          {project.description.map((desc, index) => (
+            <p key={index}>{desc}</p>
           ))}
         </div>
-      )}
+        {project.imgs && project.imgs.length > 0 && (
+          <div className="project-images">
+            {project.imgs.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`${project.title} screenshot ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
       {project.video && (
         <div className="project-video">
           <video controls src={project.video}></video>

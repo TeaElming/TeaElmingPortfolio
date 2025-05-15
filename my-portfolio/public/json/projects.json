@@ -214,6 +214,23 @@
       ],
       "imgs": [],
       "video": ""
+    },
+    {
+      "title": "Tea Elming Website",
+      "url": "https://github.com/TeaElming/TeaElmingPortfolio",
+      "technologies": [
+        "React",
+        "TypeScript"
+      ],
+      "stack": "frontend",
+      "description": [
+        "This is the website currently being viewed, containing information about my educational background, projects I have completed, and ways to contact me.",
+        "Built using React with TypeScript, and automatically deployed on Netlify via GitHub integration."
+      ],
+      "imgs": [
+        "/imgs/projects/this_website.png"
+      ],
+      "video": ""
     }
   ]
 }
