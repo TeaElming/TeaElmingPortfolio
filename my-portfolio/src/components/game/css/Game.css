@@ -1,0 +1,102 @@
+/* -------------- Layout -------------- */
+.game-wrapper {
+  /* keeps everything centred AND enforces the 400 × 400 minimum */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;          /* for absolute children */
+  min-width: 400px;
+  min-height: 400px;
+  text-align: center;
+}
+
+/* main play field */
+.game-area {
+  position: relative;
+  width: 600px;
+  height: 200px;
+  min-width: 400px;    /* guarantees 400×400 minimum even if resized */
+  min-height: 400px;
+  border: 2px solid #000;
+  overflow: hidden;
+  background-color: #eef;
+}
+
+/* -------------- Entities -------------- */
+.player {
+  position: absolute;
+  left: 50px;
+  width: 50px;
+  height: 50px;
+  transition: bottom 0.2s;
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+}
+
+/* -------------- HUD -------------- */
+.score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-weight: bold;
+}
+
+.paused-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  z-index: 3;
+}
+
+/* -------------- Start / Play-Again buttons -------------- */
+.start-btn {             /* <button class="start-btn">Start</button> */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  z-index: 4;                     /* above game area */
+  cursor: pointer;
+}
+
+/* ---------- Scoreboard overlay ---------- */
+.scoreboard-overlay {
+  display: none;                 /* hidden by default */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  max-width: 80%;
+}
+
+/* visible + styled state */
+.scoreboard-overlay.active {
+  display: block;                /* ⟵ make it show! */
+  top: 12px;
+  background: rgba(230, 93, 93, 0.96);
+  border: 2px solid #000;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+
+.scoreboard-overlay.active h3 {
+  margin: 0.3rem 0 0.8rem;
+}
+
+/* “Play Again” button inside the overlay */
+.scoreboard-overlay .play-again-btn {
+  margin-bottom: 0.8rem;
+}

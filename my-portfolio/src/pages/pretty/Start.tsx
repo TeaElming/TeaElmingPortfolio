@@ -43,6 +43,7 @@ const StartP: React.FC = () => {
             refine outcomes. I am always keen to learn and continuously seek out more effective ways
             of approaching problems.
           </p>
+
         </div>
       </div>
     </div>
@@ -50,3 +51,8 @@ const StartP: React.FC = () => {
 }
 
 export default StartP
+
+/*
+
+                    <Game username="Player" />
+          */

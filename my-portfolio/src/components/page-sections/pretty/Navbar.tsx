@@ -4,6 +4,9 @@ import { Link, useLocation } from "react-router-dom"
 
 import "./css/Navbar.css"
 
+import Game from "../../game/JumpingGame"
+import EasterEgg from "../../easter-egg/EasterEgg"
+
 function PortfolioNavbar() {
   const location = useLocation()
 
@@ -27,6 +30,7 @@ function PortfolioNavbar() {
             {label}
           </Link>
         ))}
+        <EasterEgg child={<Game username={""} />} hoverText="Bored?" />
       </div>
     </nav>
   )
